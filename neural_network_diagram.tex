@@ -1,0 +1,63 @@
+\begin{tikzpicture}
+
+% Input Layer
+\foreach \i in {1,...,\inputnum}
+{
+  \node[circle, 
+    minimum size = 6mm,
+    fill=red!50] (Input-\i) at (0,-\i) {};
+}
+
+% Hidden Layer
+\foreach \i in {1,...,\hiddennum}
+{
+  \node[circle, 
+    minimum size = 6mm,
+    fill=violet!50,
+    yshift=(\hiddennum-\inputnum)*5 mm
+  ] (Hidden-\i) at (1.9,-\i) {};
+}
+
+% Output Layer
+\foreach \i in {1,...,\outputnum}
+{
+  \node[circle, 
+    minimum size = 6mm,
+    fill=blue!50,
+    yshift=(\outputnum-\inputnum)*5 mm
+  ] (Output-\i) at (3.8,-\i) {};
+}
+
+% Connect neurons In-Hidden
+\foreach \i in {1,...,\inputnum}
+{
+  \foreach \j in {1,...,\hiddennum}
+  {
+    \draw[->, shorten >=1pt] (Input-\i) -- (Hidden-\j);	
+  }
+}
+
+% Connect neurons Hidden-Out
+\foreach \i in {1,...,\hiddennum}
+{
+  \foreach \j in {1,...,\outputnum}
+  {
+    \draw[->, shorten >=1pt] (Hidden-\i) -- (Output-\j);
+  }
+}
+
+% Inputs
+\foreach \i in {1,...,\inputnum}
+{            
+  \draw[<-, shorten <=1pt] (Input-\i) -- ++(-0.5,0)
+    node[left]{$x_{\i}$};
+}
+
+% Outputs
+\foreach \i in {1,...,\outputnum}
+{            
+  \draw[->, shorten <=1pt] (Output-\i) -- ++(0.5,0)
+    node[right]{$y_{\i}$};
+}
+
+\end{tikzpicture}

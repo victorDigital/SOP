@@ -1,0 +1,13 @@
+\babel@toc {danish}{}\relax 
+\contentsline {section}{\numberline {1}Opgaveformulering}{3}{}%
+\contentsline {section}{\numberline {2}Indledning}{4}{}%
+\contentsline {section}{\numberline {3}Matricer og matrixregning}{5}{}%
+\contentsline {subsection}{\numberline {3.1}Matricer}{5}{}%
+\contentsline {subsection}{\numberline {3.2}Matrixregning}{5}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Addition og subtraktion}{5}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}Skalarmultiplikation af matricer}{5}{}%
+\contentsline {subsubsection}{\numberline {3.2.3}Elementvis anvendelse af en funktion på matricer}{5}{}%
+\contentsline {subsubsection}{\numberline {3.2.4}Matrixmultiplikation}{6}{}%
+\contentsline {subsubsection}{\numberline {3.2.5}Transponering af matricer}{7}{}%
+\contentsline {section}{\numberline {4}Neurale netværk}{7}{}%
+\contentsline {subsection}{\numberline {4.1}Introduktion}{7}{}%

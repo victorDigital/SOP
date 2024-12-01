@@ -1,0 +1,265 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/apasortcite//global/global/global}
+    \entry{Lauritzen_2019}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9aaa56ba46994e767e1d49bdeaf467ff}{%
+           family={Lauritzen},
+           familyi={L\bibinitperiod},
+           given={Niels},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0fc2cfee7ee29159094dd0e7046c1c6c}{%
+           family={Bökstedt},
+           familyi={B\bibinitperiod},
+           given={Marcel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Matematisk Institut, Aarhus Universitet}%
+      }
+      \strng{namehash}{82dff28d526325d997dc516f528ed2da}
+      \strng{fullhash}{82dff28d526325d997dc516f528ed2da}
+      \strng{fullhashraw}{82dff28d526325d997dc516f528ed2da}
+      \strng{bibnamehash}{82dff28d526325d997dc516f528ed2da}
+      \strng{authorbibnamehash}{82dff28d526325d997dc516f528ed2da}
+      \strng{authornamehash}{82dff28d526325d997dc516f528ed2da}
+      \strng{authorfullhash}{82dff28d526325d997dc516f528ed2da}
+      \strng{authorfullhashraw}{82dff28d526325d997dc516f528ed2da}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Tal og Lineær Algebra 2019}
+      \field{title}{Tal og Lineær Algebra 2019 4 Matricer}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://data.math.au.dk/interactive/lintrans/Chapters/vektorerogmatricer.html
+      \endverb
+      \verb{url}
+      \verb https://data.math.au.dk/interactive/lintrans/Chapters/vektorerogmatricer.html
+      \endverb
+    \endentry
+    \entry{Simonson_2015}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=db9554b49eb9334575dd1d34325a2562}{%
+           family={Simonson},
+           familyi={S\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Matematisk Institut, Aarhus Universitet}%
+      }
+      \strng{namehash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{fullhash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{fullhashraw}{db9554b49eb9334575dd1d34325a2562}
+      \strng{bibnamehash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{authorbibnamehash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{authornamehash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{authorfullhash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{authorfullhashraw}{db9554b49eb9334575dd1d34325a2562}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{AMS Math Grad Blog}
+      \field{month}{10}
+      \field{title}{Matrix Multiplication Made Easy}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://blogs.ams.org/mathgradblog/2015/10/19/matrix-multiplication-easy/
+      \endverb
+      \verb{url}
+      \verb https://blogs.ams.org/mathgradblog/2015/10/19/matrix-multiplication-easy/
+      \endverb
+    \endentry
+    \entry{St_Clair_2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a50ea1c61ddf2ce3635156bf2dcc72b8}{%
+           family={St.\bibnamedelimi Clair},
+           familyi={S\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Bryn},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Science News Explores}%
+      }
+      \strng{namehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{fullhash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{fullhashraw}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{bibnamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorbibnamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authornamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorfullhash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorfullhashraw}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science News Explores}
+      \field{month}{4}
+      \field{title}{Explainer: What is a neuron?}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.snexplores.org/article/explainer-what-is-a-neuron
+      \endverb
+      \verb{url}
+      \verb https://www.snexplores.org/article/explainer-what-is-a-neuron
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{Lauritzen_2019}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9aaa56ba46994e767e1d49bdeaf467ff}{%
+           family={Lauritzen},
+           familyi={L\bibinitperiod},
+           given={Niels},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0fc2cfee7ee29159094dd0e7046c1c6c}{%
+           family={Bökstedt},
+           familyi={B\bibinitperiod},
+           given={Marcel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Matematisk Institut, Aarhus Universitet}%
+      }
+      \strng{namehash}{82dff28d526325d997dc516f528ed2da}
+      \strng{fullhash}{82dff28d526325d997dc516f528ed2da}
+      \strng{fullhashraw}{82dff28d526325d997dc516f528ed2da}
+      \strng{bibnamehash}{82dff28d526325d997dc516f528ed2da}
+      \strng{authorbibnamehash}{82dff28d526325d997dc516f528ed2da}
+      \strng{authornamehash}{82dff28d526325d997dc516f528ed2da}
+      \strng{authorfullhash}{82dff28d526325d997dc516f528ed2da}
+      \strng{authorfullhashraw}{82dff28d526325d997dc516f528ed2da}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Tal og Lineær Algebra 2019}
+      \field{title}{Tal og Lineær Algebra 2019 4 Matricer}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://data.math.au.dk/interactive/lintrans/Chapters/vektorerogmatricer.html
+      \endverb
+      \verb{url}
+      \verb https://data.math.au.dk/interactive/lintrans/Chapters/vektorerogmatricer.html
+      \endverb
+    \endentry
+    \entry{Simonson_2015}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=db9554b49eb9334575dd1d34325a2562}{%
+           family={Simonson},
+           familyi={S\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Matematisk Institut, Aarhus Universitet}%
+      }
+      \strng{namehash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{fullhash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{fullhashraw}{db9554b49eb9334575dd1d34325a2562}
+      \strng{bibnamehash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{authorbibnamehash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{authornamehash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{authorfullhash}{db9554b49eb9334575dd1d34325a2562}
+      \strng{authorfullhashraw}{db9554b49eb9334575dd1d34325a2562}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{AMS Math Grad Blog}
+      \field{month}{10}
+      \field{title}{Matrix Multiplication Made Easy}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://blogs.ams.org/mathgradblog/2015/10/19/matrix-multiplication-easy/
+      \endverb
+      \verb{url}
+      \verb https://blogs.ams.org/mathgradblog/2015/10/19/matrix-multiplication-easy/
+      \endverb
+    \endentry
+    \entry{St_Clair_2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a50ea1c61ddf2ce3635156bf2dcc72b8}{%
+           family={St.\bibnamedelimi Clair},
+           familyi={S\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Bryn},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Science News Explores}%
+      }
+      \strng{namehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{fullhash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{fullhashraw}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{bibnamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorbibnamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authornamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorfullhash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorfullhashraw}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science News Explores}
+      \field{month}{4}
+      \field{title}{Explainer: What is a neuron?}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.snexplores.org/article/explainer-what-is-a-neuron
+      \endverb
+      \verb{url}
+      \verb https://www.snexplores.org/article/explainer-what-is-a-neuron
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
