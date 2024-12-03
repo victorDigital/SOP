@@ -11,3 +11,7 @@
 \contentsline {subsubsection}{\numberline {3.2.5}Transponering af matricer}{7}{}%
 \contentsline {section}{\numberline {4}Neurale netværk}{7}{}%
 \contentsline {subsection}{\numberline {4.1}Introduktion}{7}{}%
+\contentsline {subsubsection}{\numberline {4.1.1}Feedforward}{8}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}Træning af neurale netværk}{8}{}%
+\contentsline {subsection}{\numberline {4.2}Gradient descent}{9}{}%
+\contentsline {subsection}{\numberline {4.3}Differensiabilitet}{9}{}%

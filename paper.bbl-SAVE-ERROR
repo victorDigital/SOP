@@ -19,6 +19,37 @@
 
 \refsection{0}
   \datalist[entry]{nyt/apasortcite//global/global/global}
+    \entry{IBM_2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cbf44511d041dc6d1dd73cc0c033122c}{%
+           family={IBM},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{fullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{fullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{bibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorbibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authornamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorfullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorfullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IBM}
+      \field{title}{What is Gradient Descent? | IBM}
+      \field{year}{1994}
+      \verb{urlraw}
+      \verb https://www.ibm.com/topics/gradient-descent
+      \endverb
+      \verb{url}
+      \verb https://www.ibm.com/topics/gradient-descent
+      \endverb
+    \endentry
     \entry{Lauritzen_2019}{misc}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=9aaa56ba46994e767e1d49bdeaf467ff}{%
@@ -62,6 +93,123 @@
       \verb https://data.math.au.dk/interactive/lintrans/Chapters/vektorerogmatricer.html
       \endverb
     \endentry
+    \entry{LeCun_1994}{misc}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
+           family={LeCun},
+           familyi={L\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=17acda211a651e90e228f1776ee07818}{%
+           family={Cortes},
+           familyi={C\bibinitperiod},
+           given={Corinna},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=57683730ceb22e5d170051dedfc04a8e}{%
+           family={Burges},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima J.C.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Courant Institute NYU, Google Labs, Microsoft Research}%
+      }
+      \strng{namehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{fullhash}{efcd7df77681651155e8e7a4553de729}
+      \strng{fullhashraw}{efcd7df77681651155e8e7a4553de729}
+      \strng{bibnamehash}{efcd7df77681651155e8e7a4553de729}
+      \strng{authorbibnamehash}{efcd7df77681651155e8e7a4553de729}
+      \strng{authornamehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{authorfullhash}{efcd7df77681651155e8e7a4553de729}
+      \strng{authorfullhashraw}{efcd7df77681651155e8e7a4553de729}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Courant Institute NYU, Google Labs, Microsoft Research}
+      \field{title}{MNIST handwritten digit database}
+      \field{year}{1994}
+      \verb{urlraw}
+      \verb https://yann.lecun.com/exdb/mnist/
+      \endverb
+      \verb{url}
+      \verb https://yann.lecun.com/exdb/mnist/
+      \endverb
+    \endentry
+    \entry{Nielsen_2019a}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3b32fb3a134f406f7b5107358d27befe}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{fullhash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{fullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{bibnamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorbibnamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authornamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorfullhash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorfullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Networks and Deep Learning}
+      \field{title}{Using neural nets to recognize handwritten digits}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb http://neuralnetworksanddeeplearning.com/chap1.html
+      \endverb
+      \verb{url}
+      \verb http://neuralnetworksanddeeplearning.com/chap1.html
+      \endverb
+    \endentry
+    \entry{Sanderson_2017}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5dd1de74b15229ad68590a5ce3ade3c5}{%
+           family={Sanderson},
+           familyi={S\bibinitperiod},
+           given={Grant},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{fullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{fullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{bibnamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorbibnamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authornamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorfullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorfullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{3Blue1Brown}
+      \field{title}{Gradient descent, how neural networks learn}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.3blue1brown.com/lessons/gradient-descent
+      \endverb
+      \verb{url}
+      \verb https://www.3blue1brown.com/lessons/gradient-descent
+      \endverb
+    \endentry
     \entry{Simonson_2015}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=db9554b49eb9334575dd1d34325a2562}{%
@@ -98,10 +246,79 @@
       \endverb
       \verb{url}
       \verb https://blogs.ams.org/mathgradblog/2015/10/19/matrix-multiplication-easy/
+      \endverb
+    \endentry
+    \entry{St_Clair_2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a50ea1c61ddf2ce3635156bf2dcc72b8}{%
+           family={St.\bibnamedelimi Clair},
+           familyi={S\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Bryn},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Science News Explores}%
+      }
+      \strng{namehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{fullhash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{fullhashraw}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{bibnamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorbibnamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authornamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorfullhash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorfullhashraw}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science News Explores}
+      \field{month}{4}
+      \field{title}{Explainer: What is a neuron?}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.snexplores.org/article/explainer-what-is-a-neuron
+      \endverb
+      \verb{url}
+      \verb https://www.snexplores.org/article/explainer-what-is-a-neuron
       \endverb
     \endentry
   \enddatalist
   \datalist[entry]{nyt/global//global/global/global}
+    \entry{IBM_2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cbf44511d041dc6d1dd73cc0c033122c}{%
+           family={IBM},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{fullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{fullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{bibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorbibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authornamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorfullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorfullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IBM}
+      \field{title}{What is Gradient Descent? | IBM}
+      \field{year}{1994}
+      \verb{urlraw}
+      \verb https://www.ibm.com/topics/gradient-descent
+      \endverb
+      \verb{url}
+      \verb https://www.ibm.com/topics/gradient-descent
+      \endverb
+    \endentry
     \entry{Lauritzen_2019}{misc}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=9aaa56ba46994e767e1d49bdeaf467ff}{%
@@ -145,6 +362,123 @@
       \verb https://data.math.au.dk/interactive/lintrans/Chapters/vektorerogmatricer.html
       \endverb
     \endentry
+    \entry{LeCun_1994}{misc}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
+           family={LeCun},
+           familyi={L\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=17acda211a651e90e228f1776ee07818}{%
+           family={Cortes},
+           familyi={C\bibinitperiod},
+           given={Corinna},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=57683730ceb22e5d170051dedfc04a8e}{%
+           family={Burges},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima J.C.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Courant Institute NYU, Google Labs, Microsoft Research}%
+      }
+      \strng{namehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{fullhash}{efcd7df77681651155e8e7a4553de729}
+      \strng{fullhashraw}{efcd7df77681651155e8e7a4553de729}
+      \strng{bibnamehash}{efcd7df77681651155e8e7a4553de729}
+      \strng{authorbibnamehash}{efcd7df77681651155e8e7a4553de729}
+      \strng{authornamehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{authorfullhash}{efcd7df77681651155e8e7a4553de729}
+      \strng{authorfullhashraw}{efcd7df77681651155e8e7a4553de729}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Courant Institute NYU, Google Labs, Microsoft Research}
+      \field{title}{MNIST handwritten digit database}
+      \field{year}{1994}
+      \verb{urlraw}
+      \verb https://yann.lecun.com/exdb/mnist/
+      \endverb
+      \verb{url}
+      \verb https://yann.lecun.com/exdb/mnist/
+      \endverb
+    \endentry
+    \entry{Nielsen_2019a}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3b32fb3a134f406f7b5107358d27befe}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{fullhash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{fullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{bibnamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorbibnamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authornamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorfullhash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorfullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Networks and Deep Learning}
+      \field{title}{Using neural nets to recognize handwritten digits}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb http://neuralnetworksanddeeplearning.com/chap1.html
+      \endverb
+      \verb{url}
+      \verb http://neuralnetworksanddeeplearning.com/chap1.html
+      \endverb
+    \endentry
+    \entry{Sanderson_2017}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5dd1de74b15229ad68590a5ce3ade3c5}{%
+           family={Sanderson},
+           familyi={S\bibinitperiod},
+           given={Grant},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{fullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{fullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{bibnamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorbibnamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authornamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorfullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorfullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{3Blue1Brown}
+      \field{title}{Gradient descent, how neural networks learn}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.3blue1brown.com/lessons/gradient-descent
+      \endverb
+      \verb{url}
+      \verb https://www.3blue1brown.com/lessons/gradient-descent
+      \endverb
+    \endentry
     \entry{Simonson_2015}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=db9554b49eb9334575dd1d34325a2562}{%
@@ -181,6 +515,44 @@
       \endverb
       \verb{url}
       \verb https://blogs.ams.org/mathgradblog/2015/10/19/matrix-multiplication-easy/
+      \endverb
+    \endentry
+    \entry{St_Clair_2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a50ea1c61ddf2ce3635156bf2dcc72b8}{%
+           family={St.\bibnamedelimi Clair},
+           familyi={S\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Bryn},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Science News Explores}%
+      }
+      \strng{namehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{fullhash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{fullhashraw}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{bibnamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorbibnamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authornamehash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorfullhash}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \strng{authorfullhashraw}{a50ea1c61ddf2ce3635156bf2dcc72b8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science News Explores}
+      \field{month}{4}
+      \field{title}{Explainer: What is a neuron?}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.snexplores.org/article/explainer-what-is-a-neuron
+      \endverb
+      \verb{url}
+      \verb https://www.snexplores.org/article/explainer-what-is-a-neuron
       \endverb
     \endentry
   \enddatalist

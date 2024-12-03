@@ -6,8 +6,10 @@
 \usepackage[margin=2cm]{geometry} % Set margins to 2cm
 \usepackage[danish]{babel} % Set language to Danish
 \usepackage{tocloft}
+\usepackage{csquotes}
 \usepackage{xcolor}
 \usepackage{nicematrix}
+\usepackage{caption}
 % Required package
 \usepackage{tikz}
 
@@ -21,7 +23,11 @@
 \newcommand{\outputnum}{2} 
 
 \usepackage[
-  style=apa,sortcites=true,sorting=nyt,backend=biber,autocite=inline
+  style=apa,
+  sortcites=true,
+  sorting=nyt,
+  backend=biber,
+  autocite=inline
 ]{biblatex}
 \addbibresource{paper.bib}
 
@@ -30,6 +36,8 @@
 \renewcommand\cftsecdotsep{\cftdot}
 \renewcommand\cftsubsecdotsep{\cftdot}
 \renewcommand\cftsubsubsecdotsep{\cftdot}
+
+\newcommand{\figureref}[1]{Figur \ref{#1}}
 
 
 \makeatletter
@@ -263,22 +271,147 @@ Transponering af en matrice betyder at bytte om på rækker og kolonner. Hvis $A
   \end{bmatrix}
   &&
   A^T = \begin{bmatrix}
-    a_{11} & a_{21} & a_{31} \\
-    a_{12} & a_{22} & a_{32}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23}
   \end{bmatrix}
 \end{align}
 \section{Neurale netværk}
 \subsection{Introduktion}
 \begin{wrapfigure}{r}{6cm}
+  \vspace{-0.5cm}
   \includegraphics[width=6cm]{neurons.jpg}
+  \vspace{-0.8cm}
   \caption{Neuroner i menneskehjernen fra \parencite{St_Clair_2021}}
+  \label{fig:neurons}
   \vspace{0.5cm}
   \input{neural_network_diagram.tex}
+  \vspace{-0.8cm}
   \caption{Et simpelt neuralt netværk}
+  \label{fig:neural_network}
+  \vspace{0.5cm}
+  \includegraphics[width=6cm]{mnist1.jpg}
+  \vspace{-0.8cm}
+  \caption{Eksempel fra MNIST datasættet \parencite{LeCun_1994}}
+  \label{fig:mnist}
 \end{wrapfigure}
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+Et neuralt netværk er en matematisk model, der er inspireret af de biologiske neuroner i menneskehjernen. Et neuralt netværk består af en række lag, hvor hvert lag består af neuroner. Dette kan ses på \figureref{fig:neural_network}. Hvert neuron i et lag er forbundet til alle neuroner i det forrige lag og det næste lag. Hver forbindelse mellem neuronerne har en vægt, der bestemmer, hvor meget signalet fra det ene neuron påvirker det næste neuron. Hvert neuron har også en bias, der bestemmer, hvor let det er for neuronet at sende et signal. Et neuralt netværk består af et \color{red!90}inputlag\color{black}, et eller flere \color{violet!90}skjulte lag \color{black} og et \color{blue!90}outputlag\color{black}. Dette er illustreret på \figureref{fig:neural_network}. Det er altså denne model, der er inspireret af de mange sammenkoblede neuroner i menneskehjernen. Denne lighed er ikke tilfældig, da neurale netværk er designet til at efterligne hjernens evne til at lære.\\
+Bemærk \figureref{fig:mnist}. Du ved udmærket godt, hvilke tal der er på billedet, selvom du aldrig før har set netop dette 5-, 7- og 8-tal før. Dette er, fordi din hjerne er trænet til at genkende tal. Denne opgave er enormt udfordrende for et alment computerprogram, idet det ikke har nogen intuitiv forståelse af, hvad et tal er, og det skal derfor programmeres med specifikke instruktioner for at kunne genkende tal. Denne tilgang er ikke optimal, da den kræver, at programmøren har en dyb forståelse af, hvordan tal ser ud, og hvordan de kan genkendes. Denne metode er ikke holdbar i længden, idet der er uendeligt mange måder at skrive et 7-tal på. For at kunne generalisere talgenkendelse og gøre metoden mere robust overfor nye skrivemåder af tal kan neurale netværk anvendes. Antag et neuralt netværk med et tal som input og de helt rigtige vægte og biases. Denne model vil i teorien kunne genkende tal, også selvom modellen aldrig før har set netop dette tal. Håbet er, at modellen har "lært" at generalisere træningsdataen til en mere generel forståelse af tal. Modellens output vil derfor være en søjlevektor med sandsynligheder for, at inputtet er et tal fra 0 til 9. Modellens prediktering vil være det tal, der har den højeste sandsynlighed ifølge modellen.
+\clearpage
+\subsubsection{Feedforward}
+Når modellen skal prediktere, altså gå fra input til output, kaldes dette for \textit{feedforward}. Her sendes inputtet gennem alle lagene i modellen, og bliver bliver påvirket af vægtene mellem neuronerne og biaset i hvert neuron. Herunder er et simpelt neuralt netværk med kun 1 neuron i hvert lag og et skjult lag og hvor $a_n$ er aktiveringen af neuronen i lag $n$ og $w_n$ er vægten mellem neuronen i lag $n$ og lag $n+1$:
+\begin{center}
+\begin{tikzpicture}
+  \node[circle, minimum size=8mm, fill=red!30] (Input-1) at (0,0) {$a_1$};  % Input Layer
+  \node[circle, minimum size=8mm, fill=violet!30] (Hidden-1) at (1.9,0) {$a_2$};  % Hidden Layer
+  \node[circle, minimum size=8mm, fill=blue!30] (Output-1) at (3.8,0) {$a_3$};  % Output Layer
+  \draw[->, shorten >=1pt] (Input-1) -- (Hidden-1) node[midway, below]{$w_1$};  % Connect neurons
+  \draw[->, shorten >=1pt] (Hidden-1) -- (Output-1) node[midway, above]{$w_2$};  % Connect neurons
+  \draw[<-, shorten <=1pt] (Input-1) -- ++(-1,0) node[left]{$x$};  % Inputs
+  \draw[->, shorten <=1pt] (Output-1) -- ++(1,0) node[right]{$y$};  % Outputs
+\end{tikzpicture}
+\captionof{figure}{Et simpelt neuralt netværk}
+\label{fig:neural_network2}
+\end{center}
+Så hvis vi ønsker at prediktere outputtet $y$ givet inputtet $x$, så kan vi gøre dette ved at følge disse trin: \\
+\begin{align}
+a_1 &= x
+\\
+a_2 &= \sigma(w_1 \cdot a_1 + b_1)
+\\
+a_3 &= \sigma(w_2 \cdot a_2 + b_2)
+\\
+y &= a_3
+\end{align}
+Her er $\sigma(x)$ en aktiveringsfunktion, der tager inputtet $x$ og returnerer et output. Denne funktion er essentiel for at modellen kan lære mere komplekse femomener, da den introducerer ikke-linearitet i modellen. En af de mest brugte aktiveringsfunktioner er ReLU, der tager inputtet $x$ og returnerer $x$ hvis $x > 0$ og 0 ellers. \parencite{Sanderson_2017} Hvis outputtet skal betragtes som en sandsynlighed, er sigmoid funktionen en god aktiveringsfunktion, da den tager inputtet $x$ og returnerer en værdi mellem 0 og 1, som kan tolkes som en sandsynlighed. Sigmoid funktionens definition samt et plot af funktionen er vist herunder: \parencite{Nielsen_2019a}\\
+\begin{minipage}{0.4\textwidth}
+  \begin{align}
+    \sigma(x) = \frac{1}{1 + e^{-x}}
+  \end{align}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[->] (-3,0) -- (3,0) node[right]{$x$};
+      \draw[->] (0,-0.5) -- (0,1.5) node[above]{$\sigma(x)$};
+      \foreach \x in {-3,-2,-1,1,2,3}
+        \draw (\x,0.05) -- (\x,-0.05) node[below] {\x};
+      \foreach \y in {1}
+        \draw (0.05,\y) -- (-0.05,\y) node[left] {\y};
+      \draw[domain=-3:3,smooth,variable=\x,red] plot ({\x},{1/(1 + exp(-\x))});
+    \end{tikzpicture}
+    \captionof{figure}{Sigmoid funktionen}
+    \label{fig:sigmoid}
+  \end{center}
+\end{minipage}
+Typisk har et neuralt netværk flere neuroner i hvert lag, og antallet af vægte og biases er derfor meget større. $x$, $y$, samt alle de forskellige $a_n$ og $b_n$ for hvert lag er søjlevektorer, og $w_n$ i alle lag er matricer. og derfor skal der bruges matrixmultiplikation for at kunne beregne outputtet. Dette er ikke et problem, da de pågældende regneoperationer er defineret tidligere i afsnittet.  
 
-\end{document}
+\subsubsection{Træning af neurale netværk}
+Når et neuralt netværk initialiseres, er alle vægtene og biases tilfældige. \parencite{Sanderson_2017} Dette betyder, at modellen ikke kan genkende noget, ligesom et barn, der skal lære noget for første gang. For at lære modellen at genkende tal, skal modellen trænes. Dette kræver en anstændig mængde træningsdata og associerede labels, der fortæller modellen, hvad hvert billede er. For at træne modellen skal man vide hvor god modellen er til at prediktere datasættet, en primitiv måde at gøre det på er at angive procenten af rigtigt predikterede tal. Denne metode er ikke velfungerende, da en lille ændring i vægtene og biases vil ændre modellens præstation minimalt og er derfor ikke målbar. For at kunne træne modellen effekt skal vi vide præcist hvordan en lille ændring i vægtene og biases påvirker modellens præstation. Denne funktion kaldes en \textit{loss funktion}, og er essential for at kunne træne modellen. Loss funktionen er en funktion, der tager modellens prediktion og sammenligner den med det rigtige svar. Loss funktionen er en måde at kvantificere, hvor god modellen er til at prediktere. Hvis loss funktionen er høj, er modellen dårlig til at prediktere, og hvis loss funktionen er lav, er modellen god til at prediktere. herunder ses et eksempel på en loss funktion på et enkelt datapunkt $i$ \parencite{Sanderson_2017}:
+\begin{wrapfigure}[5]{r}{4cm}
+  \includegraphics[width=4cm]{mnist2.jpg}
+  \vspace{-0.8cm}
+  \caption{Eksempel på et 2-tal fra MNIST datasættet \parencite{LeCun_1994}}
+  \label{fig:mnist2}
+\end{wrapfigure}
+\begin{align}
+  \underbrace{\hat{y}_i = \begin{bmatrix}
+    0.12 \\
+    0.03 \\
+    0.25 \\
+    0.07 \\
+    0.18 \\
+    0.09 \\
+    0.04 \\
+    0.11 \\
+    0.06 \\
+    0.05
+  \end{bmatrix}}_{\text{Modellens prediktion}}
+  &&
+  \underbrace{y_i = \begin{bmatrix}
+    0 \\
+    0 \\
+    1 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0
+  \end{bmatrix}}_{\text{Det rigtige svar}}
+\end{align}
+Loss funktionen for dette datapunkt er den kvadrerede forskel mellem modellens prediktion og det rigtige svar:
+\begin{align}
+  L_i = (y_i - \hat{y}_i)^2 = \begin{bmatrix}
+    0 - 0.12 \\
+    0 - 0.03 \\
+    1 - 0.25 \\
+    \vdots \\
+    0 - 0.05
+  \end{bmatrix}^2 = \begin{bmatrix}
+    -0.12^2 \\
+    -0.03^2 \\
+    0.75^2 \\
+    \vdots \\
+    -0.05^2
+  \end{bmatrix}
+\end{align}
+Nu tages summen af den kvadrerede forskel for at få loss funktionen for dette datapunkt:
+\begin{align}
+  L_i &= \sum_{i=1}^{10} (y_i - \hat{y}_i)^2\\
+      &= (-0.12^2) + (-0.03^2) + (0.75^2) + \ldots + (-0.05^2)
+\end{align}
+Denne operation gentages for alle datapunkter i træningssættet, og summen tages, derefter divideres summen med antallet af datapunkter for at få gennemsnittet af loss funktionen for hele træningssættet \parencite{Sanderson_2017}:
+\begin{align}
+  L = \frac{1}{N} \sum_{i=1}^{N} \sum_{j=1}^{10} (y_{ij} - \hat{y}_{ij})^2
+\end{align}
+Nu har vi en loss funktion, der kvantificerer, hvor god modellen er til at prediktere, og hvor selv en lille ændring i vægtene og biases vil ændre loss funktionen. Nu er det muligt at træne modellen ved at minimere loss funktionen, da man kan sige at når loss funktionen er lav, er modellen god til at prediktere. Desuden er denne loss funktion kontinuert og differentiabel, hvilket er essentielt for at kunne træne modellen. For at minimere loss funktionen bruges en algoritme kaldet \textit{gradient descent}. 
+
+\subsection{Gradient descent}
+Gradient descent er en algoritme, der tager loss funktionen og beregner gradienten af loss funktionen i forhold til alle modellens parameter (vægtene og biases). Gradienten er en vektor, der peger i retningen af den største stigning af loss funktionen. For at minimere loss funktionen skal vi derfor gå i den modsatte retning af gradienten. Dette gøres ved at opdatere vægtene og biases i modellen med gradienten ganget med en konstant, kaldet \textit{learning rate}. Dette gentages indtil loss funktionen er minimeret tilstrækkeligt. \parencite{IBM_2021,Sanderson_2017,Nielsen_2019a}\\
+Antag at vi organiserer modellens vægte og biases i en søjlevektor $\vec{W}$ og at loss funktionen er $L(\vec{W})$. Gradienten af loss funktionen er $\nabla L(\vec{W})$, derfor beskriver søjlevektoren $-\nabla L(\vec{W})$ hvordan vi kan opdatere $\vec{W}$ for at minimere loss funktionen og dermed øge modellens præstation. Algorimen som finder gradienten på baggrund af modelles parametre og loss funktionen kaldes \textit{backpropagation}. \parencite{Sanderson_2017,Nielsen_2019a} Det vil ses nærmere på, hvordan backpropagation fungerer i et kommende afsnit. Indtil videre antager vi blot, at den fungerer som påstået og returnerer det passende gradient for modellens parametre.
+
+\subsection{Differensiabilitet}
 
 \newpage
 \printbibliography
