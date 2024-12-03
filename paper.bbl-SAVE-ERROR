@@ -50,6 +50,40 @@
       \verb https://www.ibm.com/topics/gradient-descent
       \endverb
     \endentry
+    \entry{Kirsanov_2024}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=33a2ae7e69cd568f19a96226f7541f38}{%
+           family={Kirsanov},
+           familyi={K\bibinitperiod},
+           given={Artem},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{fullhash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{fullhashraw}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{bibnamehash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{authorbibnamehash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{authornamehash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{authorfullhash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{authorfullhashraw}{33a2ae7e69cd568f19a96226f7541f38}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{YouTube}
+      \field{title}{The Most Important Algorithm in Machine Learning}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=SmZmBKc7Lrs
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=SmZmBKc7Lrs
+      \endverb
+    \endentry
     \entry{Lauritzen_2019}{misc}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=9aaa56ba46994e767e1d49bdeaf467ff}{%
@@ -142,6 +176,42 @@
       \verb https://yann.lecun.com/exdb/mnist/
       \endverb
     \endentry
+    \entry{Nielsen_2019b}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3b32fb3a134f406f7b5107358d27befe}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{fullhash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{fullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{bibnamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorbibnamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authornamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorfullhash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorfullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \field{extraname}{1}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Networks and Deep Learning}
+      \field{title}{How the backpropagation algorithm works}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb http://neuralnetworksanddeeplearning.com/chap2.html
+      \endverb
+      \verb{url}
+      \verb http://neuralnetworksanddeeplearning.com/chap2.html
+      \endverb
+    \endentry
     \entry{Nielsen_2019a}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=3b32fb3a134f406f7b5107358d27befe}{%
@@ -159,8 +229,10 @@
       \strng{authornamehash}{3b32fb3a134f406f7b5107358d27befe}
       \strng{authorfullhash}{3b32fb3a134f406f7b5107358d27befe}
       \strng{authorfullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \field{extraname}{2}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -319,6 +391,40 @@
       \verb https://www.ibm.com/topics/gradient-descent
       \endverb
     \endentry
+    \entry{Kirsanov_2024}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=33a2ae7e69cd568f19a96226f7541f38}{%
+           family={Kirsanov},
+           familyi={K\bibinitperiod},
+           given={Artem},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{fullhash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{fullhashraw}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{bibnamehash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{authorbibnamehash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{authornamehash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{authorfullhash}{33a2ae7e69cd568f19a96226f7541f38}
+      \strng{authorfullhashraw}{33a2ae7e69cd568f19a96226f7541f38}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{YouTube}
+      \field{title}{The Most Important Algorithm in Machine Learning}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=SmZmBKc7Lrs
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=SmZmBKc7Lrs
+      \endverb
+    \endentry
     \entry{Lauritzen_2019}{misc}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=9aaa56ba46994e767e1d49bdeaf467ff}{%
@@ -411,6 +517,42 @@
       \verb https://yann.lecun.com/exdb/mnist/
       \endverb
     \endentry
+    \entry{Nielsen_2019b}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3b32fb3a134f406f7b5107358d27befe}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{fullhash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{fullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{bibnamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorbibnamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authornamehash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorfullhash}{3b32fb3a134f406f7b5107358d27befe}
+      \strng{authorfullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \field{extraname}{1}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Networks and Deep Learning}
+      \field{title}{How the backpropagation algorithm works}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb http://neuralnetworksanddeeplearning.com/chap2.html
+      \endverb
+      \verb{url}
+      \verb http://neuralnetworksanddeeplearning.com/chap2.html
+      \endverb
+    \endentry
     \entry{Nielsen_2019a}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=3b32fb3a134f406f7b5107358d27befe}{%
@@ -428,8 +570,10 @@
       \strng{authornamehash}{3b32fb3a134f406f7b5107358d27befe}
       \strng{authorfullhash}{3b32fb3a134f406f7b5107358d27befe}
       \strng{authorfullhashraw}{3b32fb3a134f406f7b5107358d27befe}
+      \field{extraname}{2}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}

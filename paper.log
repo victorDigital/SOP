@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.22)  3 DEC 2024 11:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.22)  4 DEC 2024 00:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -181,6 +181,8 @@ Package tocloft Info: The document has section divisions on input line 51.
 \cftbeforetabskip=\skip82
 \cfttabindent=\skip83
 \cfttabnumwidth=\skip84
+) (c:/texlive/2024/texmf-dist/tex/latex/cancel/cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
 ) (c:/texlive/2024/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
  (c:/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -503,7 +505,9 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count347
  (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (c:/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.sty
+))) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (c:/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
  (c:/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
@@ -775,20 +779,20 @@ Package csquotes Info: Redefining alias 'default' -> 'danish'.
  (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count484
@@ -869,8 +873,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'paper.bbl' found.
  (./paper.bbl)
-Package biblatex Info: Reference section=0 on input line 67.
-Package biblatex Info: Reference segment=0 on input line 67.
+Package biblatex Info: Reference section=0 on input line 77.
+Package biblatex Info: Reference segment=0 on input line 77.
 
 
 [1
@@ -882,17 +886,17 @@ Package biblatex Info: Reference segment=0 on input line 67.
 
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 76--79
+Underfull \hbox (badness 10000) in paragraph at lines 86--89
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--79
+Underfull \hbox (badness 10000) in paragraph at lines 86--89
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--79
+Underfull \hbox (badness 10000) in paragraph at lines 86--89
 
  []
 
@@ -901,12 +905,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--79
 [3{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
@@ -936,34 +940,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--96
 <neurons.jpg, id=34, 1033.8625pt x 581.17125pt>
 File: neurons.jpg Graphic file (type jpg)
 <use neurons.jpg>
-Package pdftex.def Info: neurons.jpg  used on input line 282.
+Package pdftex.def Info: neurons.jpg  used on input line 292.
 (pdftex.def)             Requested size: 170.71652pt x 95.96005pt.
  (./neural_network_diagram.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 63--289
+Underfull \hbox (badness 10000) in paragraph at lines 63--299
 [][]
  []
 
 <mnist1.jpg, id=35, 1083.29718pt x 419.31656pt>
 File: mnist1.jpg Graphic file (type jpg)
 <use mnist1.jpg>
-Package pdftex.def Info: mnist1.jpg  used on input line 292.
+Package pdftex.def Info: mnist1.jpg  used on input line 302.
 (pdftex.def)             Requested size: 170.71652pt x 66.07469pt.
 
 
-[7 <./neurons.jpg> <./mnist1.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 315--316
+[7 <./neurons.jpg> <./mnist1.jpg>] (./simple_nn.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 317--318
 
  []
 
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 324--347
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 326--349
 []$ $[]$
  []
 
 <mnist2.jpg, id=40, 417.56pt x 414.54875pt>
 File: mnist2.jpg Graphic file (type jpg)
 <use mnist2.jpg>
-Package pdftex.def Info: mnist2.jpg  used on input line 351.
+Package pdftex.def Info: mnist2.jpg  used on input line 353.
 (pdftex.def)             Requested size: 113.81102pt x 112.98601pt.
 
 
@@ -973,7 +977,15 @@ Package pdftex.def Info: mnist2.jpg  used on input line 351.
 
 [9 <./mnist2.jpg>]
 
-[10] (./paper.aux)
+[10] (./simple_nn.tex)
+
+[11]
+
+[12]
+
+[13]
+
+[14] (./paper.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
@@ -983,18 +995,18 @@ Package logreq Info: Writing requests to 'paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30979 strings out of 474898
- 649053 string characters out of 5760034
- 1562111 words of memory out of 5000000
- 53323 multiletter control sequences out of 15000+600000
+ 31100 strings out of 474898
+ 651850 string characters out of 5760034
+ 1564192 words of memory out of 5000000
+ 53432 multiletter control sequences out of 15000+600000
  561029 words of font info for 46 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
- 81i,23n,93p,1486b,2807s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on paper.pdf (10 pages, 470147 bytes).
+ 81i,23n,93p,1886b,2807s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on paper.pdf (14 pages, 510411 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+ 127 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 

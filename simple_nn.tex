@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+  \node[circle, minimum size=8mm, fill=red!30] (Input-1) at (0,0) {$a_1$};  % Input Layer
+  \node[circle, minimum size=8mm, fill=violet!30] (Hidden-1) at (1.9,0) {$a_2$};  % Hidden Layer
+  \node[below=0.1cm of Hidden-1] (Hidden-1-bias) {$+b_1$};
+  \node[circle, minimum size=8mm, fill=blue!30] (Output-1) at (3.8,0) {$a_3$};  % Output Layer
+  \node[below=0.1cm of Output-1] (Output-1-bias) {$+b_2$};
+  \node[below=0.1cm of Output-1] {$+b_2$};
+  \draw[->, shorten >=1pt] (Input-1) -- (Hidden-1) node[midway, above]{$w_1$};  % Connect neurons
+  \draw[->, shorten >=1pt] (Hidden-1) -- (Output-1) node[midway, above]{$w_2$};  % Connect neurons
+  \draw[<-, shorten <=1pt] (Input-1) -- ++(-1,0) node[left]{$x$};  % Inputs
+  \draw[->, shorten <=1pt] (Output-1) -- ++(1,0) node[right]{$y$};  % Outputs
+\end{tikzpicture}
