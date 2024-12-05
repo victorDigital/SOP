@@ -50,6 +50,43 @@
       \verb https://www.ibm.com/topics/gradient-descent
       \endverb
     \endentry
+    \entry{Khodabakhsh}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fafb9dabce6a7ebbcf1f7164b4aee74b}{%
+           family={Khodabakhsh},
+           familyi={K\bibinitperiod},
+           given={Hojjatk},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Kaggle}%
+      }
+      \strng{namehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{fullhash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{fullhashraw}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{bibnamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorbibnamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authornamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorfullhash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorfullhashraw}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{title}{Read MNIST Dataset | Kaggle}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.kaggle.com/code/hojjatk/read-mnist-dataset
+      \endverb
+      \verb{url}
+      \verb https://www.kaggle.com/code/hojjatk/read-mnist-dataset
+      \endverb
+    \endentry
     \entry{Kirsanov_2024}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=33a2ae7e69cd568f19a96226f7541f38}{%
@@ -389,6 +426,43 @@
       \endverb
       \verb{url}
       \verb https://www.ibm.com/topics/gradient-descent
+      \endverb
+    \endentry
+    \entry{Khodabakhsh}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fafb9dabce6a7ebbcf1f7164b4aee74b}{%
+           family={Khodabakhsh},
+           familyi={K\bibinitperiod},
+           given={Hojjatk},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Kaggle}%
+      }
+      \strng{namehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{fullhash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{fullhashraw}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{bibnamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorbibnamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authornamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorfullhash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorfullhashraw}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{title}{Read MNIST Dataset | Kaggle}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.kaggle.com/code/hojjatk/read-mnist-dataset
+      \endverb
+      \verb{url}
+      \verb https://www.kaggle.com/code/hojjatk/read-mnist-dataset
       \endverb
     \endentry
     \entry{Kirsanov_2024}{misc}{}{}

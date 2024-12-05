@@ -12,6 +12,18 @@
 \usepackage{xcolor}
 \usepackage{nicematrix}
 \usepackage{caption}
+\usepackage{minted}
+\usemintedstyle{vs}
+\setminted{breaklines, frame=lines}
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+
+
+
+% Define a custom color
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
 % Required package
 \usepackage{tikz}
 \usetikzlibrary{positioning}
@@ -40,8 +52,12 @@
 \renewcommand\cftsubsecdotsep{\cftdot}
 \renewcommand\cftsubsubsecdotsep{\cftdot}
 
-\newcommand{\figureref}[1]{Figur \ref{#1}}
 
+% fig ref
+\newcommand{\figureref}[1]{(Figur \ref{#1})}
+
+% listing ref 
+\newcommand{\listingref}[1]{(Kodestykke \ref{#1})}
 
 \newcommand\Ccancel[2][black]{
     \let\OldcancelColor\CancelColor
@@ -49,6 +65,8 @@
     \cancel{#2}
     \renewcommand\CancelColor{\OldcancelColor}
 }
+
+\captionsetup[listing]{name=Kodestykke}
 
 
 \makeatletter
@@ -91,7 +109,7 @@
   \item Redegør overordnet for begrebet neuralt netværk.
   \item Redegør for de grundlæggende matematiske principper bag neurale netværk herunder matriceregning.
   \item Redegør for valg af programmeringssprog ift. udvikling af programmer med neuralt netværk.
-  \item Analysér hvordan et neutralt netværk kan programmeres, gerne uden unødvendige abstraktioner eller biblioteker, så det kan genkende håndskrevne tal i realtid i/fra et tegneprogram på computeren.
+  \item Analysér hvordan et neuralt netværk kan programmeres, gerne uden unødvendige abstraktioner eller biblioteker, så det kan genkende håndskrevne tal i realtid i/fra et tegneprogram på computeren.
   \item Undersøg hvorledes programmet kan optimeres for at opnå lavest mulig fejlrate og evt. hvorledes støj i den analyserede data kan påvirke fejlraten.
   \item Diskuter og vurder hvorvidt neutrale netværk er den mest effektive tilgang til at genkende håndskrevne tal på en adaptiv og robust måde.
 \end{itemize}
@@ -348,67 +366,44 @@ Her er $\sigma(x)$ en aktiveringsfunktion, der tager inputtet $x$ og returnerer 
 \end{minipage}
 Typisk har et neuralt netværk flere neuroner i hvert lag, og antallet af vægte og biases er derfor meget større. $x$, $y$, samt alle de forskellige $a_n$ og $b_n$ for hvert lag er søjlevektorer, og $w_n$ i alle lag er matricer. og derfor skal der bruges matrixmultiplikation for at kunne beregne outputtet. Dette er ikke et problem, da de pågældende regneoperationer er defineret tidligere i afsnittet.  
 
-\subsubsection{Træning af neurale netværk}
-Når et neuralt netværk initialiseres, er alle vægtene og biases tilfældige. \parencite{Sanderson_2017} Dette betyder, at modellen ikke kan genkende noget, ligesom et barn, der skal lære noget for første gang. For at lære modellen at genkende tal, skal modellen trænes. Dette kræver en anstændig mængde træningsdata og associerede labels, der fortæller modellen, hvad hvert billede er. For at træne modellen skal man vide hvor god modellen er til at prediktere datasættet, en primitiv måde at gøre det på er at angive procenten af rigtigt predikterede tal. Denne metode er ikke velfungerende, da en lille ændring i vægtene og biases vil ændre modellens præstation minimalt og er derfor ikke målbar. For at kunne træne modellen effektivt skal vi vide præcist hvordan en lille ændring i vægtene og biases påvirker modellens præstation. Denne funktion kaldes en \textit{loss funktion}, og er essentiel for at kunne træne modellen. Loss funktionen er en funktion, der tager modellens prediktion og sammenligner den med det rigtige svar. Loss funktionen er en måde at kvantificere, hvor god modellen er til at prediktere. Hvis loss funktionen er høj, er modellen dårlig til at prediktere, og hvis loss funktionen er lav, er modellen god til at prediktere. Herunder ses et eksempel på en loss funktion på et enkelt datapunkt $i$ \parencite{Sanderson_2017}:
-\begin{wrapfigure}[5]{r}{4cm}
-  \includegraphics[width=4cm]{mnist2.jpg}
-  \vspace{-0.8cm}
-  \caption{Eksempel på et 2-tal fra MNIST datasættet \parencite{LeCun_1994}}
-  \label{fig:mnist2}
-\end{wrapfigure}
+\subsubsection{Træning af neurale netværk med Cross-Entropy}
+Når et neuralt netværk initialiseres, er alle vægtene og biases tilfældige. Dette betyder, at modellen ikke kan genkende noget, ligesom et barn, der skal lære noget for første gang. For at træne modellen til at genkende mønstre kræves der et passende datasæt med labels, der angiver, hvad hvert input repræsenterer. For at kunne forbedre modellen skal vi måle, hvor god den er til at lave forudsigelser. I stedet for blot at måle antallet af korrekte gæt, anvender vi en såkaldt \textit{loss-funktion}, som kvantificerer, hvor præcist modellen forudsiger. For klassifikationsproblemer bruger vi ofte \textit{cross-entropy loss}, som evaluerer forskellen mellem modellens sandsynlighedsfordeling og de faktiske labels. Loss-funktionen tager modellens sandsynligheder for hver klasse og beregner, hvor langt de er fra de korrekte labels. Eksempelvis, hvis et datapunkt har en korrekt label på klasse 3, og modellen giver sandsynlighederne.
 \begin{align}
-  \underbrace{y_i = \begin{bmatrix}
-    0.12 \\
-    0.03 \\
-    0.25 \\
-    0.07 \\
-    0.18 \\
-    0.09 \\
-    0.04 \\
-    0.11 \\
-    0.06 \\
-    0.05
-  \end{bmatrix}}_{\text{Modellens prediktion}}
-  &&
-  \underbrace{\hat{y}_i = \begin{bmatrix}
-    0 \\
-    0 \\
-    1 \\
-    0 \\
-    0 \\
-    0 \\
-    0 \\
-    0 \\
-    0 \\
-    0
-  \end{bmatrix}}_{\text{Det rigtige svar}}
+\mathbf{y}_i = \begin{bmatrix}
+0.12 \\
+0.03 \\
+0.25 \\
+0.07 \\
+0.18 \\
+0.09 \\
+0.04 \\
+0.11 \\
+0.06 \\
+0.05
+\end{bmatrix}
+&&
+\hat{\mathbf{y}}_i = \begin{bmatrix}
+0 \\
+0 \\
+1 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0
+\end{bmatrix}
 \end{align}
-Loss funktionen for dette datapunkt er den kvadrerede forskel mellem modellens prediktion og det rigtige svar:
+Cross-entropy loss beregnes ved formlen:
 \begin{align}
-  L_i = (\hat{y} - y_i)^2 = \begin{bmatrix}
-    0 - 0.12 \\
-    0 - 0.03 \\
-    1 - 0.25 \\
-    \vdots \\
-    0 - 0.05
-  \end{bmatrix}^2 = \begin{bmatrix}
-    -0.12^2 \\
-    -0.03^2 \\
-    0.75^2 \\
-    \vdots \\
-    -0.05^2
-  \end{bmatrix}
+L_i = -\sum_{j=1}^{10} \hat{y}_{ij} \log(y_{ij})
 \end{align}
-Nu tages summen af den kvadrerede forskel for at få loss funktionen for dette datapunkt:
+hvor $ \hat{y}_{ij} $ er den korrekte label, og $ y_{ij} $ er modellens forudsigelse for klasse $ j $. Dette sikrer, at modellen straffes hårdt for lave sandsynligheder på den korrekte klasse. Summen af loss over hele datasættet divideres med antallet af datapunkter for at få gennemsnitlig loss:
 \begin{align}
-  L_i &= \sum_{i=1}^{10} (\hat{y}_i - y_i)^2\\
-      &= (-0.12^2) + (-0.03^2) + (0.75^2) + \ldots + (-0.05^2)
+L = \frac{1}{N} \sum_{i=1}^{N} L_i
 \end{align}
-Denne operation gentages for alle datapunkter i træningssættet, og summen tages, derefter divideres summen med antallet af datapunkter for at få gennemsnittet af loss funktionen for hele træningssættet \parencite{Sanderson_2017}:
-\begin{align}
-  L = \frac{1}{N} \sum_{i=1}^{N} \sum_{j=1}^{10} (\hat{y}_{ij} - y_{ij})^2
-\end{align}
-Nu har vi en loss funktion, der kvantificerer, hvor god modellen er til at prediktere, og hvor selv en lille ændring i vægtene og biases vil ændre loss funktionen. Nu er det muligt at træne modellen ved at minimere loss funktionen, da man kan sige at når loss funktionen er lav, er modellen god til at prediktere. Desuden er denne loss funktion kontinuert og \text{diff}erentiabel, hvilket er essentielt for at kunne træne modellen. For at minimere loss funktionen bruges en algoritme kaldet \textit{gradient descent}.
+Cross-entropy loss er kontinuert og differentierbar, hvilket gør det muligt at optimere ved hjælp af gradient descent. Målet er at minimere loss, så modellen bliver bedre til at forudsige. Dette gør cross-entropy til en standardmetode for klassifikationsopgaver, hvor sandsynlighedsfordelinger er i spil.
 
 \subsection{Softmax}
 Softmax er en aktiveringsfunktion, der bruges i det sidste lag af et neuralt netværk, når outputtet skal repræsentere en sandsynlighedsfordeling over forskellige klasser. Softmax-funktionen tager en vektor af vilkårlige reelle tal og omdanner dem til en vektor af sandsynligheder, hvor summen af sandsynlighederne er 1. Softmax-funktionen er defineret som:
@@ -442,7 +437,7 @@ Gradient descent er en algoritme, der tager loss-funktionen og beregner gradient
 Partielle afledte bruges til at beskrive, hvordan en funktion ændrer sig, når kun én af dens variabler ændres, mens de andre holdes konstante. Lad os antage, at vi har en funktion $f(x, y)$, der afhænger af to variabler $x$ og $y$. Den partielle afledte af $f$ med hensyn til $x$ betegnes som $\frac{\partial f}{\partial x}$ og repræsenterer hældningen af $f$ i $x$-retningen. Tilsvarende betegner $\frac{\partial f}{\partial y}$ hældningen i $y$-retningen. Partielle afledte er særligt nyttige i optimering og machine learning, hvor de bruges til at finde gradienten af en funktion med flere variabler. Gradientens komponenter består netop af de partielle afledte for hver variabel. For eksempel, hvis vi ønsker at minimere en funktion $f(x, y)$, kan vi bruge gradienten $\nabla f(x, y)$, som indeholder de partielle afledte $\frac{\partial f}{\partial x}$ og $\frac{\partial f}{\partial y}$, til at navigere mod lavere værdier af $f$. \parencite{Kirsanov_2024}
 
 \subsection{Kædereglen}
-Kædereglen er en fundamental regel i \text{diff}erentialregning, der gør det muligt at \text{diff}erentiere sammensatte funktioner. Hvis vi har to funktioner, $f(g(x))$, hvor $f$ afhænger af $g(x)$, og $g$ afhænger af $x$, siger kædereglen, at den afledte af $f$ med hensyn til $x$ er produktet af den afledte af $f$ med hensyn til $g$ og den afledte af $g$ med hensyn til $x$:
+Kædereglen er en fundamental regel i differentialregning, der gør det muligt at differentiere sammensatte funktioner. Hvis vi har to funktioner, $f(g(x))$, hvor $f$ afhænger af $g(x)$, og $g$ afhænger af $x$, siger kædereglen, at den afledte af $f$ med hensyn til $x$ er produktet af den afledte af $f$ med hensyn til $g$ og den afledte af $g$ med hensyn til $x$:
 \begin{align}
   \frac{d}{dx} f(g(x)) = f'(g(x)) \cdot g'(x)
 \end{align}
@@ -454,9 +449,9 @@ Med Leibniz notation kan kædereglen skrives som:
 \end{align}
 Kædereglen er en central den i neurale netværk og i machine learning, især i algoritmen backpropagation, hvor det kræves at beregne gradienten af en sammensat loss-funktion i forhold til modellens parametre. \parencite{Kirsanov_2024}
 \subsection{Backpropagation}
-Antag et simpelt neuralt netværk som det, der er vist i \figureref{fig:neural_network2} tidligere, og loss-funktionen for dette netværk, $L$. $L$ har som funktionsparameter alle modellens parametre og giver en kvantitativ vurdering af, hvor gode disse parametre er givet et datasæt. En primitiv måde at optimere modellens parametre på er at ændre hver parameter separat og undersøge, om loss-funktionen er højere eller lavere med de nye parametre. Hvis loss er lavere, ændres parameteren; hvis ikke, nulstilles parameteren, og den næste justeres. Gentages denne proces tilstrækkeligt mange gange, vil man nærme sig et minimum i loss-funktionen. Selvom denne metode er primitiv, kan den fungere for en simpel model som den, der er visualiseret i \figureref{fig:neural_network2}. Dog vil denne tilgang være ineffektiv og ekstremt langsom for en model med hundredevis eller tusindvis af parametre og er derfor ikke en praktisk metode for den gældende problemstilling. Denne vilkårlige permutationsalgoritme er den bedste metode i generelle tilfælde, da der ikke nødvendigvis findes en bedre metode. \parencite{Kirsanov_2024} For \text{diff}erentiable udregninger, som dem i et neuralt netværk, findes der dog en langt bedre metode, der muliggør markant mere effektiv optimering af modellens parametre. Denne algoritmes formål er at forudsige, hvordan en ændring i modellens parametre vil påvirke loss-funktionen, uden at justere manuelt. Selvom denne algoritme kan lyde umulig, bygger den faktisk på fundamentale matematiske principper. Algoritmen kaldes \textit{backpropagation}. \parencite{Kirsanov_2024, Nielsen_2019b, Sanderson_2017} eksemplet herunder gennemgår hvordan de afledte udregnes i et simpelt neuralt netværk for at illustrere backpropagation anvendt.
+Antag et simpelt neuralt netværk som det, der er vist i \figureref{fig:neural_network2} tidligere, og loss-funktionen for dette netværk, $L$. $L$ har som funktionsparameter alle modellens parametre og giver en kvantitativ vurdering af, hvor gode disse parametre er givet et datasæt. En primitiv måde at optimere modellens parametre på er at ændre hver parameter separat og undersøge, om loss-funktionen er højere eller lavere med de nye parametre. Hvis loss er lavere, ændres parameteren; hvis ikke, nulstilles parameteren, og den næste justeres. Gentages denne proces tilstrækkeligt mange gange, vil man nærme sig et minimum i loss-funktionen. Selvom denne metode er primitiv, kan den fungere for en simpel model som den, der er visualiseret i \figureref{fig:neural_network2}. Dog vil denne tilgang være ineffektiv og ekstremt langsom for en model med hundredevis eller tusindvis af parametre og er derfor ikke en praktisk metode for den gældende problemstilling. Denne vilkårlige permutationsalgoritme er den bedste metode i generelle tilfælde, da der ikke nødvendigvis findes en bedre metode. \parencite{Kirsanov_2024} For differentiable udregninger, som dem i et neuralt netværk, findes der dog en langt bedre metode, der muliggør markant mere effektiv optimering af modellens parametre. Denne algoritmes formål er at forudsige, hvordan en ændring i modellens parametre vil påvirke loss-funktionen, uden at justere manuelt. Selvom denne algoritme kan lyde umulig, bygger den faktisk på fundamentale matematiske principper. Algoritmen kaldes \textit{backpropagation}. \parencite{Kirsanov_2024, Nielsen_2019b, Sanderson_2017} eksemplet herunder gennemgår hvordan de afledte udregnes i et simpelt neuralt netværk for at illustrere backpropagation anvendt.
 \subsubsection{Udregning af gradienten}
-Beskue det nedstående neurale netværk med 1 neuron i hvert lag og et skjult lag, Dette afsnit har til formål at gennemgå hvordan gradienten af loss funktionen udregnes i forhold til vægtene og biases i modellen.
+Beskue det nedstående neurale netværk med 1 neuron i hvert lag og et skjult lag, Dette afsnit har til formål at gennemgå hvordan gradienten af loss funktionen udregnes i forhold til vægtene og biases i modellen. dette eksempel bruger sigmoid aktiveringsfunktionen og kvadratisk loss funktion, so mer en lidt anden end den tidligere beskrevne cross-entropy loss funktion. Dette er gjort da de partielle afledte er lettere at udregne i dette tilfælde og vil derfor gøre det lettere at forstå backpropagation.
 \begin{center}
   \input{simple_nn.tex}
   \captionof{figure}{Et simpelt neuralt netværk}
@@ -472,22 +467,22 @@ Og lavet om til en funktion $f(x)$:
 \end{align}
 Og insættes i loss funktionen $L(y)$:
 \begin{align}
-  L&(y) &&= (y - \hat{y})^2 && \text{hvor } \hat{y} \text{ er det rigtige svar}\\
-  L&(f(w_1, b_1, w_2, b_2, x)) &&= L(\sigma(w_1 \cdot x + b_1) \cdot w_2 + b_2 - \hat{y})^2
+  L&(y_i) &&= (y_i - \hat{y}_i)^2 && \text{hvor } \hat{y}_i \text{ er det rigtige svar for $i$ indeks}\\
+  L&(f(w_1, b_1, w_2, b_2, x)) &&= L(\sigma(w_1 \cdot x + b_1) \cdot w_2 + b_2)
   \label{eq:full_loss}
 \end{align}
-Hvis vi nu har en loss funktion $L(y)$, der kvantificerer, hvor god modellen er til at prediktere, kan vi nu udregne gradienten af $L$ i forhold til $w_1$, $b_1$, $w_2$ og $b_2$. Dette gøres ved at bruge kædereglen til at udregne de partielle afledte af $L$ i forhold til $w_1$, $b_1$, $w_2$ og $b_2$. Først udregnes $\frac{\partial L}{\partial b_2}$\\
+Hvis vi nu har en loss funktion $L(y_i)$, der kvantificerer, hvor god modellen er til at prediktere, kan vi nu udregne gradienten af $L$ i forhold til $w_1$, $b_1$, $w_2$ og $b_2$. Dette gøres ved at bruge kædereglen til at udregne de partielle afledte af $L$ i forhold til $w_1$, $b_1$, $w_2$ og $b_2$. Skrivemåden $y_i$ erstattes hermed med $y$ da indekset ikke er vigtigt for resten af eksemplet. Først udregnes $\frac{\partial L}{\partial b_2}$\\
 Her kan kædereglen bruges til at udregne $\frac{\partial L}{\partial b_2}$:
 \begin{align}
   \frac{\partial L}{\partial b_2} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial b_2}
 \end{align}
-Lad os først udregne $\frac{\partial L}{\partial y}$, som er den partielle afledte af $L$ i forhold til $y$, denne er relativt simpel at udregne, da $L$ blot kan \text{diff}erentieres på normal vis:
+Lad os først udregne $\frac{\partial L}{\partial y}$, som er den partielle afledte af $L$ i forhold til $y$, denne er relativt simpel at udregne, da $L$ blot kan differentieres på normal vis:
 \begin{align}
   \frac{\partial L}{\partial y} = 2 \cdot (y - \hat{y}) = 2y - 2\hat{y}
 \end{align}
 Og $\frac{\partial y}{\partial b_2}$, som er den partielle afledte af $y$ i forhold til $b_2$, denne er også simpel at udregne, da resten antages at være konstant og derfor ender vi med:
 \begin{align}
-  \frac{\partial y}{\partial {\color{blue}b_2}} = 1 && L(\overbrace{\sigma(w_1 \cdot x + b_1) \cdot w_2 + {\color{blue}b_2} }^{y}  - \hat{y})^2
+  \frac{\partial y}{\partial {\color{blue}b_2}} = 1 && L(\overbrace{\sigma(w_1 \cdot x + b_1) \cdot w_2 + {\color{blue}b_2} }^{y} )
 \end{align}
 Så $\frac{\partial L}{\partial b_2}$ kan nu udregnes:
 \begin{align}
@@ -501,7 +496,7 @@ Nu er $\frac{\partial L}{\partial b_2}$ udregnet! Nu kan $\frac{\partial L}{\par
 \end{align}
 Eftersom $\frac{\partial L}{\partial y}$ allerede er udregnet, kan vi nu udregne $\frac{\partial y}{\partial w_2}$, som er den partielle afledte af $y$ i forhold til $w_2$. Dette kan udregnes da $w_2$ kun afhænger af $\sigma(w_1 \cdot x + b_1)$ og da den er konstant i forhold til $w_2$, den partielle afledte er derfor lig $\sigma(w_1 \cdot x + b_1)$:
 \begin{align}
-  \frac{\partial y}{\partial {\color{blue}w_2}} = \sigma(w_1 \cdot x + b_1) && L(\overbrace{\sigma(w_1 \cdot x + b_1) \cdot {\color{blue}w_2} + b_2}^{y}  - \hat{y})^2
+  \frac{\partial y}{\partial {\color{blue}w_2}} = \sigma(w_1 \cdot x + b_1) && L(\overbrace{\sigma(w_1 \cdot x + b_1) \cdot {\color{blue}w_2} + b_2}^{y} )
 \end{align}
 Så $\frac{\partial L}{\partial w_2}$ kan nu udregnes:
 \begin{align}
@@ -515,11 +510,11 @@ Nu er $\frac{\partial L}{\partial w_2}$ udregnet! Nu kan $\frac{\partial L}{\par
 \end{align}
 Beskue \figureref{fig:neural_network3} og Ligning \eqref{eq:full_loss} for hvordan $a_2$ er defineret. Så $\frac{\partial L}{\partial b_1}$ kan nu udregnes, da $\frac{\partial L}{\partial y}$ allerede er udregnet, kan vi nu udregne $\frac{\partial y}{\partial a_2}$, som er den partielle afledte af $y$ i forhold til $a_2$. Her kan samme tankegang bruges idet $a_2$ kun afhænger af $w_2$:
 \begin{align}
-  \frac{\partial y}{\partial {\color{blue}a_2}} = w_2 && L(\overbrace{{\color{blue}\sigma(w_1 \cdot x + b_1)} \cdot w_2 + b_2}^{y}  - \hat{y})^2
+  \frac{\partial y}{\partial {\color{blue}a_2}} = w_2 && L(\overbrace{{\color{blue}\sigma(w_1 \cdot x + b_1)} \cdot w_2 + b_2}^{y} )
 \end{align}
 Nu kan $\frac{\partial a_2}{\partial b_1}$ udregnes, som er den partielle afledte af $a_2$ i forhold til $b_1$. Her vil den partielle afledte være $\sigma'(w_1 \cdot x + b_1)$, da $a_2$ afhænger direkte af $b_2$ gennem aktiveringsfunktionen
 \begin{align}
-  \frac{\partial a_2}{\partial {\color{blue}b_1}} = \sigma'(w_1 \cdot x + b_1) && L(\overbrace{\sigma(w_1 \cdot x + {\color{blue}b_1})}^{a_2} \cdot w_2 + b_2 - \hat{y})^2
+  \frac{\partial a_2}{\partial {\color{blue}b_1}} = \sigma'(w_1 \cdot x + b_1) && L(\overbrace{\sigma(w_1 \cdot x + {\color{blue}b_1})}^{a_2} \cdot w_2 + b_2)
 \end{align}
 Så $\frac{\partial L}{\partial b_1}$ kan nu udregnes:
 \begin{align}
@@ -531,9 +526,9 @@ Nu er $\frac{\partial L}{\partial b_1}$ udregnet! Nu kan $\frac{\partial L}{\par
 \begin{align}
   \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial a_2} \cdot \frac{\partial a_2}{\partial w_1}
 \end{align}
-Så $\frac{\partial L}{\partial w_1}$ kan nu udregnes, da $\frac{\partial L}{\partial y}$ og $\frac{\partial y}{\partial a_2}$ allerede er udregnet, Nu kan $\frac{\partial a_2}{\partial w_1}$ udregnes, som er den partielle afledte af $a_2$ i forhold til $w_1$. Da $a_2 = \sigma(w_1 \cdot x + b_1)$, afhænger $a_2$ af $w_1$ gennem argumentet, og derfor vil den partielle afledte være:
+Så $\frac{\partial L}{\partial w_1}$ kan nu udregnes, da $\frac{\partial L}{\partial y}$ og $\frac{\partial y}{\partial a_2}$ allerede er udregnet, Nu kan $\frac{\partial a_2}{\partial w_1}$ udregnes, som er den partielle afledte af $a_2$ i forhold til $w_1$. Da $a_2 = \sigma(w_1 \cdot x + b_1)$, afhænger $a_2$ af $w_1$ gennem argumentet, og med hensyn til kædereglen, vil den partielle afledte være:
 \begin{align}
-  \frac{\partial a_2}{\partial {\color{blue}w_1}} = x \cdot \sigma'(w_1 \cdot x + b_1) && L(\overbrace{\sigma({\color{blue}w_1} \cdot x + b_1)}^{a_2} \cdot w_2 + b_2  - \hat{y})^2
+  \frac{\partial a_2}{\partial {\color{blue}w_1}} = x \cdot \sigma'(w_1 \cdot x + b_1) && L(\overbrace{\sigma({\color{blue}w_1} \cdot x + b_1)}^{a_2} \cdot w_2 + b_2 )
 \end{align}
 Så $\frac{\partial L}{\partial w_1}$ kan nu udregnes:
 \begin{align}
@@ -541,22 +536,88 @@ Så $\frac{\partial L}{\partial w_1}$ kan nu udregnes:
   &= (2y - 2\hat{y}) \cdot w_2 \cdot x \cdot \sigma'(w_1 \cdot x + b_1) \quad\text{hvor}\quad y = \sigma(w_1 \cdot x + b_1) \cdot w_2 + b_2\\
   &= 2\cdot(\sigma(w_1 \cdot x + b_1) \cdot w_2 + b_2 - \hat{y}) \cdot w_2 \cdot x \cdot \sigma'(w_1 \cdot x + b_1)
 \end{align}
-Lad os tage et skridt tilbage og opsummere, hvad der er blevet udregnet. Vi har nu udregnet gradienten af loss funktionen i forhold til modellens parametre, netop $w_1$, $b_1$, $w_2$ og $b_2$. Dette er essentielt for at kunne træne modellen effektivt, da vi nu ved, hvordan loss funktionen ændrer sig, når vi ændrer vægtene og biases. Dette gør det muligt at bruge gradient descent til at minimere loss funktionen og dermed forbedre modellens præstation. Dette gøres i priksis ved at gemme mellenregningerne når modellen prediktere, og derefter bruge disse mellemregninger til at regne baglæns og dermed finde gradienten, det er her algoritmen backpropagation får sit navn. Selvom eksemplet i dette afsnit er simpelt, kan samme principper anvendes på langt mere komplekse neurale netværk med mange flere lag og neuroner. her vil værdierne dog være matricer og vektorer, og derfor vil de partielle afledte således også være organiseret i matricer, mens dette lyder komplekst, er det i praksis blot en udvidelse af de principper, der er blevet gennemgået i dette afsnit, bare med flere indekser.\\\\
+Lad os tage et skridt tilbage og opsummere, hvad der er blevet udregnet. Vi har nu udregnet gradienten af loss funktionen i forhold til modellens parametre, netop $w_1$, $b_1$, $w_2$ og $b_2$. Dette er essentielt for at kunne træne modellen effektivt, da vi nu ved, hvordan loss funktionen ændrer sig, når vi ændrer vægtene og biases. Dette gør det muligt at bruge gradient descent til at minimere loss funktionen og dermed forbedre modellens præstation. Dette gøres i priksis ved at gemme mellenregningerne når modellen prediktere, og derefter bruge disse mellemregninger til at regne baglæns og dermed finde gradienten, det er her algoritmen backpropagation får sit navn. Selvom eksemplet i dette afsnit er simpelt, kan samme principper anvendes på langt mere komplekse neurale netværk med mange flere lag og neuroner. Her vil værdierne dog være matricer og vektorer, og derfor vil de partielle afledte således også være organiseret i matricer, mens dette lyder komplekst, er det i praksis blot en udvidelse af de principper, der er blevet gennemgået i dette afsnit, bare med flere indekser.\\\\
 Lad os for en god ordens skyld tjekke vores svar efter ved brug af Maple CAS værktøjet:
 \begin{align}
-  L(y)&\coloneqq(y-\hat{y})^{2}\colon\\
-  f(w_{1},b_{1},w_{2},b_{2},x)&\coloneqq\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+b_{2}\colon\\
-  \frac{\partial L}{\partial b_{2}}=\text{diff}(L(f(w_{1},b_{1},w_{2},b_{2},x)),b_2)&=\color{blue}2\cdot\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+2\cdot b_{2}-2\cdot\hat{y}\\
-  \frac{\partial L}{\partial w_{2}}= \text{diff}(L(f(w_{1},b_{1},w_{2},b_{2},x)),w_2)&=\color{blue}2\cdot(\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+b_{2}-\hat{y})\cdot\sigma(w_{1}\cdot x+b_{1})\\
-  \frac{\partial L}{\partial b_{1}}= \text{diff}(L(f(w_{1},b_{1},w_{2},b_{2},x)),b_1)&=\color{blue}2\cdot(\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+b_{2}-\hat{y})\cdot w_{2}\cdot\sigma'(w_{1}\cdot x+b_{1})\\
-  \frac{\partial L}{\partial w_{1}}= \text{diff}(L(f(w_{1},b_{1},w_{2},b_{2},x)),w_1)&=\color{blue}2\cdot(\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+b_{2}-\hat{y})\cdot w_{2}\cdot x\cdot\sigma'(w_{1}\cdot x+b_{1})
+  &L(y)\coloneqq(y-\hat{y})^{2}\colon\\
+  &f(w_{1},b_{1},w_{2},b_{2},x)\coloneqq\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+b_{2}\colon\\
+  &\frac{\partial L}{\partial b_{2}}=\text{diff}(L(f(w_{1},b_{1},w_{2},b_{2},x)),b_2)=\color{blue}2\cdot\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+2\cdot b_{2}-2\cdot\hat{y}\\
+  &\frac{\partial L}{\partial w_{2}}= \text{diff}(L(f(w_{1},b_{1},w_{2},b_{2},x)),w_2)=\color{blue}2\cdot(\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+b_{2}-\hat{y})\cdot\sigma(w_{1}\cdot x+b_{1})\\
+  &\frac{\partial L}{\partial b_{1}}= \text{diff}(L(f(w_{1},b_{1},w_{2},b_{2},x)),b_1)=\color{blue}2\cdot(\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+b_{2}-\hat{y})\cdot w_{2}\cdot\sigma'(w_{1}\cdot x+b_{1})\\
+  &\frac{\partial L}{\partial w_{1}}= \text{diff}(L(f(w_{1},b_{1},w_{2},b_{2},x)),w_1)=\color{blue}2\cdot(\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+b_{2}-\hat{y})\cdot w_{2}\cdot x\cdot\sigma'(w_{1}\cdot x+b_{1})
 \end{align}
-Som det ses er vores svar korrekt, og dermed er vores udregninger korrekte. 
+Som det ses er vores svar korrekt, og dermed er vores udregninger korrekte. Da udledningen af de afledte for at mere kompliceret netværk ikke er meget anderledes end hvad der tidligere er gennemgået, vil de afledte fra \parencite{Nielsen_2019b,Sanderson_2017} bruges uden dybere redegørelse.
+%TODO: FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE
 \section{Valg af programmeringssprog}
 Til at implementere et neuralt netværk, er det nødvændigt at vælge et programmeringssprog, der er egnet til formålet. Der findes mange forskellige programmeringssprog, der kan bruges til at implementere neurale netværk, herunder Python, R, Java, C++, og mange flere. Men da det ønskes at programmet er interaktivt og let at bruge, er Python med PyGame eller Java med Processing de mest oplagte valg. Python og mere specifikt NumPy, som er et bibliotek til Python, er enormt brugervenligt og hurtigt at udføre matriceregning i. Java er også et godt valg, da det er et meget populært programmeringssprog, med faste typer som gør det nemmere at undgå fejl. Processing er et bibliotek til Java, der gør det nemt at lave grafik og interaktive applikationer. Men grundet Python's minimale syntaks er det valt til udviklingen af programmet.
+\section{Neuralt netværk implementeret i Python}
+Til genkendelse af håndskrevne tal med opløsning på $28\times28$ pixels skal input laget have $28\cdot28=748$ inputs. til de skjulte lag blev der nogenlunde arbitrært valgt 2 lag af 16 neuroner, outputlaget er bestående af 10 neuroner hvor hver repræsenterer sandsynligheden for at inputtet er det givne tal. Der blev valgt at bruge sigmoid funktionen som aktiveringsfunktion i de skjulte lag og softmax i outputlaget. Der blev valgt at bruge loss funktioned \textit{cross-entropy loss} da det er en standard loss funktion til klassifikationsopgaver. Og gradient decent algorimen bruges til at minimere loss funktionen.
+\subsection{Dataindlæsning}
+MNIST datasættet er meget populært og der ligger derfor allerede en masse implementeringer af indlæsning af datasættet på nettet. Der blev valgt at bruge en implementering fra \parencite{Khodabakhsh} da den er udviklet som en klasse og derfor er nem at bruge. Klassen er vist i \listingref{lst:mnist_dataloader}, og kan indlæse både trænings- og testdatasættet med metoden \texttt{load\_data()}. denne process tager ca. 1000ms på en almindelig computer, og skal kun køres en gang, når programmet starter, da dataen gemmes i arbejdshukommelsen efterfølgende. 
 
 \newpage
 \printbibliography
 
+\newpage
+\section{Bilag}
+%\lstinputcode{mnist_dataloader.py}
+\subsection*{mnist\_dataloader.py}
+\begin{code}
+  \inputminted{python}{mnist_dataloader.py}
+  \caption{Python kode til indlæsning af MNIST datasættet}
+  \label{lst:mnist_dataloader}
+\end{code}
+\newpage
+
+\subsection*{activations.py}
+\begin{code}
+  \inputminted{python}{activations.py}
+  \caption{Python kode til aktiveringsfunktioner}
+  \label{lst:activations}
+\end{code}
+\newpage
+
+\subsection*{train.py}
+\begin{code}
+  \inputminted{python}{train.py}
+  \caption{Python kode til træning af neuralt netværk}
+  \label{lst:train}
+\end{code}
+\newpage
+
+\subsection*{run.py}
+\begin{code}
+  \inputminted{python}{run.py}
+  \caption{Python kode til kørsel af neuralt netværk}
+  \label{lst:run}
+\end{code}
 
 \end{document}
+
+
+
+
+
+%analyse
+%mat til kode
+%loss
+%
+%
+%data aug
+%overfitting
+%underfitting
+%begrensninger af vanilla nn
+%paralelisering
+%
+%forskellige størrelse
+%
+%forberiniger
+%cnn
+%
+%anvendelse
+%ocr
+%selvkørende biler
+%indutrielle ting
+%automatisering
+
+

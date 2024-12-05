@@ -1,0 +1,161 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{array} \PYG{k+kn}{import} \PYG{n}{array}
+\PYG{k+kn}{import} \PYG{n+nn}{pygame}
+\PYG{k+kn}{import} \PYG{n+nn}{sys}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{from} \PYG{n+nn}{mnist\PYGZus{}dataloader} \PYG{k+kn}{import} \PYG{n}{MnistDataloader}
+\PYG{k+kn}{from} \PYG{n+nn}{activations} \PYG{k+kn}{import} \PYG{n}{phi}\PYG{p}{,} \PYG{n}{softmax}
+
+\PYG{n}{pygame}\PYG{o}{.}\PYG{n}{init}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{WIDTH}\PYG{p}{,} \PYG{n}{HEIGHT} \PYG{o}{=} \PYG{l+m+mi}{800}\PYG{p}{,} \PYG{l+m+mi}{600}
+\PYG{n}{screen} \PYG{o}{=} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{display}\PYG{o}{.}\PYG{n}{set\PYGZus{}mode}\PYG{p}{(}\PYG{p}{(}\PYG{n}{WIDTH}\PYG{p}{,} \PYG{n}{HEIGHT}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{pygame}\PYG{o}{.}\PYG{n}{display}\PYG{o}{.}\PYG{n}{set\PYGZus{}caption}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Drawing Pad}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{BUTTON\PYGZus{}COLOR} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{70}\PYG{p}{,} \PYG{l+m+mi}{70}\PYG{p}{,} \PYG{l+m+mi}{70}\PYG{p}{)}
+\PYG{n}{WHITE} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{,} \PYG{l+m+mi}{255}\PYG{p}{,} \PYG{l+m+mi}{255}\PYG{p}{)} 
+\PYG{n}{BLACK} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}
+
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Loading MNIST data...}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{mnist\PYGZus{}dataloader} \PYG{o}{=} \PYG{n}{MnistDataloader}\PYG{p}{(}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{mnist/train\PYGZhy{}images.idx3\PYGZhy{}ubyte}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{mnist/train\PYGZhy{}labels.idx1\PYGZhy{}ubyte}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{mnist/t10k\PYGZhy{}images.idx3\PYGZhy{}ubyte}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{mnist/t10k\PYGZhy{}labels.idx1\PYGZhy{}ubyte}\PYG{l+s+s1}{\PYGZsq{}}
+    \PYG{p}{)}
+\PYG{p}{(}\PYG{n}{x\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{)}\PYG{p}{,} \PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{mnist\PYGZus{}dataloader}\PYG{o}{.}\PYG{n}{load\PYGZus{}data}\PYG{p}{(}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{MNIST data loaded.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{DrawingPad}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dx} \PYG{o}{=} \PYG{l+m+mi}{28}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dy} \PYG{o}{=} \PYG{l+m+mi}{28}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{last\PYGZus{}pixel\PYGZus{}x} \PYG{o}{=} \PYG{k+kc}{None}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{last\PYGZus{}pixel\PYGZus{}y} \PYG{o}{=} \PYG{k+kc}{None}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}size} \PYG{o}{=} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{WIDTH} \PYG{o}{/}\PYG{o}{/} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dx}\PYG{p}{,} \PYG{n}{HEIGHT} \PYG{o}{/}\PYG{o}{/} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dy}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}values} \PYG{o}{=} \PYG{p}{[}
+            \PYG{p}{[}\PYG{l+m+mi}{0} \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dy}\PYG{p}{)}\PYG{p}{]} \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dx}\PYG{p}{)}\PYG{p}{]}
+
+    \PYG{k}{def} \PYG{n+nf}{handle\PYGZus{}event}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{event}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{event}\PYG{o}{.}\PYG{n}{type} \PYG{o}{==} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{MOUSEBUTTONDOWN}\PYG{p}{:}
+            \PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n}{event}\PYG{o}{.}\PYG{n}{pos}
+            \PYG{n}{grid\PYGZus{}x} \PYG{o}{=} \PYG{n}{x} \PYG{o}{/}\PYG{o}{/} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}size}
+            \PYG{n}{grid\PYGZus{}y} \PYG{o}{=} \PYG{n}{y} \PYG{o}{/}\PYG{o}{/} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}size}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{last\PYGZus{}pixel\PYGZus{}x} \PYG{o}{==} \PYG{n}{grid\PYGZus{}x} \PYG{o+ow}{and} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{last\PYGZus{}pixel\PYGZus{}y} \PYG{o}{==} \PYG{n}{grid\PYGZus{}y}\PYG{p}{)}\PYG{p}{:}
+                \PYG{k}{return}
+            \PYG{k}{if} \PYG{l+m+mi}{0} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{grid\PYGZus{}x} \PYG{o}{\PYGZlt{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dx} \PYG{o+ow}{and} \PYG{l+m+mi}{0} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{grid\PYGZus{}y} \PYG{o}{\PYGZlt{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dy}\PYG{p}{:}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{last\PYGZus{}pixel\PYGZus{}x} \PYG{o}{=} \PYG{n}{grid\PYGZus{}x}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{last\PYGZus{}pixel\PYGZus{}y} \PYG{o}{=} \PYG{n}{grid\PYGZus{}y}
+                \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{:}
+                    \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{:}
+                        \PYG{n}{new\PYGZus{}x} \PYG{o}{=} \PYG{n}{grid\PYGZus{}x} \PYG{o}{+} \PYG{n}{i}
+                        \PYG{n}{new\PYGZus{}y} \PYG{o}{=} \PYG{n}{grid\PYGZus{}y} \PYG{o}{+} \PYG{n}{j}
+                        \PYG{k}{if} \PYG{l+m+mi}{0} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{new\PYGZus{}x} \PYG{o}{\PYGZlt{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dx} \PYG{o+ow}{and} \PYG{l+m+mi}{0} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{new\PYGZus{}y} \PYG{o}{\PYGZlt{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dy}\PYG{p}{:}
+                            \PYG{n}{distance} \PYG{o}{=} \PYG{p}{(}
+                                \PYG{p}{(}\PYG{n}{new\PYGZus{}x} \PYG{o}{\PYGZhy{}} \PYG{n}{grid\PYGZus{}x}\PYG{p}{)} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2} \PYG{o}{+} \PYG{p}{(}\PYG{n}{new\PYGZus{}y} \PYG{o}{\PYGZhy{}} \PYG{n}{grid\PYGZus{}y}\PYG{p}{)} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{2}
+                            \PYG{p}{)} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mf}{0.5}
+                            \PYG{n}{newPixelValue} \PYG{o}{=} \PYG{n+nb}{min}\PYG{p}{(}
+                                \PYG{l+m+mi}{255}\PYG{p}{,}
+                                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}values}\PYG{p}{[}\PYG{n}{new\PYGZus{}x}\PYG{p}{]}\PYG{p}{[}\PYG{n}{new\PYGZus{}y}\PYG{p}{]}
+                                \PYG{o}{+} \PYG{n+nb}{int}\PYG{p}{(}\PYG{l+m+mi}{255} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{distance} \PYG{o}{/} \PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+                            \PYG{p}{)}
+                            \PYG{k}{if} \PYG{n}{newPixelValue} \PYG{o}{\PYGZgt{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}values}\PYG{p}{[}\PYG{n}{new\PYGZus{}x}\PYG{p}{]}\PYG{p}{[}\PYG{n}{new\PYGZus{}y}\PYG{p}{]}\PYG{p}{:}
+                                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}values}\PYG{p}{[}\PYG{n}{new\PYGZus{}x}\PYG{p}{]}\PYG{p}{[}\PYG{n}{new\PYGZus{}y}\PYG{p}{]} \PYG{o}{=} \PYG{n}{newPixelValue}
+
+    \PYG{k}{def} \PYG{n+nf}{draw}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dx}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dy}\PYG{p}{)}\PYG{p}{:}
+                \PYG{n}{color\PYGZus{}value} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}values}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+                \PYG{n}{rect} \PYG{o}{=} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{Rect}\PYG{p}{(}
+                    \PYG{n}{i} \PYG{o}{*} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}size}\PYG{p}{,}
+                    \PYG{n}{j} \PYG{o}{*} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}size}\PYG{p}{,}
+                    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}size}\PYG{p}{,}
+                    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}size}\PYG{p}{,}
+                \PYG{p}{)}
+                \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{draw}\PYG{o}{.}\PYG{n}{rect}\PYG{p}{(}
+                    \PYG{n}{screen}\PYG{p}{,} \PYG{p}{(}\PYG{n}{color\PYGZus{}value}\PYG{p}{,} \PYG{n}{color\PYGZus{}value}\PYG{p}{,} \PYG{n}{color\PYGZus{}value}\PYG{p}{)}\PYG{p}{,} \PYG{n}{rect}\PYG{p}{)}
+                \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{draw}\PYG{o}{.}\PYG{n}{rect}\PYG{p}{(}\PYG{n}{screen}\PYG{p}{,} \PYG{p}{(}\PYG{l+m+mi}{50}\PYG{p}{,} \PYG{l+m+mi}{50}\PYG{p}{,} \PYG{l+m+mi}{50}\PYG{p}{)}\PYG{p}{,} \PYG{n}{rect}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+    
+    \PYG{k}{def} \PYG{n+nf}{clear}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}values} \PYG{o}{=} \PYG{p}{[}
+            \PYG{p}{[}\PYG{l+m+mi}{0} \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dy}\PYG{p}{)}\PYG{p}{]} \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{dx}\PYG{p}{)}
+        \PYG{p}{]}
+    
+    \PYG{k}{def} \PYG{n+nf}{set\PYGZus{}image}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{image}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}values} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{image}\PYG{p}{)}\PYG{o}{.}\PYG{n}{T}
+    
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}image}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{pixel\PYGZus{}values} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pixel\PYGZus{}values}
+        \PYG{n}{image} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{pixel\PYGZus{}values}\PYG{p}{)}\PYG{o}{.}\PYG{n}{T}
+        \PYG{k}{return} \PYG{n}{image}
+
+\PYG{k}{def} \PYG{n+nf}{predict}\PYG{p}{(}\PYG{n}{image}\PYG{p}{,} \PYG{n}{W1}\PYG{p}{,} \PYG{n}{b1}\PYG{p}{,} \PYG{n}{W2}\PYG{p}{,} \PYG{n}{b2}\PYG{p}{,} \PYG{n}{W3}\PYG{p}{,} \PYG{n}{b3}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{image}\PYG{p}{)}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mf}{255.0}
+    \PYG{n}{Z1} \PYG{o}{=} \PYG{n}{x} \PYG{o}{@} \PYG{n}{W1} \PYG{o}{+} \PYG{n}{b1}
+    \PYG{n}{A1} \PYG{o}{=} \PYG{n}{phi}\PYG{p}{(}\PYG{n}{Z1}\PYG{p}{)}
+    \PYG{n}{Z2} \PYG{o}{=} \PYG{n}{A1} \PYG{o}{@} \PYG{n}{W2} \PYG{o}{+} \PYG{n}{b2}
+    \PYG{n}{A2} \PYG{o}{=} \PYG{n}{phi}\PYG{p}{(}\PYG{n}{Z2}\PYG{p}{)}
+    \PYG{n}{Z3} \PYG{o}{=} \PYG{n}{A2} \PYG{o}{@} \PYG{n}{W3} \PYG{o}{+} \PYG{n}{b3}
+    \PYG{n}{A3} \PYG{o}{=} \PYG{n}{softmax}\PYG{p}{(}\PYG{n}{Z3}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{argmax}\PYG{p}{(}\PYG{n}{A3}\PYG{p}{)}\PYG{p}{,} \PYG{n}{A3}
+
+
+\PYG{k}{def} \PYG{n+nf}{main}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{model} \PYG{o}{=} \PYG{k+kc}{None}
+    \PYG{n}{W1}\PYG{p}{,} \PYG{n}{b1}\PYG{p}{,} \PYG{n}{W2}\PYG{p}{,} \PYG{n}{b2}\PYG{p}{,} \PYG{n}{W3}\PYG{p}{,} \PYG{n}{b3} \PYG{o}{=} \PYG{k+kc}{None}\PYG{p}{,} \PYG{k+kc}{None}\PYG{p}{,} \PYG{k+kc}{None}\PYG{p}{,} \PYG{k+kc}{None}\PYG{p}{,} \PYG{k+kc}{None}\PYG{p}{,} \PYG{k+kc}{None}
+    \PYG{k}{try}\PYG{p}{:}
+        \PYG{n}{model} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{load}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{model.npz}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{W1}\PYG{p}{,} \PYG{n}{b1} \PYG{o}{=} \PYG{n}{model}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{W1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{model}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+        \PYG{n}{W2}\PYG{p}{,} \PYG{n}{b2} \PYG{o}{=} \PYG{n}{model}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{W2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{model}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+        \PYG{n}{W3}\PYG{p}{,} \PYG{n}{b3} \PYG{o}{=} \PYG{n}{model}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{W3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{model}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+    \PYG{k}{except} \PYG{n+ne}{FileNotFoundError}\PYG{p}{:}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Model file not found. Please run train.py to train the model.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{sys}\PYG{o}{.}\PYG{n}{exit}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+    
+    \PYG{n}{screen}\PYG{o}{.}\PYG{n}{fill}\PYG{p}{(}\PYG{n}{BLACK}\PYG{p}{)}
+    \PYG{n}{drawing\PYGZus{}pad} \PYG{o}{=} \PYG{n}{DrawingPad}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{clear\PYGZus{}button} \PYG{o}{=} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{Rect}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{n}{HEIGHT} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{60}\PYG{p}{,} \PYG{l+m+mi}{100}\PYG{p}{,} \PYG{l+m+mi}{50}\PYG{p}{)}
+    \PYG{n}{font} \PYG{o}{=} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{font}\PYG{o}{.}\PYG{n}{Font}\PYG{p}{(}\PYG{k+kc}{None}\PYG{p}{,} \PYG{l+m+mi}{36}\PYG{p}{)}
+    \PYG{n}{button\PYGZus{}text} \PYG{o}{=} \PYG{n}{font}\PYG{o}{.}\PYG{n}{render}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Clear}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{WHITE}\PYG{p}{)}
+    \PYG{n}{predicted\PYGZus{}digit} \PYG{o}{=} \PYG{k+kc}{None}
+    \PYG{n}{probabilities} \PYG{o}{=} \PYG{k+kc}{None}
+    
+    \PYG{n}{drawing\PYGZus{}pad}\PYG{o}{.}\PYG{n}{set\PYGZus{}image}\PYG{p}{(}\PYG{n}{x\PYGZus{}train}\PYG{p}{[}\PYG{l+m+mi}{1337}\PYG{p}{]}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Set an example image from the training set, in this case the image is a 6}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Label of the image:}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{[}\PYG{l+m+mi}{1337}\PYG{p}{]}\PYG{p}{)}
+
+    \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+        \PYG{k}{for} \PYG{n}{event} \PYG{o+ow}{in} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{event}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+            \PYG{k}{if} \PYG{n}{event}\PYG{o}{.}\PYG{n}{type} \PYG{o}{==} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{QUIT}\PYG{p}{:}
+                \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{quit}\PYG{p}{(}\PYG{p}{)}
+                \PYG{n}{sys}\PYG{o}{.}\PYG{n}{exit}\PYG{p}{(}\PYG{p}{)}
+            \PYG{k}{elif} \PYG{n}{event}\PYG{o}{.}\PYG{n}{type} \PYG{o}{==} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{MOUSEBUTTONDOWN} \PYG{o+ow}{and} \PYG{n}{clear\PYGZus{}button}\PYG{o}{.}\PYG{n}{collidepoint}\PYG{p}{(}
+                \PYG{n}{event}\PYG{o}{.}\PYG{n}{pos}
+            \PYG{p}{)}\PYG{p}{:}
+                \PYG{n}{drawing\PYGZus{}pad}\PYG{o}{.}\PYG{n}{clear}\PYG{p}{(}\PYG{p}{)}
+
+        \PYG{n}{image} \PYG{o}{=} \PYG{n}{drawing\PYGZus{}pad}\PYG{o}{.}\PYG{n}{get\PYGZus{}image}\PYG{p}{(}\PYG{p}{)}
+        \PYG{n}{predicted\PYGZus{}digit}\PYG{p}{,} \PYG{n}{probabilities} \PYG{o}{=} \PYG{n}{predict}\PYG{p}{(}\PYG{n}{image}\PYG{p}{,} \PYG{n}{W1}\PYG{p}{,} \PYG{n}{b1}\PYG{p}{,} \PYG{n}{W2}\PYG{p}{,} \PYG{n}{b2}\PYG{p}{,} \PYG{n}{W3}\PYG{p}{,} \PYG{n}{b3}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Predicted digit:}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{predicted\PYGZus{}digit}\PYG{p}{)}
+
+        \PYG{n}{mouse\PYGZus{}clicked} \PYG{o}{=} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{mouse}\PYG{o}{.}\PYG{n}{get\PYGZus{}pressed}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+        \PYG{k}{if} \PYG{n}{mouse\PYGZus{}clicked}\PYG{p}{:}
+            \PYG{n}{drawing\PYGZus{}pad}\PYG{o}{.}\PYG{n}{handle\PYGZus{}event}\PYG{p}{(}
+                \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{event}\PYG{o}{.}\PYG{n}{Event}\PYG{p}{(}
+                    \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{MOUSEBUTTONDOWN}\PYG{p}{,} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{pos}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{mouse}\PYG{o}{.}\PYG{n}{get\PYGZus{}pos}\PYG{p}{(}\PYG{p}{)}\PYG{p}{\PYGZcb{}}
+                \PYG{p}{)}
+            \PYG{p}{)}
+        \PYG{n}{screen}\PYG{o}{.}\PYG{n}{fill}\PYG{p}{(}\PYG{n}{BLACK}\PYG{p}{)}
+        \PYG{n}{drawing\PYGZus{}pad}\PYG{o}{.}\PYG{n}{draw}\PYG{p}{(}\PYG{p}{)}
+        \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{draw}\PYG{o}{.}\PYG{n}{rect}\PYG{p}{(}\PYG{n}{screen}\PYG{p}{,} \PYG{n}{BUTTON\PYGZus{}COLOR}\PYG{p}{,} \PYG{n}{clear\PYGZus{}button}\PYG{p}{)}
+        \PYG{n}{screen}\PYG{o}{.}\PYG{n}{blit}\PYG{p}{(}\PYG{n}{button\PYGZus{}text}\PYG{p}{,} \PYG{p}{(}\PYG{n}{clear\PYGZus{}button}\PYG{o}{.}\PYG{n}{x} \PYG{o}{+} \PYG{l+m+mi}{10}\PYG{p}{,} \PYG{n}{clear\PYGZus{}button}\PYG{o}{.}\PYG{n}{y} \PYG{o}{+} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n}{predicted\PYGZus{}digit} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{k+kc}{None}\PYG{p}{:}
+            \PYG{n}{prediction\PYGZus{}text} \PYG{o}{=} \PYG{n}{font}\PYG{o}{.}\PYG{n}{render}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Predicted: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{predicted\PYGZus{}digit}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{WHITE}\PYG{p}{)}
+            \PYG{n}{screen}\PYG{o}{.}\PYG{n}{blit}\PYG{p}{(}\PYG{n}{prediction\PYGZus{}text}\PYG{p}{,} \PYG{p}{(}\PYG{n}{WIDTH} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{200}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{)}
+            \PYG{k}{for} \PYG{n}{i}\PYG{p}{,} \PYG{n}{prob} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{probabilities}\PYG{p}{)}\PYG{p}{:}
+                \PYG{n}{prob\PYGZus{}text} \PYG{o}{=} \PYG{n}{font}\PYG{o}{.}\PYG{n}{render}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{i}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{prob}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{l+m+mi}{100}\PYG{l+s+si}{:}\PYG{l+s+s2}{.2f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZpc{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{WHITE}\PYG{p}{)}
+                \PYG{n}{screen}\PYG{o}{.}\PYG{n}{blit}\PYG{p}{(}\PYG{n}{prob\PYGZus{}text}\PYG{p}{,} \PYG{p}{(}\PYG{n}{WIDTH} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{200}\PYG{p}{,} \PYG{l+m+mi}{40} \PYG{o}{+} \PYG{n}{i} \PYG{o}{*} \PYG{l+m+mi}{30}\PYG{p}{)}\PYG{p}{)}
+            
+        \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{display}\PYG{o}{.}\PYG{n}{flip}\PYG{p}{(}\PYG{p}{)}
+
+
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{main}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}
