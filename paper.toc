@@ -19,3 +19,4 @@
 \contentsline {subsection}{\numberline {4.5}Kædereglen}{10}{}%
 \contentsline {subsection}{\numberline {4.6}Backpropagation}{10}{}%
 \contentsline {subsubsection}{\numberline {4.6.1}Udregning af gradienten}{11}{}%
+\contentsline {section}{\numberline {5}Valg af programmeringssprog}{13}{}%

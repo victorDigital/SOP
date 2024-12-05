@@ -35,6 +35,12 @@ INPUT c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/calc.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/calc.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/mathtools/mhsetup.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT c:/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty

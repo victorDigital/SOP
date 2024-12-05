@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber paper"] 1733257853.42973 "paper.bcf" "paper.bbl" "paper" 1733269103.37105 0
-  "paper.bcf" 1733269102 135269 2d4ec9b9f19ff183583371650ac38e73 "pdflatex"
-  "paper.bib" 1733230467 3010 6a8af8c837ef590fd7f12993e4cb8754 ""
+["biber paper"] 0 "paper.bcf" "paper.bbl" "paper" 1733325992.51552 -1
+  "paper.bcf" 1733325992 135269 2d4ec9b9f19ff183583371650ac38e73 "pdflatex"
+  "paper.bib" 1733316831 2710 a19d9cb8cc98714b44935ec6dd988026 ""
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1733269099.69592 "c:/Users/vicfa/Desktop/GitHub/SOP/paper.tex" "paper.pdf" "paper" 1733269103.37215 0
-  "c:/Users/vicfa/Desktop/GitHub/SOP/paper.tex" 1733269098 36486 85a0105c3a17b848edb98c89fdb9ab0a ""
+["pdflatex"] 1733325989.51811 "c:/Users/vicfa/Desktop/GitHub/SOP/paper.tex" "paper.pdf" "paper" 1733325992.51655 0
+  "c:/Users/vicfa/Desktop/GitHub/SOP/paper.tex" 1733325985 38566 c45ee3eb11443f78768caa6cbcb9ce71 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1729596749 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1729597029 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1729596916 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -140,6 +140,8 @@
   "c:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1729597276 678 4792914a8f45be57bb98413425e4c7af ""
   "c:/texlive/2024/texmf-dist/tex/latex/logreq/logreq.def" 1733067444 1620 fb1c32b818f2058eca187e5c41dfae77 ""
   "c:/texlive/2024/texmf-dist/tex/latex/logreq/logreq.sty" 1733067444 6187 b27afc771af565d3a9ff1ca7d16d0d46 ""
+  "c:/texlive/2024/texmf-dist/tex/latex/mathtools/mathtools.sty" 1729597448 62711 3b0ed1d68b598a75677c10d16646d5e5 ""
+  "c:/texlive/2024/texmf-dist/tex/latex/mathtools/mhsetup.sty" 1729597448 5582 a43dedf8e5ec418356f1e9dfe5d29fc3 ""
   "c:/texlive/2024/texmf-dist/tex/latex/nicematrix/nicematrix.sty" 1729597558 395074 3ad78f0dff4c12d8f67581a33fde388d ""
   "c:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty" 1729597637 1090 bae35ef70b3168089ef166db3e66f5b2 ""
   "c:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty" 1729597637 373 00b204b1d7d095b892ad31a7494b0373 ""
@@ -153,6 +155,7 @@
   "c:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty" 1729597637 325 f9f16d12354225b7dd52a3321f085955 ""
   "c:/texlive/2024/texmf-dist/tex/latex/tocloft/tocloft.sty" 1733065879 36103 3e78d14f0f4b1a30560fea5e04de805d ""
   "c:/texlive/2024/texmf-dist/tex/latex/tools/array.sty" 1729598005 14067 1383bd6ee23ab18ae0e796155404deb7 ""
+  "c:/texlive/2024/texmf-dist/tex/latex/tools/calc.sty" 1729598005 10214 61188260d324e94bc2f66825d7d3fdf4 ""
   "c:/texlive/2024/texmf-dist/tex/latex/url/url.sty" 1729598048 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "c:/texlive/2024/texmf-dist/tex/latex/wrapfig/wrapfig.sty" 1732960506 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "c:/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty" 1729598083 55384 b454dec21c2d9f45ec0b793f0995b992 ""
@@ -164,11 +167,11 @@
   "mnist2.jpg" 1733140139 15928 01088e5ee2086544894ddc0b91f5502a ""
   "neural_network_diagram.tex" 1733151124 1160 8176791ea6d32a14ddafab15466285e4 ""
   "neurons.jpg" 1733088291 205184 e0e3f67384afd4bdfa6c763be8c166df ""
-  "paper.aux" 1733269102 19382 973a4c848c4fcfb548b1867d72551649 "pdflatex"
-  "paper.bbl" 1733257855 29081 31678123c2061c56f847c0dac77b7299 "biber paper"
-  "paper.run.xml" 1733269102 2359 a7d4b700a688c06c0f72b13f2847123f "pdflatex"
-  "paper.tex" 1733269098 36486 85a0105c3a17b848edb98c89fdb9ab0a ""
-  "paper.toc" 1733269102 1472 c725010f6b6f5a6d326f0bfce4e3ccb2 "pdflatex"
+  "paper.aux" 1733325992 19498 b069af461e1c2c96eff82eb73b958549 "pdflatex"
+  "paper.bbl" 1733316840 29081 31678123c2061c56f847c0dac77b7299 "biber paper"
+  "paper.run.xml" 1733325992 2359 a7d4b700a688c06c0f72b13f2847123f "pdflatex"
+  "paper.tex" 1733325985 38566 c45ee3eb11443f78768caa6cbcb9ce71 ""
+  "paper.toc" 1733325992 1547 c9b038e54cbb5d122c44753c297b40e4 "pdflatex"
   "simple_nn.tex" 1733252297 831 49307f097e6451bc234f1174dd2898b4 ""
   (generated)
   "paper.aux"
