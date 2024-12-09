@@ -1,6 +1,6 @@
 import numpy as np
-from mnist_dataloader import MnistDataloader 
-from activations import phi, dphi, dphiofphi, softmax
+from mnist_dataloader import MnistDataloader  # Added import statement
+from activations import sigmoid_activation, sigmoid_derivative, sigmoid_derivative_from_sigmoid_output, softmax
 
 print("Loading MNIST data...")
 mnist_dataloader = MnistDataloader(
@@ -32,9 +32,9 @@ class NeuralNetwork:
 
     def predict(self, X):
         Z1 = X @ self.W1 + self.b1
-        A1 = phi(Z1)
+        A1 = sigmoid_activation(Z1)
         Z2 = A1 @ self.W2 + self.b2
-        A2 = phi(Z2)
+        A2 = sigmoid_activation(Z2)
         Z3 = A2 @ self.W3 + self.b3
         A3 = softmax(Z3)
         return {'A1': A1, 'A2': A2, 'A3': A3, 'Z1': Z1, 'Z2': Z2, 'Z3': Z3}
@@ -45,10 +45,10 @@ class NeuralNetwork:
         dZ3 = A3 - Y
         dW3 = (A2.T @ dZ3) / m
         db3 = np.sum(dZ3, axis=0) / m
-        dZ2 = (dZ3 @ self.W3.T) * dphiofphi(A2)
+        dZ2 = (dZ3 @ self.W3.T) * sigmoid_derivative_from_sigmoid_output(A2)
         dW2 = (A1.T @ dZ2) / m
         db2 = np.sum(dZ2, axis=0) / m
-        dZ1 = (dZ2 @ self.W2.T) * dphiofphi(A1)
+        dZ1 = (dZ2 @ self.W2.T) * sigmoid_derivative_from_sigmoid_output(A1)
         dW1 = (X.T @ dZ1) / m
         db1 = np.sum(dZ1, axis=0) / m
         self.W1 -= rate * dW1

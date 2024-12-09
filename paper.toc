@@ -22,4 +22,8 @@
 \contentsline {section}{\numberline {5}Valg af programmeringssprog}{13}{}%
 \contentsline {section}{\numberline {6}Neuralt netværk implementeret i Python}{13}{}%
 \contentsline {subsection}{\numberline {6.1}Dataindlæsning}{13}{}%
-\contentsline {section}{\numberline {7}Bilag}{15}{}%
+\contentsline {subsection}{\numberline {6.2}Tegnefladen}{14}{}%
+\contentsline {subsection}{\numberline {6.3}Prediktering}{16}{}%
+\contentsline {subsection}{\numberline {6.4}De afledte}{16}{}%
+\contentsline {subsection}{\numberline {6.5}Træning}{18}{}%
+\contentsline {section}{\numberline {7}Bilag}{21}{}%

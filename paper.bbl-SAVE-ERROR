@@ -25,6 +25,9 @@
            family={IBM},
            familyi={I\bibinitperiod}}}%
       }
+      \list{organization}{1}{%
+        {IBM}%
+      }
       \strng{namehash}{cbf44511d041dc6d1dd73cc0c033122c}
       \strng{fullhash}{cbf44511d041dc6d1dd73cc0c033122c}
       \strng{fullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
@@ -48,6 +51,87 @@
       \endverb
       \verb{url}
       \verb https://www.ibm.com/topics/gradient-descent
+      \endverb
+    \endentry
+    \entry{keita2023backpropagation}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=28931a225b42816939c11b0760c18d78}{%
+           family={Keita},
+           familyi={K\bibinitperiod},
+           given={Zoumana},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {DataCamp}%
+      }
+      \list{publisher}{1}{%
+        {DataCamp}%
+      }
+      \strng{namehash}{28931a225b42816939c11b0760c18d78}
+      \strng{fullhash}{28931a225b42816939c11b0760c18d78}
+      \strng{fullhashraw}{28931a225b42816939c11b0760c18d78}
+      \strng{bibnamehash}{28931a225b42816939c11b0760c18d78}
+      \strng{authorbibnamehash}{28931a225b42816939c11b0760c18d78}
+      \strng{authornamehash}{28931a225b42816939c11b0760c18d78}
+      \strng{authorfullhash}{28931a225b42816939c11b0760c18d78}
+      \strng{authorfullhashraw}{28931a225b42816939c11b0760c18d78}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{Mastering Backpropagation: A Comprehensive Guide for Neural Networks}
+      \field{urlday}{7}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.datacamp.com/tutorial/mastering-backpropagation
+      \endverb
+      \verb{url}
+      \verb https://www.datacamp.com/tutorial/mastering-backpropagation
+      \endverb
+    \endentry
+    \entry{Khodabakhsh}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fafb9dabce6a7ebbcf1f7164b4aee74b}{%
+           family={Khodabakhsh},
+           familyi={K\bibinitperiod},
+           given={Hojjatk},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Kaggle}%
+      }
+      \strng{namehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{fullhash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{fullhashraw}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{bibnamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorbibnamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authornamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorfullhash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorfullhashraw}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{title}{Read MNIST Dataset | Kaggle}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.kaggle.com/code/hojjatk/read-mnist-dataset
+      \endverb
+      \verb{url}
+      \verb https://www.kaggle.com/code/hojjatk/read-mnist-dataset
       \endverb
     \endentry
     \entry{Kirsanov_2024}{misc}{}{}
@@ -84,6 +168,50 @@
       \verb https://www.youtube.com/watch?v=SmZmBKc7Lrs
       \endverb
     \endentry
+    \entry{kurbiel2021softmax}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f105ec074123822621cdc28d666d8119}{%
+           family={Kurbiel},
+           familyi={K\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Towards Data Science}%
+      }
+      \list{publisher}{1}{%
+        {Towards Data Science}%
+      }
+      \strng{namehash}{f105ec074123822621cdc28d666d8119}
+      \strng{fullhash}{f105ec074123822621cdc28d666d8119}
+      \strng{fullhashraw}{f105ec074123822621cdc28d666d8119}
+      \strng{bibnamehash}{f105ec074123822621cdc28d666d8119}
+      \strng{authorbibnamehash}{f105ec074123822621cdc28d666d8119}
+      \strng{authornamehash}{f105ec074123822621cdc28d666d8119}
+      \strng{authorfullhash}{f105ec074123822621cdc28d666d8119}
+      \strng{authorfullhashraw}{f105ec074123822621cdc28d666d8119}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{title}{Derivative of the Softmax Function and the Categorical Cross-Entropy Loss}
+      \field{urlday}{8}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://towardsdatascience.com/derivative-of-the-softmax-function-and-the-categorical-cross-entropy-loss-ffceefc081d1
+      \endverb
+      \verb{url}
+      \verb https://towardsdatascience.com/derivative-of-the-softmax-function-and-the-categorical-cross-entropy-loss-ffceefc081d1
+      \endverb
+    \endentry
     \entry{Lauritzen_2019}{misc}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=9aaa56ba46994e767e1d49bdeaf467ff}{%
@@ -98,6 +226,9 @@
            given={Marcel},
            giveni={M\bibinitperiod},
            givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Matematisk Institut, Aarhus Universitet}%
       }
       \list{publisher}{1}{%
         {Matematisk Institut, Aarhus Universitet}%
@@ -147,6 +278,9 @@
            given={Christopher\bibnamedelima J.C.},
            giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
            givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Courant Institute NYU, Google Labs, Microsoft Research}%
       }
       \list{publisher}{1}{%
         {Courant Institute NYU, Google Labs, Microsoft Research}%
@@ -257,6 +391,9 @@
            giveni={G\bibinitperiod},
            givenun=0}}%
       }
+      \list{organization}{1}{%
+        {3Blue1Brown}%
+      }
       \strng{namehash}{5dd1de74b15229ad68590a5ce3ade3c5}
       \strng{fullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
       \strng{fullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
@@ -290,6 +427,9 @@
            given={Matthew},
            giveni={M\bibinitperiod},
            givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {American Mathematical Society}%
       }
       \list{publisher}{1}{%
         {Matematisk Institut, Aarhus Universitet}%
@@ -329,6 +469,9 @@
            giveni={B\bibinitperiod},
            givenun=0}}%
       }
+      \list{organization}{1}{%
+        {Science News}%
+      }
       \list{publisher}{1}{%
         {Science News Explores}%
       }
@@ -356,6 +499,50 @@
       \endverb
       \verb{url}
       \verb https://www.snexplores.org/article/explainer-what-is-a-neuron
+      \endverb
+    \endentry
+    \entry{verma2020neuralnet}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=25630ccdce8c9824542eede132b21d1e}{%
+           family={Verma},
+           familyi={V\bibinitperiod},
+           given={Akshaj},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {R Views}%
+      }
+      \list{publisher}{1}{%
+        {R Views}%
+      }
+      \strng{namehash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{fullhash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{fullhashraw}{25630ccdce8c9824542eede132b21d1e}
+      \strng{bibnamehash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{authorbibnamehash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{authornamehash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{authorfullhash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{authorfullhashraw}{25630ccdce8c9824542eede132b21d1e}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{7}
+      \field{title}{Building A Neural Net from Scratch Using R - Part 1}
+      \field{urlday}{8}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://rviews.rstudio.com/2020/07/20/shallow-neural-net-from-scratch-using-r-part-1/
+      \endverb
+      \verb{url}
+      \verb https://rviews.rstudio.com/2020/07/20/shallow-neural-net-from-scratch-using-r-part-1/
       \endverb
     \endentry
   \enddatalist
@@ -366,6 +553,9 @@
            family={IBM},
            familyi={I\bibinitperiod}}}%
       }
+      \list{organization}{1}{%
+        {IBM}%
+      }
       \strng{namehash}{cbf44511d041dc6d1dd73cc0c033122c}
       \strng{fullhash}{cbf44511d041dc6d1dd73cc0c033122c}
       \strng{fullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
@@ -389,6 +579,87 @@
       \endverb
       \verb{url}
       \verb https://www.ibm.com/topics/gradient-descent
+      \endverb
+    \endentry
+    \entry{keita2023backpropagation}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=28931a225b42816939c11b0760c18d78}{%
+           family={Keita},
+           familyi={K\bibinitperiod},
+           given={Zoumana},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {DataCamp}%
+      }
+      \list{publisher}{1}{%
+        {DataCamp}%
+      }
+      \strng{namehash}{28931a225b42816939c11b0760c18d78}
+      \strng{fullhash}{28931a225b42816939c11b0760c18d78}
+      \strng{fullhashraw}{28931a225b42816939c11b0760c18d78}
+      \strng{bibnamehash}{28931a225b42816939c11b0760c18d78}
+      \strng{authorbibnamehash}{28931a225b42816939c11b0760c18d78}
+      \strng{authornamehash}{28931a225b42816939c11b0760c18d78}
+      \strng{authorfullhash}{28931a225b42816939c11b0760c18d78}
+      \strng{authorfullhashraw}{28931a225b42816939c11b0760c18d78}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{Mastering Backpropagation: A Comprehensive Guide for Neural Networks}
+      \field{urlday}{7}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.datacamp.com/tutorial/mastering-backpropagation
+      \endverb
+      \verb{url}
+      \verb https://www.datacamp.com/tutorial/mastering-backpropagation
+      \endverb
+    \endentry
+    \entry{Khodabakhsh}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fafb9dabce6a7ebbcf1f7164b4aee74b}{%
+           family={Khodabakhsh},
+           familyi={K\bibinitperiod},
+           given={Hojjatk},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Kaggle}%
+      }
+      \strng{namehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{fullhash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{fullhashraw}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{bibnamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorbibnamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authornamehash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorfullhash}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \strng{authorfullhashraw}{fafb9dabce6a7ebbcf1f7164b4aee74b}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{title}{Read MNIST Dataset | Kaggle}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.kaggle.com/code/hojjatk/read-mnist-dataset
+      \endverb
+      \verb{url}
+      \verb https://www.kaggle.com/code/hojjatk/read-mnist-dataset
       \endverb
     \endentry
     \entry{Kirsanov_2024}{misc}{}{}
@@ -425,6 +696,50 @@
       \verb https://www.youtube.com/watch?v=SmZmBKc7Lrs
       \endverb
     \endentry
+    \entry{kurbiel2021softmax}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f105ec074123822621cdc28d666d8119}{%
+           family={Kurbiel},
+           familyi={K\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Towards Data Science}%
+      }
+      \list{publisher}{1}{%
+        {Towards Data Science}%
+      }
+      \strng{namehash}{f105ec074123822621cdc28d666d8119}
+      \strng{fullhash}{f105ec074123822621cdc28d666d8119}
+      \strng{fullhashraw}{f105ec074123822621cdc28d666d8119}
+      \strng{bibnamehash}{f105ec074123822621cdc28d666d8119}
+      \strng{authorbibnamehash}{f105ec074123822621cdc28d666d8119}
+      \strng{authornamehash}{f105ec074123822621cdc28d666d8119}
+      \strng{authorfullhash}{f105ec074123822621cdc28d666d8119}
+      \strng{authorfullhashraw}{f105ec074123822621cdc28d666d8119}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{title}{Derivative of the Softmax Function and the Categorical Cross-Entropy Loss}
+      \field{urlday}{8}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://towardsdatascience.com/derivative-of-the-softmax-function-and-the-categorical-cross-entropy-loss-ffceefc081d1
+      \endverb
+      \verb{url}
+      \verb https://towardsdatascience.com/derivative-of-the-softmax-function-and-the-categorical-cross-entropy-loss-ffceefc081d1
+      \endverb
+    \endentry
     \entry{Lauritzen_2019}{misc}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=9aaa56ba46994e767e1d49bdeaf467ff}{%
@@ -439,6 +754,9 @@
            given={Marcel},
            giveni={M\bibinitperiod},
            givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Matematisk Institut, Aarhus Universitet}%
       }
       \list{publisher}{1}{%
         {Matematisk Institut, Aarhus Universitet}%
@@ -488,6 +806,9 @@
            given={Christopher\bibnamedelima J.C.},
            giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
            givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Courant Institute NYU, Google Labs, Microsoft Research}%
       }
       \list{publisher}{1}{%
         {Courant Institute NYU, Google Labs, Microsoft Research}%
@@ -598,6 +919,9 @@
            giveni={G\bibinitperiod},
            givenun=0}}%
       }
+      \list{organization}{1}{%
+        {3Blue1Brown}%
+      }
       \strng{namehash}{5dd1de74b15229ad68590a5ce3ade3c5}
       \strng{fullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
       \strng{fullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
@@ -631,6 +955,9 @@
            given={Matthew},
            giveni={M\bibinitperiod},
            givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {American Mathematical Society}%
       }
       \list{publisher}{1}{%
         {Matematisk Institut, Aarhus Universitet}%
@@ -670,6 +997,9 @@
            giveni={B\bibinitperiod},
            givenun=0}}%
       }
+      \list{organization}{1}{%
+        {Science News}%
+      }
       \list{publisher}{1}{%
         {Science News Explores}%
       }
@@ -697,6 +1027,50 @@
       \endverb
       \verb{url}
       \verb https://www.snexplores.org/article/explainer-what-is-a-neuron
+      \endverb
+    \endentry
+    \entry{verma2020neuralnet}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=25630ccdce8c9824542eede132b21d1e}{%
+           family={Verma},
+           familyi={V\bibinitperiod},
+           given={Akshaj},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {R Views}%
+      }
+      \list{publisher}{1}{%
+        {R Views}%
+      }
+      \strng{namehash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{fullhash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{fullhashraw}{25630ccdce8c9824542eede132b21d1e}
+      \strng{bibnamehash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{authorbibnamehash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{authornamehash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{authorfullhash}{25630ccdce8c9824542eede132b21d1e}
+      \strng{authorfullhashraw}{25630ccdce8c9824542eede132b21d1e}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{7}
+      \field{title}{Building A Neural Net from Scratch Using R - Part 1}
+      \field{urlday}{8}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://rviews.rstudio.com/2020/07/20/shallow-neural-net-from-scratch-using-r-part-1/
+      \endverb
+      \verb{url}
+      \verb https://rviews.rstudio.com/2020/07/20/shallow-neural-net-from-scratch-using-r-part-1/
       \endverb
     \endentry
   \enddatalist

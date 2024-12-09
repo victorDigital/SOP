@@ -1,7 +1,7 @@
 \begin{MintedVerbatim}[commandchars=\\\{\}]
 \PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
-\PYG{k+kn}{from} \PYG{n+nn}{mnist\PYGZus{}dataloader} \PYG{k+kn}{import} \PYG{n}{MnistDataloader} 
-\PYG{k+kn}{from} \PYG{n+nn}{activations} \PYG{k+kn}{import} \PYG{n}{phi}\PYG{p}{,} \PYG{n}{dphi}\PYG{p}{,} \PYG{n}{dphiofphi}\PYG{p}{,} \PYG{n}{softmax}
+\PYG{k+kn}{from} \PYG{n+nn}{mnist\PYGZus{}dataloader} \PYG{k+kn}{import} \PYG{n}{MnistDataloader}  \PYG{c+c1}{\PYGZsh{} Added import statement}
+\PYG{k+kn}{from} \PYG{n+nn}{activations} \PYG{k+kn}{import} \PYG{n}{sigmoid\PYGZus{}activation}\PYG{p}{,} \PYG{n}{sigmoid\PYGZus{}derivative}\PYG{p}{,} \PYG{n}{sigmoid\PYGZus{}derivative\PYGZus{}from\PYGZus{}sigmoid\PYGZus{}output}\PYG{p}{,} \PYG{n}{softmax}
 
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Loading MNIST data...}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 \PYG{n}{mnist\PYGZus{}dataloader} \PYG{o}{=} \PYG{n}{MnistDataloader}\PYG{p}{(}
@@ -33,9 +33,9 @@
 
     \PYG{k}{def} \PYG{n+nf}{predict}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{X}\PYG{p}{)}\PYG{p}{:}
         \PYG{n}{Z1} \PYG{o}{=} \PYG{n}{X} \PYG{o}{@} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W1} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b1}
-        \PYG{n}{A1} \PYG{o}{=} \PYG{n}{phi}\PYG{p}{(}\PYG{n}{Z1}\PYG{p}{)}
+        \PYG{n}{A1} \PYG{o}{=} \PYG{n}{sigmoid\PYGZus{}activation}\PYG{p}{(}\PYG{n}{Z1}\PYG{p}{)}
         \PYG{n}{Z2} \PYG{o}{=} \PYG{n}{A1} \PYG{o}{@} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W2} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b2}
-        \PYG{n}{A2} \PYG{o}{=} \PYG{n}{phi}\PYG{p}{(}\PYG{n}{Z2}\PYG{p}{)}
+        \PYG{n}{A2} \PYG{o}{=} \PYG{n}{sigmoid\PYGZus{}activation}\PYG{p}{(}\PYG{n}{Z2}\PYG{p}{)}
         \PYG{n}{Z3} \PYG{o}{=} \PYG{n}{A2} \PYG{o}{@} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W3} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b3}
         \PYG{n}{A3} \PYG{o}{=} \PYG{n}{softmax}\PYG{p}{(}\PYG{n}{Z3}\PYG{p}{)}
         \PYG{k}{return} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{A1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{A1}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{A2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{A2}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{A3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{A3}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Z1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{Z1}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Z2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{Z2}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Z3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{Z3}\PYG{p}{\PYGZcb{}}
@@ -46,10 +46,10 @@
         \PYG{n}{dZ3} \PYG{o}{=} \PYG{n}{A3} \PYG{o}{\PYGZhy{}} \PYG{n}{Y}
         \PYG{n}{dW3} \PYG{o}{=} \PYG{p}{(}\PYG{n}{A2}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{dZ3}\PYG{p}{)} \PYG{o}{/} \PYG{n}{m}
         \PYG{n}{db3} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{dZ3}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{o}{/} \PYG{n}{m}
-        \PYG{n}{dZ2} \PYG{o}{=} \PYG{p}{(}\PYG{n}{dZ3} \PYG{o}{@} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W3}\PYG{o}{.}\PYG{n}{T}\PYG{p}{)} \PYG{o}{*} \PYG{n}{dphiofphi}\PYG{p}{(}\PYG{n}{A2}\PYG{p}{)}
+        \PYG{n}{dZ2} \PYG{o}{=} \PYG{p}{(}\PYG{n}{dZ3} \PYG{o}{@} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W3}\PYG{o}{.}\PYG{n}{T}\PYG{p}{)} \PYG{o}{*} \PYG{n}{sigmoid\PYGZus{}derivative\PYGZus{}from\PYGZus{}sigmoid\PYGZus{}output}\PYG{p}{(}\PYG{n}{A2}\PYG{p}{)}
         \PYG{n}{dW2} \PYG{o}{=} \PYG{p}{(}\PYG{n}{A1}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{dZ2}\PYG{p}{)} \PYG{o}{/} \PYG{n}{m}
         \PYG{n}{db2} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{dZ2}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{o}{/} \PYG{n}{m}
-        \PYG{n}{dZ1} \PYG{o}{=} \PYG{p}{(}\PYG{n}{dZ2} \PYG{o}{@} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W2}\PYG{o}{.}\PYG{n}{T}\PYG{p}{)} \PYG{o}{*} \PYG{n}{dphiofphi}\PYG{p}{(}\PYG{n}{A1}\PYG{p}{)}
+        \PYG{n}{dZ1} \PYG{o}{=} \PYG{p}{(}\PYG{n}{dZ2} \PYG{o}{@} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W2}\PYG{o}{.}\PYG{n}{T}\PYG{p}{)} \PYG{o}{*} \PYG{n}{sigmoid\PYGZus{}derivative\PYGZus{}from\PYGZus{}sigmoid\PYGZus{}output}\PYG{p}{(}\PYG{n}{A1}\PYG{p}{)}
         \PYG{n}{dW1} \PYG{o}{=} \PYG{p}{(}\PYG{n}{X}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{dZ1}\PYG{p}{)} \PYG{o}{/} \PYG{n}{m}
         \PYG{n}{db1} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{dZ1}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{o}{/} \PYG{n}{m}
         \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W1} \PYG{o}{\PYGZhy{}}\PYG{o}{=} \PYG{n}{rate} \PYG{o}{*} \PYG{n}{dW1}

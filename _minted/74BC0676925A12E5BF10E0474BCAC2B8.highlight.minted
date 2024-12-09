@@ -1,14 +1,15 @@
 \begin{MintedVerbatim}[commandchars=\\\{\}]
 \PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
 
-\PYG{k}{def} \PYG{n+nf}{phi}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+\PYG{k}{def} \PYG{n+nf}{sigmoid\PYGZus{}activation}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
     \PYG{k}{return} \PYG{l+m+mi}{1} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}
 
-\PYG{k}{def} \PYG{n+nf}{dphi}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+\PYG{k}{def} \PYG{n+nf}{sigmoid\PYGZus{}derivative}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
     \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{x}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}
 
-\PYG{k}{def} \PYG{n+nf}{dphiofphi}\PYG{p}{(}\PYG{n}{phi\PYGZus{}value}\PYG{p}{)}\PYG{p}{:}
-    \PYG{k}{return} \PYG{n}{phi\PYGZus{}value} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{phi\PYGZus{}value}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{sigmoid\PYGZus{}derivative\PYGZus{}from\PYGZus{}sigmoid\PYGZus{}output}\PYG{p}{(}\PYG{n}{sigmoid\PYGZus{}output}\PYG{p}{)}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} a faster way to calculate sigmoid\PYGZus{}derivative}
+    \PYG{k}{return} \PYG{n}{sigmoid\PYGZus{}output} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{sigmoid\PYGZus{}output}\PYG{p}{)}
 
 \PYG{k}{def} \PYG{n+nf}{softmax}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
     \PYG{k}{if} \PYG{n}{x}\PYG{o}{.}\PYG{n}{ndim} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}

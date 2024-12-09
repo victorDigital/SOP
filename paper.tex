@@ -14,7 +14,7 @@
 \usepackage{caption}
 \usepackage{minted}
 \usemintedstyle{vs}
-\setminted{breaklines, frame=lines}
+\setminted{breaklines, frame=lines, linenos}
 
 \newenvironment{code}{\captionsetup{type=listing}}{}
 
@@ -451,7 +451,7 @@ Kædereglen er en central den i neurale netværk og i machine learning, især i 
 \subsection{Backpropagation}
 Antag et simpelt neuralt netværk som det, der er vist i \figureref{fig:neural_network2} tidligere, og loss-funktionen for dette netværk, $L$. $L$ har som funktionsparameter alle modellens parametre og giver en kvantitativ vurdering af, hvor gode disse parametre er givet et datasæt. En primitiv måde at optimere modellens parametre på er at ændre hver parameter separat og undersøge, om loss-funktionen er højere eller lavere med de nye parametre. Hvis loss er lavere, ændres parameteren; hvis ikke, nulstilles parameteren, og den næste justeres. Gentages denne proces tilstrækkeligt mange gange, vil man nærme sig et minimum i loss-funktionen. Selvom denne metode er primitiv, kan den fungere for en simpel model som den, der er visualiseret i \figureref{fig:neural_network2}. Dog vil denne tilgang være ineffektiv og ekstremt langsom for en model med hundredevis eller tusindvis af parametre og er derfor ikke en praktisk metode for den gældende problemstilling. Denne vilkårlige permutationsalgoritme er den bedste metode i generelle tilfælde, da der ikke nødvendigvis findes en bedre metode. \parencite{Kirsanov_2024} For differentiable udregninger, som dem i et neuralt netværk, findes der dog en langt bedre metode, der muliggør markant mere effektiv optimering af modellens parametre. Denne algoritmes formål er at forudsige, hvordan en ændring i modellens parametre vil påvirke loss-funktionen, uden at justere manuelt. Selvom denne algoritme kan lyde umulig, bygger den faktisk på fundamentale matematiske principper. Algoritmen kaldes \textit{backpropagation}. \parencite{Kirsanov_2024, Nielsen_2019b, Sanderson_2017} eksemplet herunder gennemgår hvordan de afledte udregnes i et simpelt neuralt netværk for at illustrere backpropagation anvendt.
 \subsubsection{Udregning af gradienten}
-Beskue det nedstående neurale netværk med 1 neuron i hvert lag og et skjult lag, Dette afsnit har til formål at gennemgå hvordan gradienten af loss funktionen udregnes i forhold til vægtene og biases i modellen. dette eksempel bruger sigmoid aktiveringsfunktionen og kvadratisk loss funktion, so mer en lidt anden end den tidligere beskrevne cross-entropy loss funktion. Dette er gjort da de partielle afledte er lettere at udregne i dette tilfælde og vil derfor gøre det lettere at forstå backpropagation.
+Beskue det nedstående neurale netværk med 1 neuron i hvert lag og et skjult lag, Dette afsnit har til formål at gennemgå hvordan gradienten af loss funktionen udregnes i forhold til vægtene og biases i modellen. dette eksempel bruger sigmoid aktiveringsfunktionen og kvadratisk loss funktion, som er en lidt anden end den tidligere beskrevne cross-entropy loss funktion. Dette er gjort da de partielle afledte er lettere at udregne i dette tilfælde og vil derfor gøre det lettere at forstå backpropagation.
 \begin{center}
   \input{simple_nn.tex}
   \captionof{figure}{Et simpelt neuralt netværk}
@@ -536,7 +536,7 @@ Så $\frac{\partial L}{\partial w_1}$ kan nu udregnes:
   &= (2y - 2\hat{y}) \cdot w_2 \cdot x \cdot \sigma'(w_1 \cdot x + b_1) \quad\text{hvor}\quad y = \sigma(w_1 \cdot x + b_1) \cdot w_2 + b_2\\
   &= 2\cdot(\sigma(w_1 \cdot x + b_1) \cdot w_2 + b_2 - \hat{y}) \cdot w_2 \cdot x \cdot \sigma'(w_1 \cdot x + b_1)
 \end{align}
-Lad os tage et skridt tilbage og opsummere, hvad der er blevet udregnet. Vi har nu udregnet gradienten af loss funktionen i forhold til modellens parametre, netop $w_1$, $b_1$, $w_2$ og $b_2$. Dette er essentielt for at kunne træne modellen effektivt, da vi nu ved, hvordan loss funktionen ændrer sig, når vi ændrer vægtene og biases. Dette gør det muligt at bruge gradient descent til at minimere loss funktionen og dermed forbedre modellens præstation. Dette gøres i priksis ved at gemme mellenregningerne når modellen prediktere, og derefter bruge disse mellemregninger til at regne baglæns og dermed finde gradienten, det er her algoritmen backpropagation får sit navn. Selvom eksemplet i dette afsnit er simpelt, kan samme principper anvendes på langt mere komplekse neurale netværk med mange flere lag og neuroner. Her vil værdierne dog være matricer og vektorer, og derfor vil de partielle afledte således også være organiseret i matricer, mens dette lyder komplekst, er det i praksis blot en udvidelse af de principper, der er blevet gennemgået i dette afsnit, bare med flere indekser.\\\\
+Lad os tage et skridt tilbage og opsummere, hvad der er blevet udregnet. Vi har nu udregnet gradienten af loss funktionen i forhold til modellens parametre, netop $w_1$, $b_1$, $w_2$ og $b_2$. Dette er essentielt for at kunne træne modellen effektivt, da vi nu ved, hvordan loss funktionen ændrer sig, når vi ændrer vægtene og biases. Dette gør det muligt at bruge gradient descent til at minimere loss funktionen og dermed forbedre modellens præstation. Dette gøres i priksis ved at gemme aktiveringerne af de forskellige lag når modellen prediktere, og derefter bruge disse mellemregninger til at regne baglæns og dermed finde gradienten, det er her algoritmen backpropagation får sit navn. Selvom eksemplet i dette afsnit er simpelt, kan samme principper anvendes på langt mere komplekse neurale netværk med mange flere lag og neuroner. Her vil værdierne dog være matricer og vektorer, og derfor vil de partielle afledte således også være organiseret i matricer, mens dette lyder komplekst, er det i praksis blot en udvidelse af de principper, der er blevet gennemgået i dette afsnit, bare med flere indekser.\\\\
 Lad os for en god ordens skyld tjekke vores svar efter ved brug af Maple CAS værktøjet:
 \begin{align}
   &L(y)\coloneqq(y-\hat{y})^{2}\colon\\
@@ -546,8 +546,7 @@ Lad os for en god ordens skyld tjekke vores svar efter ved brug af Maple CAS væ
   &\frac{\partial L}{\partial b_{1}}= \text{diff}(L(f(w_{1},b_{1},w_{2},b_{2},x)),b_1)=\color{blue}2\cdot(\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+b_{2}-\hat{y})\cdot w_{2}\cdot\sigma'(w_{1}\cdot x+b_{1})\\
   &\frac{\partial L}{\partial w_{1}}= \text{diff}(L(f(w_{1},b_{1},w_{2},b_{2},x)),w_1)=\color{blue}2\cdot(\sigma(w_{1}\cdot x+b_{1})\cdot w_{2}+b_{2}-\hat{y})\cdot w_{2}\cdot x\cdot\sigma'(w_{1}\cdot x+b_{1})
 \end{align}
-Som det ses er vores svar korrekt, og dermed er vores udregninger korrekte. Da udledningen af de afledte for at mere kompliceret netværk ikke er meget anderledes end hvad der tidligere er gennemgået, vil de afledte fra \parencite{Nielsen_2019b,Sanderson_2017} bruges uden dybere redegørelse.
-%TODO: FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE FIND KILDE TIL DETTE
+Som det ses er vores svar korrekt, og dermed er vores udregninger korrekte. Da udledningen af de afledte for at mere kompliceret netværk ikke er meget anderledes end hvad der tidligere er gennemgået, vil de afledte fra \parencite{keita2023backpropagation,verma2020neuralnet,kurbiel2021softmax} såvel som den samme generelle tankegang blive brugt til at udlede de partielle afledte uden dybere redegørelse da dette ligger langt over opgavens omfang/niveau.
 \section{Valg af programmeringssprog}
 Til at implementere et neuralt netværk, er det nødvændigt at vælge et programmeringssprog, der er egnet til formålet. Der findes mange forskellige programmeringssprog, der kan bruges til at implementere neurale netværk, herunder Python, R, Java, C++, og mange flere. Men da det ønskes at programmet er interaktivt og let at bruge, er Python med PyGame eller Java med Processing de mest oplagte valg. Python og mere specifikt NumPy, som er et bibliotek til Python, er enormt brugervenligt og hurtigt at udføre matriceregning i. Java er også et godt valg, da det er et meget populært programmeringssprog, med faste typer som gør det nemmere at undgå fejl. Processing er et bibliotek til Java, der gør det nemt at lave grafik og interaktive applikationer. Men grundet Python's minimale syntaks er det valt til udviklingen af programmet.
 \section{Neuralt netværk implementeret i Python}
@@ -555,6 +554,79 @@ Til genkendelse af håndskrevne tal med opløsning på $28\times28$ pixels skal 
 \subsection{Dataindlæsning}
 MNIST datasættet er meget populært og der ligger derfor allerede en masse implementeringer af indlæsning af datasættet på nettet. Der blev valgt at bruge en implementering fra \parencite{Khodabakhsh} da den er udviklet som en klasse og derfor er nem at bruge. Klassen er vist i \listingref{lst:mnist_dataloader}, og kan indlæse både trænings- og testdatasættet med metoden \texttt{load\_data()}. denne process tager ca. 1000ms på en almindelig computer, og skal kun køres en gang, når programmet starter, da dataen gemmes i arbejdshukommelsen efterfølgende. 
 
+\subsection{Tegnefladen}
+%Tegnefladen som ses på \listingref{lst:run} på linje 26-87
+Da opgaveformuleringen kræver et "tegneprogram", hvori brugeren selv kan indtaste tal, vil netop dette udvikles. Her tages Python med biblioteket PyGame i brug, da det tilbyder en række funktioner til at tegne til et vindue på computeren. Først skal et vindue laves:
+\inputminted[firstline=8, lastline=11]{python}{run.py}\noindent
+Nu er vinduet tegnet. Det blev valgt at lave tegnefladen som en klasse. Klassen skal holde styr på opløsningen såvel som alle pixelsene. Derfor kan vi definere konstruktøren således:
+\inputminted[firstline=26, lastline=34]{python}{run.py}\noindent
+Her er \texttt{self.dx} og \texttt{self.dy} opløsningen af tegnefladen. \texttt{self.pixel\_size} er størrelsen af pixelsene. Da pixelsene altid bør være kvadratiske, tages \texttt{min()} af både den lodrette og vandrette dimension. \texttt{self.pixel\_values} er værdierne af alle de forskellige pixels i et 2D-array; alle værdierne starter som 0. \texttt{self.last\_pixel\_x} og \texttt{self.last\_pixel\_y} er interne variable til at holde styr på tegnelogikken. Dette forklares senere. Nu kan tegnefladen tegnes til vinduet:
+\inputminted[firstline=62, lastline=74]{python}{run.py}\noindent
+Denne kode tegner et gitter af rektangler på skærmen ved at iterere gennem \texttt{self.dx} og \texttt{self.dy} og bruger \texttt{pygame.draw.rect} til at tegne hvert rektangel med en farve baseret på \texttt{self.pixel\_values}, såvel som en grå 1-pixel-tyk border. For at opdatere tegnefladen, når brugeren tegner med musen, blev metoden \texttt{handle\_event()} udviklet:
+\inputminted[firstline=36, lastline=60]{python}{run.py}\noindent
+\texttt{handle\_event()} tjekker først, om hændelsen er \texttt{pygame.MOUSEBUTTONDOWN}. Hvis ikke, afsluttes funktionen. Musens klik-koordinater konverteres til gitterkoordinater på tegnefladen og sammenlignes med det sidste klik for at sikre, at den kun opdaterer én gang per pixel. Hvis gitterkoordinaterne er gyldige, opdaterer funktionen den seneste klikposition (\texttt{self.last\_pixel\_x} og \texttt{self.last\_pixel\_y}) og justerer pixelværdierne i en 3x3-rude omkring klikket. For hver nabocelle beregnes afstanden til musen. En ny pixelværdi (maks. 255) beregnes og opdateres, hvis den nye værdi er højere end den nuværende. Herunder på \figureref{fig:drawingpad} ses et eksempel på dette, hvor den røde streg er den faktiske sti, som musen tog. Yderligere kan hele tegnefladeklassen beskues i \listingref{lst:run} på linje 26-87:
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{drawingpad.png}
+  \captionof{figure}{Eksempel på tegnefladen og den faktiske sti, som musen tog}
+  \label{fig:drawingpad}
+\end{center}
+Som ses på billedet muliggør afstandsmetoden at tegne en mere realistisk sti hvor der opstår et naturligt gradient i intensiteten. denne metode er valgt da den imiterer MNIST-datasættets udseende bedre end en simpel binær metode, og siden modellen er trænet på MNIST-datasættet, vil det give bedre resultater at komme så tæt på datasættet som muligt. 
+\subsection{Prediktering}
+Hver frame opdateres modellens prediktion af det tegnede tal. Til dette bruges metoden \texttt{predict()}, den bruger modellens parametre som er gemt i \texttt{model.npz} filen, herunder ses indlæsningen af disse parametre samt selve \texttt{predict()} metoden:
+\inputminted[firstline=100, lastline=110]{python}{run.py}\noindent
+\inputminted[firstline=89, lastline=97]{python}{run.py}\noindent
+\texttt{.npz} formatet er blot et format til at gemme flere NumPy arrays i en fil. i \texttt{main()} metoden indlæses disse parametre og gemmes i variablerne \texttt{w1}, \texttt{b1}, \texttt{w2}, \texttt{b2}, \texttt{w3} og \texttt{b3}. Disse bruges i \texttt{predict()} metoden sammen med et input, som er en 2D-array af pixelværdierne, som bliver lavet om til \texttt{x} med \texttt{.reshape(-1)}, hvor hver række er sat sammen til en lang række. Herunder ses selve \texttt{predict()} metoden bare skrevet som matematik:
+\begin{align}
+  y = L\left( \operatorname{softmax}\left( W_3 \cdot \sigma\left( W_2 \cdot \sigma\left( W_1 \cdot X + B_1 \right) + B_2 \right) + B_3 \right) \right)
+\end{align}
+Denne ligning repræsenterer outputtet $y$ fra \texttt{predict()}. Modellen udfører følgende beregninger: Inputtet $X$ multipliceres med vægtmatricen $W_1$ og lægges sammen med biasvektoren $B_1$. Resultatet \texttt{Z1} gennemgår sigmoid aktiveringsfunktionen $\sigma$. Denne proces gentages for det andet lag med vægte $W_2$ og bias $B_2$. I det tredje lag multipliceres de transformerede data med $W_3$, lægges sammen med $B_3$, og sendes gennem softmax-funktionen. Til sidst anvendes en cross-entropy loss funktionen $L$ på outputtet. Operatoren $\cdot$ betegner matrixmultiplikation, hvilket er passende i denne sammenhæng, dog er samme operator i Python-notation lig \texttt{@}. i koden er \texttt{Z} blot en betegnelse for værdierne i de forskellige lag før de sendes gennem aktiveringsfunktionen og bliver til \texttt{A}. Så for at prediktere modellen med værdierne fra tegnefladen kan man gøre således:
+\inputminted[firstline=133, lastline=134]{python}{run.py}\noindent
+\subsection{De afledte}
+Som tidligere beskrevet er selve udregningen af de partielle afledte over opgavens omfang og vil derfor ikke blive udregnet fra bunden. Der vil tages udgangspunkt i de afledte fra \parencite{keita2023backpropagation,verma2020neuralnet,kurbiel2021softmax}. De afledte nævnt i disse kilder antages at være korrekte, dog vil de senere blive testet med \textit{finite difference} metoden for at sikre deres korrekthed. \parencite{verma2020neuralnet} påstår følgende afledte for de forskellige lag i et netværk med 1 skjult lag med Cross-Entropy loss og Softmax aktiveringsfunktion i outputlaget:
+\begin{align}
+  dZ_2 &= \frac{\partial L}{\partial Z_2} = A_2 - Y\\
+  dW_2 &= \frac{\partial L}{\partial W_2} = \frac{1}{m}(dZ_2 \cdot A_1^T)\\
+  dB_2 &= \frac{\partial L}{\partial B_2} = \frac{1}{m}\sum dZ_2\\
+  dZ_1 &= \frac{\partial L}{\partial Z_1} = W_2^T \cdot \sigma'(Z_1)\\
+  dW_1 &= \frac{\partial L}{\partial W_1} = \frac{1}{m}(dZ_1 \cdot X^T)\\
+  dB_1 &= \frac{\partial L}{\partial B_1} = \frac{1}{m}\sum dZ_1
+\end{align}
+Hvor $m$ er antallet af træningsdata, $A_1$ og $A_2$ er aktiveringerne i de forskellige lag, $Y$ er de rigtige svar, og $\sigma'$ er den afledte af sigmoid funktionen, bemærk at $Z$ er værdierne i de forskellige lag før de sendes gennem aktiveringsfunktionen og hermed bliver til $A$. Kilden \parencite{kurbiel2021softmax} er enige med denne differentiering af Cross-entry loss og Softmax aktiveringsfunktionen. Da vores model er bestående af 2 skjulte lag, kan disse afledte udvides til at gælde for 2 skjulte lag, da hver lag kun er afhængig af det forrige, er det blot en udvidelse af de samme principper som tidligere beskrevet ba begge de skjulte lag er aktiveret med sigmoid funktionen. Derfor kan de afledte for hele modellen skrives som:
+\begin{align}
+  dZ_3 &= \frac{\partial L}{\partial Z_3} = A_3 - Y\\
+  dW_3 &= \frac{\partial L}{\partial W_3} = \frac{1}{m}(dZ_3 \cdot A_2^T)\\
+  dB_3 &= \frac{\partial L}{\partial B_3} = \frac{1}{m}\sum dZ_3\\
+  dZ_2 &= \frac{\partial L}{\partial Z_2} = W_3^T \cdot \sigma'(Z_2)\\
+  dW_2 &= \frac{\partial L}{\partial W_2} = \frac{1}{m}(dZ_2 \cdot A_1^T)\\
+  dB_2 &= \frac{\partial L}{\partial B_2} = \frac{1}{m}\sum dZ_2\\
+  dZ_1 &= \frac{\partial L}{\partial Z_1} = W_2^T \cdot \sigma'(Z_1)\\
+  dW_1 &= \frac{\partial L}{\partial W_1} = \frac{1}{m}(dZ_1 \cdot X^T)\\
+  dB_1 &= \frac{\partial L}{\partial B_1} = \frac{1}{m}\sum dZ_1
+\end{align}
+Bemærk her hvordan $dZ_2$, $dW_2$ og $dB_2$ på samme måde som $dZ_1$, $dW_1$ og $dB_1$ da de på lige vis kun er afhængige af det forrige lags værdier. Disse afledte kan nu implementeres i Python således:
+\inputminted[firstline=42, lastline=59]{python}{train.py}\noindent
+Bemærk på linje 54-59 hvordan indlæringsraten ganges med gradienten og subtraheres fra vægtene og biases. Dette er selve gradient descent algoritmen, som bruges til at minimere loss funktionen. Bemærk også at de afledte bruger den afledte af sigmoid funktionen, hvor i koden bruges \texttt{sigmoid\_derivative\_from\_sigmoid\_output(y)} frem for \texttt{sigmoid\_derivative(x)} til at udregne denne. Beskue \listingref{lst:activations} i bilag for at se implementeringen af denne funktion, Men grunden til dette er at sigmoid funktionen allerede er udregnet i \texttt{predict()} metoden tidligere, og derfor kan den bruges til at udregne hældningen meget hurtigere end hvis den skulle udregnes igen. Det kan også tydligt ses at \texttt{sigmoid\_derivative\_from\_sigmoid\_output(y)} er hurtigere end \texttt{sigmoid\_derivative(x)} i \listingref{lst:activations} i bilag på linje 6-11. Selvom det er en lille besparelse enkeltvis, vil denne funktion blive kaldt enormt mange gange, og derfor er det vigtigt at den er så hurtig som muligt, så man undgår at udregne ting flere gange, når det ikke er nødvendigt. \parencite{smith2024sigmoid}
+\subsection{Træning}
+På baggrund af de implementerede metoder kan modellen nu trænes. Dette gøres i \texttt{train()} metoden, som ses herunder:
+\inputminted[firstline=61, lastline=78]{python}{train.py}\noindent
+\texttt{train()} er konstrueret således, at den træner modellen over et specificeret antal epochs. For hver epoch bliver træningsdataene blandet med en tilfældig permutation af indeks, der genereres med \texttt{np.random.permutation(X.shape[0])}. Herefter omorganiseres \texttt{X} og \texttt{Y} baseret på denne rækkefølge for at sikre, at træningsforløbet ikke bliver påvirket af dataenes oprindelige rækkefølge. Efter blandingen opdeles de blandede data i mindre batches af 1.000 datapunkter hver. Dette muliggør brugen af mini-batch gradient descent, som er en mere effektiv, men støjende tilgang til minimering af loss-funktionen, da den bruger en tilnærmelse af gradienten. Dette har som biprodukt, at den kan undslippe visse lokale minima. For hvert batch kaldes først \texttt{predict()}-metoden, som beregner modellens prediktioner, og derefter \texttt{update()}-metoden, som opdaterer modellens parametre med backpropagation-algoritmen. Hver 10. epoch evalueres og logger modellen ydeevne, både på træningsdataene og på et separat testdatasæt, som består af 10.000 datapunkter, der ikke er blevet brugt til træning. Dette gøres for at overvåge modellens præstation på nye, usete data, såvel som for at undgå overfitting. For at gemme modellen bliver den løbende gemt i en fil kaldet \texttt{model.npz} hver 100. epoch ved hjælp af \texttt{export\_to\_file()}-metoden, som kalder \texttt{np.savez()}-metoden fra NumPy. Dette giver mulighed for at stoppe træningen, når et tilfredsstillende resultat er opnået. Samlet set implementerer \texttt{train()} en standard træningsproces for et neuralt netværk, som inkluderer datablanding, mini-batch-træning, løbende evaluering og lagring af modellen.\\\\
+Når denne metode kaldes ses følgende i konsollen:
+\begin{minted}{shell}
+  C:/.../sop> python train.py
+  Loading MNIST data...
+  MNIST data loaded.
+  Epoch 10 Loss: 0.3930, Accuracy: 88.67%, Test Accuracy: 88.72%
+  Epoch 20 Loss: 0.2989, Accuracy: 91.32%, Test Accuracy: 91.01%
+  Epoch 30 Loss: 0.2545, Accuracy: 92.58%, Test Accuracy: 92.12%
+  Epoch 40 Loss: 0.2264, Accuracy: 93.43%, Test Accuracy: 92.66%
+  Epoch 50 Loss: 0.2062, Accuracy: 94.03%, Test Accuracy: 93.15%
+  Epoch 60 Loss: 0.1910, Accuracy: 94.46%, Test Accuracy: 93.53%
+  Epoch 70 Loss: 0.1792, Accuracy: 94.84%, Test Accuracy: 93.85%
+  Epoch 80 Loss: 0.1694, Accuracy: 95.09%, Test Accuracy: 94.07%
+  Epoch 90 Loss: 0.1610, Accuracy: 95.33%, Test Accuracy: 94.25%
+  Epoch 100 Loss: 0.1536, Accuracy: 95.54%, Test Accuracy: 94.31%
+\end{minted}
+Med denne model arkitektur på 2 skjulte lag med 16 neuroner i hvert er en testnøjagtighed på 94.31\% efter 100 epochs hvilket er meget tilfredsstillende til denne opgaves brugstilfælde. Dette resultat er opnået med en træningstid på ca. 40 sekunder på en almindelig computer. Hvordan modellen kan forbedres yderligere vil blive diskuteret i et senere afsnit.  
 \newpage
 \printbibliography
 
