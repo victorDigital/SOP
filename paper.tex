@@ -434,7 +434,7 @@ I dette eksempel er sandsynligheden for klasse 1 (første element) 65.9\%, for k
 Gradient descent er en algoritme, der tager loss-funktionen og beregner gradienten af denne i forhold til alle modellens parametre (vægtene og biases). Gradienten er en vektor, der peger i retningen af den største stigning af loss-funktionen. For at minimere loss-funktionen skal vi derfor bevæge os i den modsatte retning af gradienten. Dette gøres ved at opdatere vægtene og biases i modellen med gradienten ganget med en konstant, kaldet \textit{learning rate}. Processen gentages, indtil loss-funktionen er tilstrækkeligt minimeret. \parencite{IBM_2021, Sanderson_2017, Nielsen_2019a} Antag, at vi organiserer modellens vægte og biases i en søjlevektor $\vec{W}$, og at loss-funktionen er $L(\vec{W})$. Gradienten af loss-funktionen er $\nabla L(\vec{W})$. Derfor beskriver søjlevektoren $-\nabla L(\vec{W})$, hvordan vi kan opdatere $\vec{W}$ for at minimere loss-funktionen og dermed forbedre modellens præstation. Algoritmen, der finder gradienten på baggrund af modellens parametre og loss-funktionen, kaldes \textit{backpropagation}. \parencite{Sanderson_2017, Nielsen_2019a} Hvordan backpropagation fungerer, vil blive gennemgået mere detaljeret i et kommende afsnit. Indtil videre antager vi blot, at den fungerer som beskrevet og returnerer den korrekte gradient for modellens parametre.
 
 \subsection{Partielle afledte}
-Partielle afledte bruges til at beskrive, hvordan en funktion ændrer sig, når kun én af dens variabler ændres, mens de andre holdes konstante. Lad os antage, at vi har en funktion $f(x, y)$, der afhænger af to variabler $x$ og $y$. Den partielle afledte af $f$ med hensyn til $x$ betegnes som $\frac{\partial f}{\partial x}$ og repræsenterer hældningen af $f$ i $x$-retningen. Tilsvarende betegner $\frac{\partial f}{\partial y}$ hældningen i $y$-retningen. Partielle afledte er særligt nyttige i optimering og machine learning, hvor de bruges til at finde gradienten af en funktion med flere variabler. Gradientens komponenter består netop af de partielle afledte for hver variabel. For eksempel, hvis vi ønsker at minimere en funktion $f(x, y)$, kan vi bruge gradienten $\nabla f(x, y)$, som indeholder de partielle afledte $\frac{\partial f}{\partial x}$ og $\frac{\partial f}{\partial y}$, til at navigere mod lavere værdier af $f$. \parencite{Kirsanov_2024}
+Partielle afledte bruges til at beskrive, hvordan en funktion ændrer sig, når kun én af dens variabler ændres, mens de andre holdes konstante. Lad os antage, at vi har en funktion $f(x, y)$, der afhænger af to variabler $x$ og $y$. Den partielle afledte af $f$ med hensyn til $x$ betegnes som $\frac{\partial f}{\partial x}$ og repræsenterer hældningen af $f$ i $x$-retningen. Tilsvarende betegner $\frac{\partial f}{\partial y}$ hældningen i $y$-retningen. Partielle afledte er særligt nyttige i optimering af neurale netværk, som er denne opgaves fokus, hvor de bruges til at finde gradienten af en funktion med flere variabler. Gradientens komponenter består netop af de partielle afledte for hver variabel. For eksempel, hvis vi ønsker at minimere en funktion $f(x, y)$, kan vi bruge gradienten $\nabla f(x, y)$, som indeholder de partielle afledte $\frac{\partial f}{\partial x}$ og $\frac{\partial f}{\partial y}$, til at effektivt navigere mod lavere værdier af $f$. \parencite{Kirsanov_2024}
 
 \subsection{Kædereglen}
 Kædereglen er en fundamental regel i differentialregning, der gør det muligt at differentiere sammensatte funktioner. Hvis vi har to funktioner, $f(g(x))$, hvor $f$ afhænger af $g(x)$, og $g$ afhænger af $x$, siger kædereglen, at den afledte af $f$ med hensyn til $x$ er produktet af den afledte af $f$ med hensyn til $g$ og den afledte af $g$ med hensyn til $x$:
@@ -626,7 +626,38 @@ Når denne metode kaldes ses følgende i konsollen:
   Epoch 90 Loss: 0.1610, Accuracy: 95.33%, Test Accuracy: 94.25%
   Epoch 100 Loss: 0.1536, Accuracy: 95.54%, Test Accuracy: 94.31%
 \end{minted}
-Med denne model arkitektur på 2 skjulte lag med 16 neuroner i hvert er en testnøjagtighed på 94.31\% efter 100 epochs hvilket er meget tilfredsstillende til denne opgaves brugstilfælde. Dette resultat er opnået med en træningstid på ca. 40 sekunder på en almindelig computer. Hvordan modellen kan forbedres yderligere vil blive diskuteret i et senere afsnit.  
+Med denne model arkitektur på 2 skjulte lag med 16 neuroner i hvert er en testnøjagtighed på 94.31\% efter 100 epochs yderst fyldestgørende til denne opgaves brugstilfælde. Dette resultat er opnået med en træningstid på ca. 40 sekunder på en almindelig computer. Yderligere epochs forbedre ikke medellen markant og derfor er det ikke nødvendigt at træne modellen længere. Hvordan modellen kan forbedres yderligere vil blive diskuteret i et senere afsnit.
+\subsection{Genkendelse af brugerinput}
+Når modellen er trænet, kan den bruges til at genkende brugerinput. De vigtige dele at denne rutine er allerede præsenteret tidligere, se \listingref{lst:run} for hele rutinen. Når brugeren tegner et tal på tegnefladen, opdateres modellens prediktioner i realtid. Denne metode er effektiv nok til at tidstagning på metoden ikke er relevant, på en almindelig computer er denne metode hurtig nok til at kunne køre hver frame uden problemer. Herunder ses programmet i aktion:
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{drawingpad2.png}
+  \captionof{figure}{Tegnefladen i aktion}
+  \label{fig:drawingpad2}
+\end{center}
+På \figureref{fig:drawingpad2} ses tegnefladen i aktion, hvor brugeren har tegnet et 4-tal som modellen aldrig har set før. Modellen har dog ingen problemer med at genkende tallet som et 4-tal med overvejende sikkerhed. Dette er et godt tegn på at modellen er generaliseret og ikke overtilpasset til træningsdataene.
+\section{Vurdering af neurale netværk til genkendelse af håndskrevne tal}
+% snak om test og train accuracy OK
+% denne data er ikke nødvendigvis repræsentativ for virkelighedes brugstilfælde
+% center of mass shift i datasættet
+% data augmentation
+Som ses i træningsprocessen, er modellen trænet til en testnøjagtighed på 94.31\% efter 100 epochs. I virkeligheden, med udgangspunkt i brugerens input, vil denne nøjagtighed være lavere. Grunden til dette er, at MNIST-datasættet er centreret med \textit{center of mass}-algoritmen, som er en algoritme, der finder centrum af "massen" i et billede og translaterer billedet, således at centrum af massen er i midten af billedet. Derudover er datasættet også skaleret, således at der hverken er meget små eller meget store tal i datasættet størrelsesmæssigt. Dette er ikke tilfældet med brugerinput, som kan være skaleret og translateret på mange forskellige måder, som modellen ikke har lært at håndtere. Derfor vil modellen have en lavere nøjagtighed på brugerinput end på testdatasættet. Der er to måder uden om denne begrænsning: Den ene er at bruge data augmentation, som er en teknik, hvor man tilføjer støj som rotering, skalering og tilfældige pixels til træningsdatasættet for at gøre modellen mere robust overfor forskellige inputs. Den anden måde er at udføre samme preprocesseringsalgoritme, som datasættet har gennemgået, på brugerinputtet. Dette vil fjerne variansen i brugerinputtet og øge nøjagtigheden.\\\\
+% overfitting - træning med for mange parametre
+% underfitting - træning med for få parametre
+To vigtige ting, man altid skal være opmærksom på, når man opstiller og træner neurale netværk, er \textit{overfitting} og \textit{underfitting}. Overfitting opstår, når modellen er for kompleks i forhold til træningsdataene, og derfor lærer modellen træningsdataene udenad og ikke kan generalisere denne viden til nye data. Underfitting opstår, når modellen er for simpel i forhold til træningsdataene og derfor ikke kan lære træningsdataene godt nok. Dette kan ses i træningsprocessen ved at sammenligne træningsnøjagtigheden med testnøjagtigheden. Hvis træningsnøjagtigheden er meget højere end testnøjagtigheden, er modellen overtilpasset, og hvis både træningsnøjagtigheden og testnøjagtigheden er lav, er modellen undertilpasset (eller datasættet er ikke generaliserbart). I dette tilfælde er træningsnøjagtigheden og testnøjagtigheden meget tæt på hinanden, hvilket er et godt tegn på, at modellen er generaliseret og ikke overtilpasset. Dette kan også verificeres ved at afprøve modellen på egne tegninger, som tidligere beskrevet. Det blev nævnt, at valget af 2 lag af 16 neuroner var nogenlunde arbitrært, og derfor kan det være interessant at undersøge, hvordan modellen præsterer med flere eller færre neuroner i de skjulte lag, såvel som flere eller færre lag. Dette er en kunst i sig selv og kræver en masse eksperimentering og erfaring for at finde den optimale modelarkitektur. Man kan dog overbevise sig selv om, at det første skjulte lag finder de mindre detaljer i billedet, såsom hjørner og kurver, mens det andet skjulte lag finder de større detaljer, som cirkler og linjer. Dette kulminerer i outputlaget, som tager disse detaljer og bruger dem til at genkende tallet. \parencite{Sanderson_2017} Dette er blot et gæt på, hvordan denne maskine tænker. I virkeligheden er det relativt komplekst at undersøge, hvordan modellen reelt "tænker," da ingen har fortalt den, hvordan den skal genkende tal, den har blot lært det selv.\\\\
+% testing af de afledte med finite difference 
+% hvordan kan modellen forbedres - generaliseres yderligere
+% EVT: dropout
+% begrensninger af vanilla nn
+% andre typer af nn og hvilke fordele de har (CNN)
+
+
+
+
+
+
+
+
+
 \newpage
 \printbibliography
 
@@ -675,6 +706,7 @@ Med denne model arkitektur på 2 skjulte lag med 16 neuroner i hvert er en testn
 %loss
 %
 %
+%forberiniger
 %data aug
 %overfitting
 %underfitting
@@ -683,7 +715,6 @@ Med denne model arkitektur på 2 skjulte lag med 16 neuroner i hvert er en testn
 %
 %forskellige størrelse
 %
-%forberiniger
 %cnn
 %
 %anvendelse
