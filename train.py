@@ -1,6 +1,7 @@
 import numpy as np
 from mnist_dataloader import MnistDataloader  # Added import statement
 from activations import sigmoid_activation, sigmoid_derivative, sigmoid_derivative_from_sigmoid_output, softmax
+import time
 
 print("Loading MNIST data...")
 mnist_dataloader = MnistDataloader(
@@ -57,6 +58,7 @@ class NeuralNetwork:
         self.b2 -= rate * db2
         self.W3 -= rate * dW3
         self.b3 -= rate * db3
+        return {'W1': dW1, 'b1': db1, 'W2': dW2, 'b2': db2, 'W3': dW3, 'b3': db3}
 
     def train(self, X, Y, epochs):
         idx = np.random.permutation(X.shape[0])
@@ -79,6 +81,58 @@ class NeuralNetwork:
     
     def export_to_file(self, filename):
         np.savez(filename, W1=self.W1, b1=self.b1, W2=self.W2, b2=self.b2, W3=self.W3, b3=self.b3)
+    
+    def gradient_check(self, X, Y, epsilon=1e-4):
+        start_time = time.time()
+        
+        # gradient med backpropagation
+        pred = self.predict(X)
+        grads = self.update(X, Y, pred, rate=0) # uden at opdatere vægtene
+
+        # gradient med finite difference
+        params = ['W1', 'b1', 'W2', 'b2', 'W3', 'b3']
+        grad_approx = {}
+        original_params = {}
+        for param in params:
+            theta = getattr(self, param)
+            grad_approx[param] = np.zeros_like(theta)
+            original_params[param] = np.copy(theta)
+            it = np.nditer(theta, flags=['multi_index'], op_flags=['readwrite'])
+            while not it.finished:
+                idx = it.multi_index
+                theta_plus = np.copy(theta)
+                theta_minus = np.copy(theta)
+                theta_plus[idx] += epsilon
+                theta_minus[idx] -= epsilon
+
+                setattr(self, param, theta_plus)
+                J_plus = self.loss_function(X, Y)
+
+                setattr(self, param, theta_minus)
+                J_minus = self.loss_function(X, Y)
+
+                grad_approx[param][idx] = (J_plus - J_minus) / (2 * epsilon)
+                setattr(self, param, theta)  # sæt parameteren tilbage til original værdi før næste iteration
+                it.iternext()
+            setattr(self, param, original_params[param])  # sæt parameteren tilbage til original værdi
+
+        # Compare gradients
+        for param in params:
+            grads_diff = np.abs(grads[param] - grad_approx[param])
+            grads_sum = np.abs(grads[param]) + np.abs(grad_approx[param]) + 1e-8
+            relative_difference = grads_diff / grads_sum 
+            print(f"Gradient check for {param}: min = {np.min(relative_difference):.10f}, max = {np.max(relative_difference):.10f}, mean = {np.mean(relative_difference):.10f}")
+            
+        
+        end_time = time.time()
+        print(f"Gradient check execution time: {end_time - start_time:.4f} seconds")
+
+    def loss_function(self, X, Y):
+        pred = self.predict(X)
+        A3 = pred['A3']
+        cost = -np.mean(np.sum(Y * np.log(A3 + 1e-8), axis=1))
+        return cost
 
 nn = NeuralNetwork()
+nn.gradient_check(x_train[:10], y_train_one_hot[:10])  # Test the gradient before training
 nn.train(x_train, y_train_one_hot, epochs=10000)

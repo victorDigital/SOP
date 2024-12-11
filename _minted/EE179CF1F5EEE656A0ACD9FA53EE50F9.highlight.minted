@@ -1,0 +1,12 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{  C:/.../sop\PYGZgt{} python train.py}
+\PYG{g+go}{  Loading MNIST data...}
+\PYG{g+go}{  MNIST data loaded.}
+\PYG{g+go}{  Gradient check for W1: min = 0.0000000000, max = 0.0000664145, mean = 0.0000001361}
+\PYG{g+go}{  Gradient check for b1: min = 0.0000000080, max = 0.0000002913, mean = 0.0000001115}
+\PYG{g+go}{  Gradient check for W2: min = 0.0000000060, max = 0.0000352297, mean = 0.0000004651}
+\PYG{g+go}{  Gradient check for b2: min = 0.0000000940, max = 0.0000019676, mean = 0.0000003838}
+\PYG{g+go}{  Gradient check for W3: min = 0.0000000684, max = 0.0000012608, mean = 0.0000001779}
+\PYG{g+go}{  Gradient check for b3: min = 0.0000000890, max = 0.0000003139, mean = 0.0000001627}
+\PYG{g+go}{  Gradient check execution time: 1.9709 seconds}
+\end{MintedVerbatim}

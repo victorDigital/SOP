@@ -2,6 +2,7 @@
 \PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
 \PYG{k+kn}{from} \PYG{n+nn}{mnist\PYGZus{}dataloader} \PYG{k+kn}{import} \PYG{n}{MnistDataloader}  \PYG{c+c1}{\PYGZsh{} Added import statement}
 \PYG{k+kn}{from} \PYG{n+nn}{activations} \PYG{k+kn}{import} \PYG{n}{sigmoid\PYGZus{}activation}\PYG{p}{,} \PYG{n}{sigmoid\PYGZus{}derivative}\PYG{p}{,} \PYG{n}{sigmoid\PYGZus{}derivative\PYGZus{}from\PYGZus{}sigmoid\PYGZus{}output}\PYG{p}{,} \PYG{n}{softmax}
+\PYG{k+kn}{import} \PYG{n+nn}{time}
 
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Loading MNIST data...}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 \PYG{n}{mnist\PYGZus{}dataloader} \PYG{o}{=} \PYG{n}{MnistDataloader}\PYG{p}{(}
@@ -58,6 +59,7 @@
         \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b2} \PYG{o}{\PYGZhy{}}\PYG{o}{=} \PYG{n}{rate} \PYG{o}{*} \PYG{n}{db2}
         \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W3} \PYG{o}{\PYGZhy{}}\PYG{o}{=} \PYG{n}{rate} \PYG{o}{*} \PYG{n}{dW3}
         \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b3} \PYG{o}{\PYGZhy{}}\PYG{o}{=} \PYG{n}{rate} \PYG{o}{*} \PYG{n}{db3}
+        \PYG{k}{return} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{W1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{dW1}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{db1}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{W2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{dW2}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{db2}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{W3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{dW3}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{db3}\PYG{p}{\PYGZcb{}}
 
     \PYG{k}{def} \PYG{n+nf}{train}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{epochs}\PYG{p}{)}\PYG{p}{:}
         \PYG{n}{idx} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{permutation}\PYG{p}{(}\PYG{n}{X}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}
@@ -80,7 +82,59 @@
     
     \PYG{k}{def} \PYG{n+nf}{export\PYGZus{}to\PYGZus{}file}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{filename}\PYG{p}{)}\PYG{p}{:}
         \PYG{n}{np}\PYG{o}{.}\PYG{n}{savez}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{n}{W1}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W1}\PYG{p}{,} \PYG{n}{b1}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b1}\PYG{p}{,} \PYG{n}{W2}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W2}\PYG{p}{,} \PYG{n}{b2}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b2}\PYG{p}{,} \PYG{n}{W3}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W3}\PYG{p}{,} \PYG{n}{b3}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b3}\PYG{p}{)}
+    
+    \PYG{k}{def} \PYG{n+nf}{gradient\PYGZus{}check}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{epsilon}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{start\PYGZus{}time} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{time}\PYG{p}{(}\PYG{p}{)}
+        
+        \PYG{c+c1}{\PYGZsh{} gradient med backpropagation}
+        \PYG{n}{pred} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+        \PYG{n}{grads} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{update}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{pred}\PYG{p}{,} \PYG{n}{rate}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} uden at opdatere vægtene}
+
+        \PYG{c+c1}{\PYGZsh{} gradient med finite difference}
+        \PYG{n}{params} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{W1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{W2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{W3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+        \PYG{n}{grad\PYGZus{}approx} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}
+        \PYG{n}{original\PYGZus{}params} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}
+        \PYG{k}{for} \PYG{n}{param} \PYG{o+ow}{in} \PYG{n}{params}\PYG{p}{:}
+            \PYG{n}{theta} \PYG{o}{=} \PYG{n+nb}{getattr}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{param}\PYG{p}{)}
+            \PYG{n}{grad\PYGZus{}approx}\PYG{p}{[}\PYG{n}{param}\PYG{p}{]} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros\PYGZus{}like}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)}
+            \PYG{n}{original\PYGZus{}params}\PYG{p}{[}\PYG{n}{param}\PYG{p}{]} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)}
+            \PYG{n}{it} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{nditer}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{,} \PYG{n}{flags}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{multi\PYGZus{}index}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{op\PYGZus{}flags}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{readwrite}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+            \PYG{k}{while} \PYG{o+ow}{not} \PYG{n}{it}\PYG{o}{.}\PYG{n}{finished}\PYG{p}{:}
+                \PYG{n}{idx} \PYG{o}{=} \PYG{n}{it}\PYG{o}{.}\PYG{n}{multi\PYGZus{}index}
+                \PYG{n}{theta\PYGZus{}plus} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)}
+                \PYG{n}{theta\PYGZus{}minus} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)}
+                \PYG{n}{theta\PYGZus{}plus}\PYG{p}{[}\PYG{n}{idx}\PYG{p}{]} \PYG{o}{+}\PYG{o}{=} \PYG{n}{epsilon}
+                \PYG{n}{theta\PYGZus{}minus}\PYG{p}{[}\PYG{n}{idx}\PYG{p}{]} \PYG{o}{\PYGZhy{}}\PYG{o}{=} \PYG{n}{epsilon}
+
+                \PYG{n+nb}{setattr}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{param}\PYG{p}{,} \PYG{n}{theta\PYGZus{}plus}\PYG{p}{)}
+                \PYG{n}{J\PYGZus{}plus} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{loss\PYGZus{}function}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}
+
+                \PYG{n+nb}{setattr}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{param}\PYG{p}{,} \PYG{n}{theta\PYGZus{}minus}\PYG{p}{)}
+                \PYG{n}{J\PYGZus{}minus} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{loss\PYGZus{}function}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}
+
+                \PYG{n}{grad\PYGZus{}approx}\PYG{p}{[}\PYG{n}{param}\PYG{p}{]}\PYG{p}{[}\PYG{n}{idx}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{J\PYGZus{}plus} \PYG{o}{\PYGZhy{}} \PYG{n}{J\PYGZus{}minus}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{epsilon}\PYG{p}{)}
+                \PYG{n+nb}{setattr}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{param}\PYG{p}{,} \PYG{n}{theta}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} sæt parameteren tilbage til original værdi før næste iteration}
+                \PYG{n}{it}\PYG{o}{.}\PYG{n}{iternext}\PYG{p}{(}\PYG{p}{)}
+            \PYG{n+nb}{setattr}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{param}\PYG{p}{,} \PYG{n}{original\PYGZus{}params}\PYG{p}{[}\PYG{n}{param}\PYG{p}{]}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} sæt parameteren tilbage til original værdi}
+
+        \PYG{c+c1}{\PYGZsh{} Compare gradients}
+        \PYG{k}{for} \PYG{n}{param} \PYG{o+ow}{in} \PYG{n}{params}\PYG{p}{:}
+            \PYG{n}{grads\PYGZus{}diff} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{grads}\PYG{p}{[}\PYG{n}{param}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{grad\PYGZus{}approx}\PYG{p}{[}\PYG{n}{param}\PYG{p}{]}\PYG{p}{)}
+            \PYG{n}{grads\PYGZus{}sum} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{grads}\PYG{p}{[}\PYG{n}{param}\PYG{p}{]}\PYG{p}{)} \PYG{o}{+} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{grad\PYGZus{}approx}\PYG{p}{[}\PYG{n}{param}\PYG{p}{]}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mf}{1e\PYGZhy{}8}
+            \PYG{n}{relative\PYGZus{}difference} \PYG{o}{=} \PYG{n}{grads\PYGZus{}diff} \PYG{o}{/} \PYG{n}{grads\PYGZus{}sum} 
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Gradient check for }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{param}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{: min = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{min}\PYG{p}{(}\PYG{n}{relative\PYGZus{}difference}\PYG{p}{)}\PYG{l+s+si}{:}\PYG{l+s+s2}{.10f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{, max = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{n}{relative\PYGZus{}difference}\PYG{p}{)}\PYG{l+s+si}{:}\PYG{l+s+s2}{.10f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{, mean = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{relative\PYGZus{}difference}\PYG{p}{)}\PYG{l+s+si}{:}\PYG{l+s+s2}{.10f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+            
+        
+        \PYG{n}{end\PYGZus{}time} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{time}\PYG{p}{(}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Gradient check execution time: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{end\PYGZus{}time}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{start\PYGZus{}time}\PYG{l+s+si}{:}\PYG{l+s+s2}{.4f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ seconds}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{loss\PYGZus{}function}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{pred} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+        \PYG{n}{A3} \PYG{o}{=} \PYG{n}{pred}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{A3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+        \PYG{n}{cost} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{Y} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{n}{A3} \PYG{o}{+} \PYG{l+m+mf}{1e\PYGZhy{}8}\PYG{p}{)}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{cost}
 
 \PYG{n}{nn} \PYG{o}{=} \PYG{n}{NeuralNetwork}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{nn}\PYG{o}{.}\PYG{n}{gradient\PYGZus{}check}\PYG{p}{(}\PYG{n}{x\PYGZus{}train}\PYG{p}{[}\PYG{p}{:}\PYG{l+m+mi}{10}\PYG{p}{]}\PYG{p}{,} \PYG{n}{y\PYGZus{}train\PYGZus{}one\PYGZus{}hot}\PYG{p}{[}\PYG{p}{:}\PYG{l+m+mi}{10}\PYG{p}{]}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Test the gradient before training}
 \PYG{n}{nn}\PYG{o}{.}\PYG{n}{train}\PYG{p}{(}\PYG{n}{x\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train\PYGZus{}one\PYGZus{}hot}\PYG{p}{,} \PYG{n}{epochs}\PYG{o}{=}\PYG{l+m+mi}{10000}\PYG{p}{)}
 \end{MintedVerbatim}

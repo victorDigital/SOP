@@ -13,10 +13,14 @@
 \usepackage{nicematrix}
 \usepackage{caption}
 \usepackage{minted}
+\usepackage{pdfpages}
 \usemintedstyle{vs}
 \setminted{breaklines, frame=lines, linenos}
 
 \newenvironment{code}{\captionsetup{type=listing}}{}
+
+
+\captionsetup{font=footnotesize}
 
 
 
@@ -76,7 +80,12 @@
 \renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
 \begin{flushleft}
   \textbf{\@title}
-
+  \rule{\textwidth}{0.2pt}\\\vspace{0.2em}
+  \huge{
+    Genkendelse af håndskrevne tal med neurale netværk
+  }\\\vspace{1em}
+  % normal text
+  \normalsize
   \@subject\\\vspace{1em}
   \@author\\
   \@class\\
@@ -95,28 +104,26 @@
 
 \begin{document}
 
+\includepdf[pages=-]{Victor+Østergaard+Nielsen_3di.pdf}
+
 \maketitle
+\vspace{3cm}
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{MNIST3.jpg}
+  \captionof{figure}{Eksempel fra MNIST-datasættet \parencite{LeCun_1994,delclos2021computer}}
+\end{center}
+\newpage
+
+\section*{Resumé}
+Denne opgave er bestående af 15.5 normalsider og 4 sider med symboltegn, total: 19,5 sider.\\\\
+Denne opgave undersøger, hvordan et simpelt neuralt netværk kan implementeres uden unødvendige abstraktioner eller biblioteker for at genkende håndskrevne tal i realtid i en digital tegneflade. Formålet er at afdække de matematiske og teknologiske principper bag neurale netværk, herunder matrixregning og gradient descent, og at vurdere deres effektivitet som løsning til denne specifikke udfordring. Analysen viser, at neurale netværk kan lære at genkende mønstre ved hjælp af træningsdata og optimeringsalgoritmer. Opgaven demonstrerer, hvordan et netværk med input-, skjulte- og outputlag kan programmeres i Python, og hvordan det kan bruge aktiveringsfunktioner som sigmoid og softmax til at beskrive ikke-linearitet samt repensentere en sandsynlighedsfordeling. Konklusionen peger på, at neurale netværk, selv i en simpel udgave, er en effektiv og nogenlunde fleksibel løsning til genkendelse af håndskrevne tal i reeltid. Samtidig erkendes det, at mere avancerede netværk som convolutional neural networks (CNNs) kan tilbyde bedre præcision, men også kræver større beregningskraft og kompleksitet.
 \newpage
 
 \tableofcontents
 \newpage
 
-\section{Opgaveformulering}
-\textbf{Machine-learning}\\\\
-\textbf{Hovedspørgsmål}: Hvordan kan et simpelt neuralt netværk, uden unødige abstraktioner eller biblioteker, anvendes tilgenkendelse af håndskrevne tal i realtid i et tegneprogram på computeren, og hvad er matematikken bag?\\\\
-\textbf{Opgaveformulering}:\\
-\begin{itemize}
-  \item Redegør overordnet for begrebet neuralt netværk.
-  \item Redegør for de grundlæggende matematiske principper bag neurale netværk herunder matriceregning.
-  \item Redegør for valg af programmeringssprog ift. udvikling af programmer med neuralt netværk.
-  \item Analysér hvordan et neuralt netværk kan programmeres, gerne uden unødvendige abstraktioner eller biblioteker, så det kan genkende håndskrevne tal i realtid i/fra et tegneprogram på computeren.
-  \item Undersøg hvorledes programmet kan optimeres for at opnå lavest mulig fejlrate og evt. hvorledes støj i den analyserede data kan påvirke fejlraten.
-  \item Diskuter og vurder hvorvidt neutrale netværk er den mest effektive tilgang til at genkende håndskrevne tal på en adaptiv og robust måde.
-\end{itemize}
-
-\newpage
 \section{Indledning}
-
+I takt med, at kunstig intelligens får en større rolle i vores hverdag, rejser det mange fundamentale spørgsmål, såsom: Hvordan kan vi optimere maskiners evne til at forstå og tolke menneskelige input? Denne opgave fokuserer på udviklingen af et simpelt neuralt netværk, der kan genkende håndskrevne tal i realtid gennem en digital tegneflade. Problemstillingen er spændende, fordi den kombinerer matematik og programmering for at simulere hjernens måde at lære og tilpasse sig på. Det er et emne, der både har stor relevans inden for uddannelse og teknologi. I en tid, hvor automatisering og dataforståelse er afgørende for innovation, er det vigtigt at forstå, hvordan neurale netværk kan bruges til at efterligne menneskets evne til at genkende mønstre. Specifikt undersøger denne opgave, hvordan et neuralt netværk kan implementeres uden brug af avancerede biblioteker eller unødvendige abstraktioner, og hvordan matematiske principper som matrixregning og gradient descent spiller en central rolle i træningen og optimeringen af netværket. Problemstillingen knytter sig direkte til praksis ved at tage udgangspunkt i en konkret anvendelse, nemlig genkendelse af håndskrevne tal, som kan bruges i applikationer såsom OCR-systemer og andre klassifikationsopgaver. Opgaven fokuserer dog bevidst på en simplificeret model for at holde analysen fokuseret og anvendelig. Mere avancerede teknologier såsom convolutional neural networks (CNNs) inddrages ikke, da målet er at demonstrere forståelsen af grundprincipperne bag neurale netværk og deres implementering. Læseren kan således forvente en praktisk og matematisk tilgang, der gør det muligt at forstå sammenhængen mellem teori og praksis i maskinlæring.
 
 \newpage
 \section{Matricer og matrixregning}
@@ -309,31 +316,31 @@ Transponering af en matrice betyder at bytte om på rækker og kolonner. Hvis $A
 \begin{wrapfigure}{r}{6cm}
   \vspace{-0.5cm}
   \includegraphics[width=6cm]{neurons.jpg}
-  \vspace{-0.8cm}
+  \vspace{-0.5cm}
   \caption{Neuroner i menneskehjernen fra \parencite{St_Clair_2021}}
   \label{fig:neurons}
   \vspace{0.5cm}
   \input{neural_network_diagram.tex}
-  \vspace{-0.8cm}
+  \vspace{-0.5cm}
   \caption{Et simpelt neuralt netværk}
   \label{fig:neural_network}
   \vspace{0.5cm}
   \includegraphics[width=6cm]{mnist1.jpg}
-  \vspace{-0.8cm}
+  \vspace{-0.5cm}
   \caption{Eksempel fra MNIST datasættet \parencite{LeCun_1994}}
   \label{fig:mnist}
 \end{wrapfigure}
-Et neuralt netværk er en matematisk model, der er inspireret af de biologiske neuroner i menneskehjernen. Et neuralt netværk består af en række lag, hvor hvert lag består af neuroner. Dette kan ses på \figureref{fig:neural_network}. Hvert neuron i et lag er forbundet til alle neuroner i det forrige lag og det næste lag. Hver forbindelse mellem neuronerne har en vægt, der bestemmer, hvor meget signalet fra det ene neuron påvirker det næste neuron. Hvert neuron har også en bias, der bestemmer, hvor let det er for neuronet at sende et signal. Et neuralt netværk består af et \color{red!90}inputlag\color{black}, et eller flere \color{violet!90}skjulte lag \color{black} og et \color{blue!90}outputlag\color{black}. Dette er illustreret på \figureref{fig:neural_network}. Det er altså denne model, der er inspireret af de mange sammenkoblede neuroner i menneskehjernen. Denne lighed er ikke tilfældig, da neurale netværk er designet til at efterligne hjernens evne til at lære.\\
-Bemærk \figureref{fig:mnist}. Du ved udmærket godt, hvilke tal der er på billedet, selvom du aldrig før har set netop dette 5-, 7- og 8-tal før. Dette er, fordi din hjerne er trænet til at genkende tal. Denne opgave er enormt udfordrende for et alment computerprogram, idet det ikke har nogen intuitiv forståelse af, hvad et tal er, og det skal derfor programmeres med specifikke instruktioner for at kunne genkende tal. Denne tilgang er ikke optimal, da den kræver, at programmøren har en dyb forståelse af, hvordan tal ser ud, og hvordan de kan genkendes. Denne metode er ikke holdbar i længden, idet der er uendeligt mange måder at skrive et 7-tal på. For at kunne generalisere talgenkendelse og gøre metoden mere robust overfor nye skrivemåder af tal kan neurale netværk anvendes. Antag et neuralt netværk med et tal som input og de helt rigtige vægte og biases. Denne model vil i teorien kunne genkende tal, også selvom modellen aldrig før har set netop dette tal. Håbet er, at modellen har "lært" at generalisere træningsdataen til en mere generel forståelse af tal. Modellens output vil derfor være en søjlevektor med sandsynligheder for, at inputtet er et tal fra 0 til 9. Modellens prediktering vil være det tal, der har den højeste sandsynlighed ifølge modellen.
+Et neuralt netværk er en matematisk model, der er inspireret af de biologiske neuroner i menneskehjernen. Et neuralt netværk består af en række lag, hvor hvert lag består af neuroner. Dette kan ses på \figureref{fig:neural_network}. Hvert neuron i et lag er forbundet til alle neuroner i det forrige lag og det næste lag. Hver forbindelse mellem neuronerne har en vægt, der bestemmer, hvor meget signalet fra det ene neuron påvirker det næste neuron. Hvert neuron har også en bias, der bestemmer, hvor let det er for neuronet at sende et signal. Et neuralt netværk består af et \color{red!90}inputlag\color{black}, et eller flere \color{violet!90}skjulte lag\color{black} og et \color{blue!90}outputlag\color{black}. Dette er illustreret på \figureref{fig:neural_network}. Denne model er altså inspireret af de mange sammenkoblede neuroner i menneskehjernen. Denne lighed er ikke tilfældig, da neurale netværk er designet til at efterligne hjernens evne til at lære.\vspace{5mm}\\
+Bemærk \figureref{fig:mnist}. Du ved udmærket godt, hvilke tal der er på billedet, selvom du aldrig før har set netop dette 5-, 7- og 8-tal. Dette skyldes, at din hjerne er trænet til at genkende tal. Denne opgave er enormt udfordrende for et alment computerprogram, da det ikke har nogen intuitiv forståelse af, hvad et tal er. Det skal derfor programmeres med specifikke instruktioner for at kunne genkende tal. Denne tilgang er ikke optimal, da den kræver, at programmøren har en dyb forståelse af, hvordan tal ser ud, og hvordan de kan genkendes. Metoden er heller ikke holdbar i længden, eftersom der er uendeligt mange måder at skrive et 7-tal på. For at kunne generalisere talgenkendelse og gøre metoden mere robust overfor nye skrivemåder af tal kan neurale netværk anvendes. Antag et neuralt netværk med et tal som input og de helt rigtige vægte og biases. Denne model vil i teorien kunne genkende tal, selvom den aldrig før har set netop dette tal. Håbet er, at modellen har "lært" at generalisere træningsdataen til en mere overordnet forståelse af tal. Modellens output vil derfor være en søjlevektor med sandsynligheder for, at inputtet er et tal fra 0 til 9. Modellens prediktering vil være det tal, der har den højeste sandsynlighed ifølge modellen.
 \clearpage
 \subsubsection{Feedforward}
-Når modellen skal prediktere, altså gå fra input til output, kaldes dette for \textit{feedforward}. Her sendes inputtet gennem alle lagene i modellen, og bliver bliver påvirket af vægtene mellem neuronerne og biaset i hvert neuron. Herunder er et simpelt neuralt netværk med kun 1 neuron i hvert lag og et skjult lag og hvor $a_n$ er aktiveringen af neuronen i lag $n$ og $w_n$ er vægten mellem neuronen i lag $n$ og lag $n+1$:
+Når modellen skal prediktere, altså gå fra input til output, kaldes dette for \textit{feedforward}. Her sendes inputtet gennem alle lagene i modellen og bliver påvirket af vægtene mellem neuronerne samt biaset i hvert neuron. Herunder ses et simpelt neuralt netværk med kun 1 neuron i hvert lag og et skjult lag, hvor $a_n$ er aktiveringen af neuronen i lag $n$, og $w_n$ er vægten mellem neuronen i lag $n$ og lag $n+1$:
 \begin{center}
 \input{simple_nn.tex}
 \captionof{figure}{Et simpelt neuralt netværk}
 \label{fig:neural_network2}
 \end{center}
-Så hvis vi ønsker at prediktere outputtet $y$ givet inputtet $x$, så kan vi gøre dette ved at følge disse trin: \\
+Så, hvis vi ønsker at prediktere outputtet $y$ givet inputtet $x$, så kan vi gøre dette ved at følge disse trin: \\
 \begin{align}
 a_1 &= x
 \\
@@ -343,7 +350,7 @@ a_3 &= \sigma(w_2 \cdot a_2 + b_2)
 \\
 y &= a_3
 \end{align}
-Her er $\sigma(x)$ en aktiveringsfunktion, der tager inputtet $x$ og returnerer et output. Denne funktion er essentiel for at modellen kan lære mere komplekse femomener, da den introducerer ikke-linearitet i modellen. En af de mest brugte aktiveringsfunktioner er ReLU, der tager inputtet $x$ og returnerer $x$ hvis $x > 0$ og 0 ellers. \parencite{Sanderson_2017} Hvis outputtet skal betragtes som en sandsynlighed, er sigmoid funktionen en god aktiveringsfunktion, da den tager inputtet $x$ og returnerer en værdi mellem 0 og 1, som kan tolkes som en sandsynlighed. Sigmoid funktionens definition samt et plot af funktionen er vist herunder: \parencite{Nielsen_2019a}\\
+Her er $\sigma(x)$ en aktiveringsfunktion, der tager inputtet $x$ og returnerer et output. Denne funktion er essentiel for, at modellen kan lære mere komplekse fænomener, da den introducerer ikke-linearitet i modellen. En af de mest anvendte aktiveringsfunktioner er ReLU, der tager inputtet $x$ og returnerer $x$, hvis $x > 0$, og 0 ellers \parencite{Sanderson_2017}. Hvis outputtet skal betragtes som en sandsynlighed, er sigmoid-funktionen en god aktiveringsfunktion, da den tager inputtet $x$ og returnerer en værdi mellem 0 og 1, som kan tolkes som en sandsynlighed. Sigmoid-funktionens definition samt et plot af funktionen er vist herunder \parencite{Nielsen_2019a}.\\
 \begin{minipage}{0.4\textwidth}
   \begin{align}
     \sigma(x) = \frac{1}{1 + e^{-x}}
@@ -354,20 +361,20 @@ Her er $\sigma(x)$ en aktiveringsfunktion, der tager inputtet $x$ og returnerer 
     \begin{tikzpicture}
       \draw[->] (-3,0) -- (3,0) node[right]{$x$};
       \draw[->] (0,-0.5) -- (0,1.5) node[above]{$\sigma(x)$};
-      \foreach \x in {-3,-2,-1,1,2,3}
-        \draw (\x,0.05) -- (\x,-0.05) node[below] {\x};
+      \foreach \x in {-5,-4,-3,-2,-1,1,2,3,4,5}
+        \draw (\x/2,0.01) -- (\x/2,-0.05) node[below] {\x};
       \foreach \y in {1}
         \draw (0.05,\y) -- (-0.05,\y) node[left] {\y};
-      \draw[domain=-3:3,smooth,variable=\x,red] plot ({\x},{1/(1 + exp(-\x))});
+      \draw[domain=-5:5,smooth,variable=\x,red] plot ({\x/2},{1/(1 + exp(-\x))});
     \end{tikzpicture}
-    \captionof{figure}{Sigmoid funktionen}
+    \captionof{figure}{Sigmoid funktionen i intervallet $x \in [-5, 5]$}
     \label{fig:sigmoid}
   \end{center}
 \end{minipage}
-Typisk har et neuralt netværk flere neuroner i hvert lag, og antallet af vægte og biases er derfor meget større. $x$, $y$, samt alle de forskellige $a_n$ og $b_n$ for hvert lag er søjlevektorer, og $w_n$ i alle lag er matricer. og derfor skal der bruges matrixmultiplikation for at kunne beregne outputtet. Dette er ikke et problem, da de pågældende regneoperationer er defineret tidligere i afsnittet.  
+Typisk har et neuralt netværk flere neuroner i hvert lag, og antallet af vægte og biases er derfor meget større. $x$, $y$, samt alle de forskellige $a_n$ og $b_n$ for hvert lag er søjlevektorer, og $w_n$ i alle lag er matricer. Derfor skal der bruges matrixmultiplikation for at kunne beregne outputtet. Dette er ikke et problem, da de pågældende regneoperationer er defineret tidligere i afsnittet.  
 
 \subsubsection{Træning af neurale netværk med Cross-Entropy}
-Når et neuralt netværk initialiseres, er alle vægtene og biases tilfældige. Dette betyder, at modellen ikke kan genkende noget, ligesom et barn, der skal lære noget for første gang. For at træne modellen til at genkende mønstre kræves der et passende datasæt med labels, der angiver, hvad hvert input repræsenterer. For at kunne forbedre modellen skal vi måle, hvor god den er til at lave forudsigelser. I stedet for blot at måle antallet af korrekte gæt, anvender vi en såkaldt \textit{loss-funktion}, som kvantificerer, hvor præcist modellen forudsiger. For klassifikationsproblemer bruger vi ofte \textit{cross-entropy loss}, som evaluerer forskellen mellem modellens sandsynlighedsfordeling og de faktiske labels. Loss-funktionen tager modellens sandsynligheder for hver klasse og beregner, hvor langt de er fra de korrekte labels. Eksempelvis, hvis et datapunkt har en korrekt label på klasse 3, og modellen giver sandsynlighederne.
+Når et neuralt netværk initialiseres, er alle vægtene og biases tilfældige. Dette betyder, at modellen ikke kan genkende noget, ligesom et barn, der skal lære noget for første gang. For at træne modellen til at genkende mønstre kræves et passende datasæt med labels, der angiver, hvad hvert input repræsenterer. For at kunne forbedre modellen skal vi måle, hvor god den er til at lave forudsigelser. I stedet for blot at måle antallet af korrekte gæt anvender vi en såkaldt \textit{loss-funktion}, som kvantificerer, hvor præcist modellen forudsiger. For klassifikationsproblemer bruger vi ofte \textit{cross-entropy loss}, som evaluerer forskellen mellem modellens sandsynlighedsfordeling og de faktiske labels. Loss-funktionen tager modellens sandsynligheder for hver klasse og beregner, hvor langt de er fra de korrekte labels. Eksempelvis, hvis et datapunkt har en korrekt label i klasse 3, og modellen giver sandsynlighederne:
 \begin{align}
 \mathbf{y}_i = \begin{bmatrix}
 0.12 \\
@@ -431,10 +438,10 @@ hvor $z_i$ er elementet i inputvektoren, og $K$ er antallet af klasser. Softmax-
 I dette eksempel er sandsynligheden for klasse 1 (første element) 65.9\%, for klasse 2 (andet element) 24.2\%, og for klasse 3 (tredje element) 9.9\%. Softmax-funktionen sikrer, at summen af sandsynlighederne er 1, hvilket gør det muligt at tolke outputtet som en sandsynlighedsfordeling. \parencite{Sanderson_2017}
 
 \subsection{Gradient descent}
-Gradient descent er en algoritme, der tager loss-funktionen og beregner gradienten af denne i forhold til alle modellens parametre (vægtene og biases). Gradienten er en vektor, der peger i retningen af den største stigning af loss-funktionen. For at minimere loss-funktionen skal vi derfor bevæge os i den modsatte retning af gradienten. Dette gøres ved at opdatere vægtene og biases i modellen med gradienten ganget med en konstant, kaldet \textit{learning rate}. Processen gentages, indtil loss-funktionen er tilstrækkeligt minimeret. \parencite{IBM_2021, Sanderson_2017, Nielsen_2019a} Antag, at vi organiserer modellens vægte og biases i en søjlevektor $\vec{W}$, og at loss-funktionen er $L(\vec{W})$. Gradienten af loss-funktionen er $\nabla L(\vec{W})$. Derfor beskriver søjlevektoren $-\nabla L(\vec{W})$, hvordan vi kan opdatere $\vec{W}$ for at minimere loss-funktionen og dermed forbedre modellens præstation. Algoritmen, der finder gradienten på baggrund af modellens parametre og loss-funktionen, kaldes \textit{backpropagation}. \parencite{Sanderson_2017, Nielsen_2019a} Hvordan backpropagation fungerer, vil blive gennemgået mere detaljeret i et kommende afsnit. Indtil videre antager vi blot, at den fungerer som beskrevet og returnerer den korrekte gradient for modellens parametre.
+Gradient descent er en algoritme, der tager loss-funktionen og beregner gradienten af denne i forhold til alle modellens parametre (vægtene og biases). Gradienten er en vektor, der peger i retningen af den største stigning af loss-funktionen. For at minimere loss-funktionen bevæger vi os i den modsatte retning af gradienten. Dette gøres ved at opdatere vægtene og biases i modellen med gradienten ganget med en konstant, kaldet \textit{learning rate}. Processen gentages, indtil loss-funktionen er tilstrækkeligt minimeret. \parencite{IBM_2021, Sanderson_2017, Nielsen_2019a} Antag, at vi organiserer modellens vægte og biases i en søjlevektor $\vec{W}$, og at loss-funktionen er $L(\vec{W})$. Gradienten af loss-funktionen er $\nabla L(\vec{W})$. Derfor beskriver søjlevektoren $-\nabla L(\vec{W})$, hvordan vi kan opdatere $\vec{W}$ for at minimere loss-funktionen og dermed forbedre modellens præstation. Algoritmen, der finder gradienten på baggrund af modellens parametre og loss-funktionen, kaldes \textit{backpropagation}. \parencite{Sanderson_2017, Nielsen_2019a} Hvordan backpropagation fungerer, vil blive gennemgået mere detaljeret i et kommende afsnit. Indtil videre antager vi blot, at den fungerer som beskrevet og returnerer den korrekte gradient for modellens parametre.
 
 \subsection{Partielle afledte}
-Partielle afledte bruges til at beskrive, hvordan en funktion ændrer sig, når kun én af dens variabler ændres, mens de andre holdes konstante. Lad os antage, at vi har en funktion $f(x, y)$, der afhænger af to variabler $x$ og $y$. Den partielle afledte af $f$ med hensyn til $x$ betegnes som $\frac{\partial f}{\partial x}$ og repræsenterer hældningen af $f$ i $x$-retningen. Tilsvarende betegner $\frac{\partial f}{\partial y}$ hældningen i $y$-retningen. Partielle afledte er særligt nyttige i optimering af neurale netværk, som er denne opgaves fokus, hvor de bruges til at finde gradienten af en funktion med flere variabler. Gradientens komponenter består netop af de partielle afledte for hver variabel. For eksempel, hvis vi ønsker at minimere en funktion $f(x, y)$, kan vi bruge gradienten $\nabla f(x, y)$, som indeholder de partielle afledte $\frac{\partial f}{\partial x}$ og $\frac{\partial f}{\partial y}$, til at effektivt navigere mod lavere værdier af $f$. \parencite{Kirsanov_2024}
+Partielle afledte beskriver, hvordan en funktion ændrer sig, når én af dens variabler ændres, mens de andre holdes konstante. Antag, vi har en funktion $f(x, y)$, der afhænger af to variabler $x$ og $y$. Den partielle afledte af $f$ med hensyn til $x$ betegnes $\frac{\partial f}{\partial x}$ og angiver hældningen af $f$ i $x$-retningen. Tilsvarende betegner $\frac{\partial f}{\partial y}$ hældningen i $y$-retningen. Partielle afledte er særligt nyttige i optimering af neurale netværk, hvor de spiller en central rolle i gradientbaserede algoritmer. Gradientens komponenter er netop de partielle afledte for hver variabel i modellen. Hvis vi eksempelvis ønsker at minimere en funktion $f(x, y)$, anvender vi gradienten $\nabla f(x, y)$, der består af $\frac{\partial f}{\partial x}$ og $\frac{\partial f}{\partial y}$, til effektivt at navigere mod lavere værdier af $f$. \parencite{Kirsanov_2024}
 
 \subsection{Kædereglen}
 Kædereglen er en fundamental regel i differentialregning, der gør det muligt at differentiere sammensatte funktioner. Hvis vi har to funktioner, $f(g(x))$, hvor $f$ afhænger af $g(x)$, og $g$ afhænger af $x$, siger kædereglen, at den afledte af $f$ med hensyn til $x$ er produktet af den afledte af $f$ med hensyn til $g$ og den afledte af $g$ med hensyn til $x$:
@@ -604,14 +611,14 @@ Hvor $m$ er antallet af træningsdata, $A_1$ og $A_2$ er aktiveringerne i de for
   dB_1 &= \frac{\partial L}{\partial B_1} = \frac{1}{m}\sum dZ_1
 \end{align}
 Bemærk her hvordan $dZ_2$, $dW_2$ og $dB_2$ på samme måde som $dZ_1$, $dW_1$ og $dB_1$ da de på lige vis kun er afhængige af det forrige lags værdier. Disse afledte kan nu implementeres i Python således:
-\inputminted[firstline=42, lastline=59]{python}{train.py}\noindent
+\inputminted[firstline=43, lastline=61]{python}{train.py}\noindent
 Bemærk på linje 54-59 hvordan indlæringsraten ganges med gradienten og subtraheres fra vægtene og biases. Dette er selve gradient descent algoritmen, som bruges til at minimere loss funktionen. Bemærk også at de afledte bruger den afledte af sigmoid funktionen, hvor i koden bruges \texttt{sigmoid\_derivative\_from\_sigmoid\_output(y)} frem for \texttt{sigmoid\_derivative(x)} til at udregne denne. Beskue \listingref{lst:activations} i bilag for at se implementeringen af denne funktion, Men grunden til dette er at sigmoid funktionen allerede er udregnet i \texttt{predict()} metoden tidligere, og derfor kan den bruges til at udregne hældningen meget hurtigere end hvis den skulle udregnes igen. Det kan også tydligt ses at \texttt{sigmoid\_derivative\_from\_sigmoid\_output(y)} er hurtigere end \texttt{sigmoid\_derivative(x)} i \listingref{lst:activations} i bilag på linje 6-11. Selvom det er en lille besparelse enkeltvis, vil denne funktion blive kaldt enormt mange gange, og derfor er det vigtigt at den er så hurtig som muligt, så man undgår at udregne ting flere gange, når det ikke er nødvendigt. \parencite{smith2024sigmoid}
 \subsection{Træning}
 På baggrund af de implementerede metoder kan modellen nu trænes. Dette gøres i \texttt{train()} metoden, som ses herunder:
-\inputminted[firstline=61, lastline=78]{python}{train.py}\noindent
+\inputminted[firstline=63, lastline=80]{python}{train.py}\noindent
 \texttt{train()} er konstrueret således, at den træner modellen over et specificeret antal epochs. For hver epoch bliver træningsdataene blandet med en tilfældig permutation af indeks, der genereres med \texttt{np.random.permutation(X.shape[0])}. Herefter omorganiseres \texttt{X} og \texttt{Y} baseret på denne rækkefølge for at sikre, at træningsforløbet ikke bliver påvirket af dataenes oprindelige rækkefølge. Efter blandingen opdeles de blandede data i mindre batches af 1.000 datapunkter hver. Dette muliggør brugen af mini-batch gradient descent, som er en mere effektiv, men støjende tilgang til minimering af loss-funktionen, da den bruger en tilnærmelse af gradienten. Dette har som biprodukt, at den kan undslippe visse lokale minima. For hvert batch kaldes først \texttt{predict()}-metoden, som beregner modellens prediktioner, og derefter \texttt{update()}-metoden, som opdaterer modellens parametre med backpropagation-algoritmen. Hver 10. epoch evalueres og logger modellen ydeevne, både på træningsdataene og på et separat testdatasæt, som består af 10.000 datapunkter, der ikke er blevet brugt til træning. Dette gøres for at overvåge modellens præstation på nye, usete data, såvel som for at undgå overfitting. For at gemme modellen bliver den løbende gemt i en fil kaldet \texttt{model.npz} hver 100. epoch ved hjælp af \texttt{export\_to\_file()}-metoden, som kalder \texttt{np.savez()}-metoden fra NumPy. Dette giver mulighed for at stoppe træningen, når et tilfredsstillende resultat er opnået. Samlet set implementerer \texttt{train()} en standard træningsproces for et neuralt netværk, som inkluderer datablanding, mini-batch-træning, løbende evaluering og lagring af modellen.\\\\
 Når denne metode kaldes ses følgende i konsollen:
-\begin{minted}{shell}
+\begin{minted}{console}
   C:/.../sop> python train.py
   Loading MNIST data...
   MNIST data loaded.
@@ -643,27 +650,52 @@ På \figureref{fig:drawingpad2} ses tegnefladen i aktion, hvor brugeren har tegn
 Som ses i træningsprocessen, er modellen trænet til en testnøjagtighed på 94.31\% efter 100 epochs. I virkeligheden, med udgangspunkt i brugerens input, vil denne nøjagtighed være lavere. Grunden til dette er, at MNIST-datasættet er centreret med \textit{center of mass}-algoritmen, som er en algoritme, der finder centrum af "massen" i et billede og translaterer billedet, således at centrum af massen er i midten af billedet. Derudover er datasættet også skaleret, således at der hverken er meget små eller meget store tal i datasættet størrelsesmæssigt. Dette er ikke tilfældet med brugerinput, som kan være skaleret og translateret på mange forskellige måder, som modellen ikke har lært at håndtere. Derfor vil modellen have en lavere nøjagtighed på brugerinput end på testdatasættet. Der er to måder uden om denne begrænsning: Den ene er at bruge data augmentation, som er en teknik, hvor man tilføjer støj som rotering, skalering og tilfældige pixels til træningsdatasættet for at gøre modellen mere robust overfor forskellige inputs. Den anden måde er at udføre samme preprocesseringsalgoritme, som datasættet har gennemgået, på brugerinputtet. Dette vil fjerne variansen i brugerinputtet og øge nøjagtigheden.\\\\
 % overfitting - træning med for mange parametre
 % underfitting - træning med for få parametre
-To vigtige ting, man altid skal være opmærksom på, når man opstiller og træner neurale netværk, er \textit{overfitting} og \textit{underfitting}. Overfitting opstår, når modellen er for kompleks i forhold til træningsdataene, og derfor lærer modellen træningsdataene udenad og ikke kan generalisere denne viden til nye data. Underfitting opstår, når modellen er for simpel i forhold til træningsdataene og derfor ikke kan lære træningsdataene godt nok. Dette kan ses i træningsprocessen ved at sammenligne træningsnøjagtigheden med testnøjagtigheden. Hvis træningsnøjagtigheden er meget højere end testnøjagtigheden, er modellen overtilpasset, og hvis både træningsnøjagtigheden og testnøjagtigheden er lav, er modellen undertilpasset (eller datasættet er ikke generaliserbart). I dette tilfælde er træningsnøjagtigheden og testnøjagtigheden meget tæt på hinanden, hvilket er et godt tegn på, at modellen er generaliseret og ikke overtilpasset. Dette kan også verificeres ved at afprøve modellen på egne tegninger, som tidligere beskrevet. Det blev nævnt, at valget af 2 lag af 16 neuroner var nogenlunde arbitrært, og derfor kan det være interessant at undersøge, hvordan modellen præsterer med flere eller færre neuroner i de skjulte lag, såvel som flere eller færre lag. Dette er en kunst i sig selv og kræver en masse eksperimentering og erfaring for at finde den optimale modelarkitektur. Man kan dog overbevise sig selv om, at det første skjulte lag finder de mindre detaljer i billedet, såsom hjørner og kurver, mens det andet skjulte lag finder de større detaljer, som cirkler og linjer. Dette kulminerer i outputlaget, som tager disse detaljer og bruger dem til at genkende tallet. \parencite{Sanderson_2017} Dette er blot et gæt på, hvordan denne maskine tænker. I virkeligheden er det relativt komplekst at undersøge, hvordan modellen reelt "tænker," da ingen har fortalt den, hvordan den skal genkende tal, den har blot lært det selv.\\\\
+To vigtige ting, man altid skal være opmærksom på, når man opstiller og træner neurale netværk, er \textit{overfitting} og \textit{underfitting}. Overfitting opstår, når modellen er for kompleks i forhold til træningsdataene, og derfor lærer modellen træningsdataene udenad og ikke kan generalisere denne viden til nye data. Underfitting opstår, når modellen er for simpel i forhold til træningsdataene og derfor ikke kan lære træningsdataene godt nok. Dette kan ses i træningsprocessen ved at sammenligne træningsnøjagtigheden med testnøjagtigheden. Hvis træningsnøjagtigheden er meget højere end testnøjagtigheden, er modellen overtilpasset, og hvis både træningsnøjagtigheden og testnøjagtigheden er lav, er modellen undertilpasset (eller datasættet er ikke generaliserbart). I dette tilfælde er træningsnøjagtigheden og testnøjagtigheden meget tæt på hinanden, hvilket er et godt tegn på, at modellen er generaliseret og ikke overtilpasset. Dette kan også verificeres ved at afprøve modellen på egne tegninger, som tidligere beskrevet. Det blev nævnt, at valget af 2 lag af 16 neuroner var nogenlunde arbitrært, og derfor kan det være interessant at undersøge, hvordan modellen præsterer med flere eller færre neuroner i de skjulte lag, såvel som flere eller færre lag. Dette er en kunst i sig selv og kræver en masse eksperimentering og erfaring for at finde den optimale modelarkitektur. Man kan dog overbevise sig selv om, at det første skjulte lag finder de mindre detaljer i billedet, såsom hjørner og kurver, mens det andet skjulte lag finder de større detaljer, som cirkler og linjer. Dette kulminerer i outputlaget, som tager disse detaljer og bruger dem til at genkende tallet. \parencite{Sanderson_2017} Dette er blot et gæt på, hvordan denne maskine tænker. I virkeligheden er det relativt komplekst at undersøge, hvordan modellen reelt "tænker," da ingen har fortalt den, hvordan den skal genkende tal, modellens adfærd er fremspirende som funktion af datasættet.\\\\
 % testing af de afledte med finite difference 
 % hvordan kan modellen forbedres - generaliseres yderligere
 % EVT: dropout
+\newpage
+\subsection{Validering af de afledte ved at teste gradienten med finite difference}
+\begin{wrapfigure}{r}{6cm}
+  \vspace{-0.5cm}
+  \includegraphics[width=6cm]{fd.jpg}
+  \vspace{-0.8cm}
+  \caption{Finite difference metoden fra \parencite{pranckevicius2015finite}}
+  \label{fig:fd}
+\end{wrapfigure}
+Som nævnt tidligere er de afledte for det fulde netværk ikke blevet udregnet fra bunden, men derimod delvist taget fra internetkilder, mens resten er blevet regnet manuelt. Selvom beviset for disse ligger uden for opgavens niveau, er det stadig kritisk at teste disse afledte for at sikre deres korrekthed. Dette gøres ved brug af \textit{finite difference}-metoden, som er en metode til at estimere gradienten af en funktion ved at tage forskellen mellem to punkter, der er meget tæt på hinanden. Dette kan ses på \figureref{fig:fd}. Denne metode er meget simpel og kræver ikke differentialregning for at udføre. Metoden indebærer at tage to punkter med samme afstand fra $x$. Disse punkter er $x-\epsilon$ og $x+\epsilon$, hvor $\epsilon$ er en meget lille værdi. Nu kan gradienten estimeres som:
+\begin{align}
+  \frac{f(x+\epsilon)-f(x-\epsilon)}{2\epsilon}\approx f'(x)
+\end{align}
+Værdien $\epsilon$ vil i teorien være så lille som muligt, da dette vil øge nøjagtigheden af estimatet. Dog er man typisk begrænset af maskinens præcision. Datatypen \texttt{float} har en præcision på ca. 6-9 decimaltal \parencite{wagner2022floating}, og derfor vil det være fordelagtigt at vælge $\epsilon$ i en størrelsesorden, så man ikke mister præcision. I dette tilfælde er $\epsilon=10^{-4}$ valgt. Når man arbejder med neurale netværk, som grundlæggende er funktioner af mange variable, kan denne metode bruges til at estimere gradienten. Det gøres ved at tilføje en lille permutation til hver parameter i modellen, én ad gangen, og udføre beregningen for hver af dem. Ved at gentage dette for alle parametrene i modellen kan man sammenligne de estimerede gradienter med de gradienter, som modellen har beregnet. Hvis de to sæt gradienter stemmer godt overens, er de beregnede gradienter korrekte. Min implementering af denne metode kan ses i \listingref{lst:train} på linje 85-128. Når metoden køres, ses følgende i konsollen:
+\begin{minted}{console}
+  C:/.../sop> python train.py
+  Loading MNIST data...
+  MNIST data loaded.
+  Gradient check for W1: min = 0.0000000000, max = 0.0000664145, mean = 0.0000001361
+  Gradient check for b1: min = 0.0000000080, max = 0.0000002913, mean = 0.0000001115
+  Gradient check for W2: min = 0.0000000060, max = 0.0000352297, mean = 0.0000004651
+  Gradient check for b2: min = 0.0000000940, max = 0.0000019676, mean = 0.0000003838
+  Gradient check for W3: min = 0.0000000684, max = 0.0000012608, mean = 0.0000001779
+  Gradient check for b3: min = 0.0000000890, max = 0.0000003139, mean = 0.0000001627
+  Gradient check execution time: 1.9709 seconds
+\end{minted}
+Som det ses, er de estimerede gradienter meget tæt på de udregnede gradienter for alle parametrene i modellen. Dog er \texttt{W1}- og \texttt{W2}-gradienterne højere end de andre. Dette skyldes primært, at disse værdier er mere indviklede at udregne, og derfor er der en øget chance for, at usikkerhed ophober sig i værdierne. Dette er dog ikke et problem, da alle forskellende i de 2 udregninger er meget tæt på 0. Derfor kan det konkluderes, at de udregnede gradienter er korrekte, og dermed er de afledte nu vist at være korrekte.
 % begrensninger af vanilla nn
 % andre typer af nn og hvilke fordele de har (CNN)
-
-
-
-
-
-
-
-
+\subsection{Begrænsninger af et simpelt neuralt netværk}
+Selvom et simpelt neuralt netværk som det, der er implementeret i denne opgave, er vist til at være effektivt til genkendelse af håndskrevne tal i realtid, er der stadig begrænsninger og ulemper ved denne tilgang. En af de største begrænsninger ved simple neurale netværk er, at positionen af det tegnede tal på tegnefladen har stor betydning for modellens prediktering. Hvis et 2-tal tegnes i midten, har modellen typisk ingen problemer med at genkende tallet, hvorimod hvis samme 2-tal tegnes i hjørnet af tegnefladen, vil modellen sandsynligvis prediktere forkert. I simple neurale netværk kigges der på hele billedet som en lang række af pixels, som ikke er sammenhængende. Dette er ikke optimalt, idet håndskrevne tal typisk er sammenhængende, og derfor vil det være fordelagtigt at kigge på sammenhængen mellem pixels. Dette kan gøres med et Convolutional Neural Network (CNN). Et CNN er en type neuralt netværk, som er specielt designet til at lede efter mønstre i data. Denne type modeller har specialiserede lag, der kaldes convolutional lag, som er i stand til at finde mønstre i nærtliggende data ved at træne på mønstre i små dele af dataen. Dette gør CNN'er meget effektive til at genkende mønstre i data som billeder, lyd og tekst. Fordi positionen af det tegnede tal på tegnefladen ikke vil have nogen særlig betydning for modellens prediktering, vil en CNN-model være mere robust overfor forskellige inputs i dette brugstilfælde. Med deres mere komplekse arkitektur medfølger dog også en øget træningsbyrde og øget kompleksitet i udledningen af resultaterne. Dette er grunden til, at et simpelt neuralt netværk er valgt til denne opgave. Men CNN'er er vist til at yde markant bedre på MNIST-datasættet. En variant af CNN'er ydede en testnøjagtighed på 99.7\% på MNIST-datasættet \parencite{LeCun_1994}, og derfor vil det være nyttigt at bruge en CNN-model eller en anden mere kompleks model til at genkende håndskrevne tal i en reel applikation.
 
 \newpage
+\section{Konklusion}
+I denne opgave er der blevet udviklet et neuralt netværk til genkendelse af håndskrevne tal i realtid uden brug af unødvændige abstraktioner i Python. der blev redegjort for neurale netværk såvel som de grundlæggende matematiske principper bag neurale netværk, herunder matrixmultiplikation og kædereglen. Modellen er bestående af 2 skjulte lag med 16 neuroner i hvert lag med sigmoid aktiveringsfunktioner og et outputlag med softmax aktiveringsfunktion. Modellen er trænet på MNIST-datasættet og opnåede en testnøjagtighed på 94.31\% efter 100 epochs. Modellens parametre blev vurderet kvantitativt ved at bruge cross-entropy loss funktionen. For at sikre nøjagtigheden af modellens gradienter blev finite difference metoden anvendt, hvilket bekræftede de udregnede gradienters korrekthed. Begrænsningerne ved det simple neurale netværk blev også diskuteret, især modellens følsomhed overfor positionen af håndskrevne tal. Det blev bemærket, at mere komplekse modeller som Convolutional Neural Networks (CNN'er) kan overvinde disse begrænsninger og forbedre modellens ydeevne markant. Alt i alt viser denne opgave, at selv et simpelt neuralt netværk kan opnå høj nøjagtighed i genkendelse af håndskrevne tal, men der er stadig plads til forbedringer som f.eks. at anvende mere avancerede modeltyper.
+\newpage
+\addcontentsline{toc}{section}{Literatur}
 \printbibliography
 
 \newpage
-\section{Bilag}
-%\lstinputcode{mnist_dataloader.py}
+\addcontentsline{toc}{section}{Bilag}
+\section*{Bilag}
 \subsection*{mnist\_dataloader.py}
 \begin{code}
   \inputminted{python}{mnist_dataloader.py}
@@ -696,31 +728,3 @@ To vigtige ting, man altid skal være opmærksom på, når man opstiller og træ
 \end{code}
 
 \end{document}
-
-
-
-
-
-%analyse
-%mat til kode
-%loss
-%
-%
-%forberiniger
-%data aug
-%overfitting
-%underfitting
-%begrensninger af vanilla nn
-%paralelisering
-%
-%forskellige størrelse
-%
-%cnn
-%
-%anvendelse
-%ocr
-%selvkørende biler
-%indutrielle ting
-%automatisering
-
-

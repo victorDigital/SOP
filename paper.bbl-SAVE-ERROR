@@ -19,6 +19,47 @@
 
 \refsection{0}
   \datalist[entry]{nyt/apasortcite//global/global/global}
+    \entry{delclos2021computer}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8ba66981308637f43f60367c9813ebec}{%
+           family={Delclos},
+           familyi={D\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Artificial Intelligence in Plain English}%
+      }
+      \list{publisher}{1}{%
+        {ai.plainenglish.io}%
+      }
+      \strng{namehash}{8ba66981308637f43f60367c9813ebec}
+      \strng{fullhash}{8ba66981308637f43f60367c9813ebec}
+      \strng{fullhashraw}{8ba66981308637f43f60367c9813ebec}
+      \strng{bibnamehash}{8ba66981308637f43f60367c9813ebec}
+      \strng{authorbibnamehash}{8ba66981308637f43f60367c9813ebec}
+      \strng{authornamehash}{8ba66981308637f43f60367c9813ebec}
+      \strng{authorfullhash}{8ba66981308637f43f60367c9813ebec}
+      \strng{authorfullhashraw}{8ba66981308637f43f60367c9813ebec}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{note}{Accessed: 2024-12-10}
+      \field{title}{Computer vision — Image recognition via Deep Learning}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://ai.plainenglish.io/computer-vision-image-recognition-via-deep-learning-a144fc45f105
+      \endverb
+      \verb{url}
+      \verb https://ai.plainenglish.io/computer-vision-image-recognition-via-deep-learning-a144fc45f105
+      \endverb
+    \endentry
     \entry{IBM_2021}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=cbf44511d041dc6d1dd73cc0c033122c}{%
@@ -382,6 +423,46 @@
       \verb http://neuralnetworksanddeeplearning.com/chap1.html
       \endverb
     \endentry
+    \entry{pranckevicius2015finite}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=da4513352b6863405ac17f42f77d27b4}{%
+           family={Pranckevičius},
+           familyi={P\bibinitperiod},
+           given={Aras},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {The blog at the bottom of the sea}%
+      }
+      \list{publisher}{1}{%
+        {blog.demofox.org}%
+      }
+      \strng{namehash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{fullhash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{fullhashraw}{da4513352b6863405ac17f42f77d27b4}
+      \strng{bibnamehash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{authorbibnamehash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{authornamehash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{authorfullhash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{authorfullhashraw}{da4513352b6863405ac17f42f77d27b4}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{08}
+      \field{title}{Finite Differences}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://blog.demofox.org/2015/08/02/finite-differences/
+      \endverb
+      \verb{url}
+      \verb https://blog.demofox.org/2015/08/02/finite-differences/
+      \endverb
+    \endentry
     \entry{Sanderson_2017}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=5dd1de74b15229ad68590a5ce3ade3c5}{%
@@ -458,6 +539,50 @@
       \endverb
       \verb{url}
       \verb https://blogs.ams.org/mathgradblog/2015/10/19/matrix-multiplication-easy/
+      \endverb
+    \endentry
+    \entry{smith2024sigmoid}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0370e3403aead4e69e2e03c2ff4770a8}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {The Story of Mathematics}%
+      }
+      \list{publisher}{1}{%
+        {The Story of Mathematics}%
+      }
+      \strng{namehash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{fullhash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{fullhashraw}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{bibnamehash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{authorbibnamehash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{authornamehash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{authorfullhash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{authorfullhashraw}{0370e3403aead4e69e2e03c2ff4770a8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{2}
+      \field{title}{Derivative of Sigmoid Function - Simplified Explanation for Better Understanding}
+      \field{urlday}{8}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.storyofmathematics.com/derivative-of-sigmoid-function/
+      \endverb
+      \verb{url}
+      \verb https://www.storyofmathematics.com/derivative-of-sigmoid-function/
       \endverb
     \endentry
     \entry{St_Clair_2021}{misc}{}{}
@@ -543,10 +668,91 @@
       \endverb
       \verb{url}
       \verb https://rviews.rstudio.com/2020/07/20/shallow-neural-net-from-scratch-using-r-part-1/
+      \endverb
+    \endentry
+    \entry{wagner2022floating}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f94d94b74e1a56344ce765ae3d5d3955}{%
+           family={Wagner},
+           familyi={W\bibinitperiod},
+           given={Bill},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Microsoft Learn}%
+      }
+      \list{publisher}{1}{%
+        {learn.microsoft.com}%
+      }
+      \strng{namehash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{fullhash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{fullhashraw}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{bibnamehash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{authorbibnamehash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{authornamehash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{authorfullhash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{authorfullhashraw}{f94d94b74e1a56344ce765ae3d5d3955}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{title}{Floating-point numeric types - C\# reference}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
+      \endverb
+      \verb{url}
+      \verb https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
       \endverb
     \endentry
   \enddatalist
   \datalist[entry]{nyt/global//global/global/global}
+    \entry{delclos2021computer}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8ba66981308637f43f60367c9813ebec}{%
+           family={Delclos},
+           familyi={D\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Artificial Intelligence in Plain English}%
+      }
+      \list{publisher}{1}{%
+        {ai.plainenglish.io}%
+      }
+      \strng{namehash}{8ba66981308637f43f60367c9813ebec}
+      \strng{fullhash}{8ba66981308637f43f60367c9813ebec}
+      \strng{fullhashraw}{8ba66981308637f43f60367c9813ebec}
+      \strng{bibnamehash}{8ba66981308637f43f60367c9813ebec}
+      \strng{authorbibnamehash}{8ba66981308637f43f60367c9813ebec}
+      \strng{authornamehash}{8ba66981308637f43f60367c9813ebec}
+      \strng{authorfullhash}{8ba66981308637f43f60367c9813ebec}
+      \strng{authorfullhashraw}{8ba66981308637f43f60367c9813ebec}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{note}{Accessed: 2024-12-10}
+      \field{title}{Computer vision — Image recognition via Deep Learning}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://ai.plainenglish.io/computer-vision-image-recognition-via-deep-learning-a144fc45f105
+      \endverb
+      \verb{url}
+      \verb https://ai.plainenglish.io/computer-vision-image-recognition-via-deep-learning-a144fc45f105
+      \endverb
+    \endentry
     \entry{IBM_2021}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=cbf44511d041dc6d1dd73cc0c033122c}{%
@@ -910,6 +1116,46 @@
       \verb http://neuralnetworksanddeeplearning.com/chap1.html
       \endverb
     \endentry
+    \entry{pranckevicius2015finite}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=da4513352b6863405ac17f42f77d27b4}{%
+           family={Pranckevičius},
+           familyi={P\bibinitperiod},
+           given={Aras},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {The blog at the bottom of the sea}%
+      }
+      \list{publisher}{1}{%
+        {blog.demofox.org}%
+      }
+      \strng{namehash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{fullhash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{fullhashraw}{da4513352b6863405ac17f42f77d27b4}
+      \strng{bibnamehash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{authorbibnamehash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{authornamehash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{authorfullhash}{da4513352b6863405ac17f42f77d27b4}
+      \strng{authorfullhashraw}{da4513352b6863405ac17f42f77d27b4}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{08}
+      \field{title}{Finite Differences}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://blog.demofox.org/2015/08/02/finite-differences/
+      \endverb
+      \verb{url}
+      \verb https://blog.demofox.org/2015/08/02/finite-differences/
+      \endverb
+    \endentry
     \entry{Sanderson_2017}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=5dd1de74b15229ad68590a5ce3ade3c5}{%
@@ -986,6 +1232,50 @@
       \endverb
       \verb{url}
       \verb https://blogs.ams.org/mathgradblog/2015/10/19/matrix-multiplication-easy/
+      \endverb
+    \endentry
+    \entry{smith2024sigmoid}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0370e3403aead4e69e2e03c2ff4770a8}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {The Story of Mathematics}%
+      }
+      \list{publisher}{1}{%
+        {The Story of Mathematics}%
+      }
+      \strng{namehash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{fullhash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{fullhashraw}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{bibnamehash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{authorbibnamehash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{authornamehash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{authorfullhash}{0370e3403aead4e69e2e03c2ff4770a8}
+      \strng{authorfullhashraw}{0370e3403aead4e69e2e03c2ff4770a8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{2}
+      \field{title}{Derivative of Sigmoid Function - Simplified Explanation for Better Understanding}
+      \field{urlday}{8}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.storyofmathematics.com/derivative-of-sigmoid-function/
+      \endverb
+      \verb{url}
+      \verb https://www.storyofmathematics.com/derivative-of-sigmoid-function/
       \endverb
     \endentry
     \entry{St_Clair_2021}{misc}{}{}
@@ -1071,6 +1361,46 @@
       \endverb
       \verb{url}
       \verb https://rviews.rstudio.com/2020/07/20/shallow-neural-net-from-scratch-using-r-part-1/
+      \endverb
+    \endentry
+    \entry{wagner2022floating}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f94d94b74e1a56344ce765ae3d5d3955}{%
+           family={Wagner},
+           familyi={W\bibinitperiod},
+           given={Bill},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Microsoft Learn}%
+      }
+      \list{publisher}{1}{%
+        {learn.microsoft.com}%
+      }
+      \strng{namehash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{fullhash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{fullhashraw}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{bibnamehash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{authorbibnamehash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{authornamehash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{authorfullhash}{f94d94b74e1a56344ce765ae3d5d3955}
+      \strng{authorfullhashraw}{f94d94b74e1a56344ce765ae3d5d3955}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{title}{Floating-point numeric types - C\# reference}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
+      \endverb
+      \verb{url}
+      \verb https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
       \endverb
     \endentry
   \enddatalist

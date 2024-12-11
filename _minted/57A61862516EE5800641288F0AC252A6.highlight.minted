@@ -1,0 +1,15 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{  C:/.../sop\PYGZgt{} python train.py}
+\PYG{g+go}{  Loading MNIST data...}
+\PYG{g+go}{  MNIST data loaded.}
+\PYG{g+go}{  Epoch 10 Loss: 0.3930, Accuracy: 88.67\PYGZpc{}, Test Accuracy: 88.72\PYGZpc{}}
+\PYG{g+go}{  Epoch 20 Loss: 0.2989, Accuracy: 91.32\PYGZpc{}, Test Accuracy: 91.01\PYGZpc{}}
+\PYG{g+go}{  Epoch 30 Loss: 0.2545, Accuracy: 92.58\PYGZpc{}, Test Accuracy: 92.12\PYGZpc{}}
+\PYG{g+go}{  Epoch 40 Loss: 0.2264, Accuracy: 93.43\PYGZpc{}, Test Accuracy: 92.66\PYGZpc{}}
+\PYG{g+go}{  Epoch 50 Loss: 0.2062, Accuracy: 94.03\PYGZpc{}, Test Accuracy: 93.15\PYGZpc{}}
+\PYG{g+go}{  Epoch 60 Loss: 0.1910, Accuracy: 94.46\PYGZpc{}, Test Accuracy: 93.53\PYGZpc{}}
+\PYG{g+go}{  Epoch 70 Loss: 0.1792, Accuracy: 94.84\PYGZpc{}, Test Accuracy: 93.85\PYGZpc{}}
+\PYG{g+go}{  Epoch 80 Loss: 0.1694, Accuracy: 95.09\PYGZpc{}, Test Accuracy: 94.07\PYGZpc{}}
+\PYG{g+go}{  Epoch 90 Loss: 0.1610, Accuracy: 95.33\PYGZpc{}, Test Accuracy: 94.25\PYGZpc{}}
+\PYG{g+go}{  Epoch 100 Loss: 0.1536, Accuracy: 95.54\PYGZpc{}, Test Accuracy: 94.31\PYGZpc{}}
+\end{MintedVerbatim}
