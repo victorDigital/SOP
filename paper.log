@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.22)  12 DEC 2024 11:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.22)  12 DEC 2024 18:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1159,7 +1159,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 344--345
  []
 
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 353--376
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 357--380
 []$ $[]$
  []
 
@@ -1176,7 +1176,7 @@ Overfull \hbox (2.2222pt too wide) in paragraph at lines 353--376
 [8]
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 546--549
+Underfull \hbox (badness 10000) in paragraph at lines 552--555
 
  []
 
@@ -1186,67 +1186,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 546--549
 \pydata@fh@_7E3F660480AB1640DE8024C200B5A4D3.data.minted=\write7
 \openout7 = `_7E3F660480AB1640DE8024C200B5A4D3.data.minted'.
 
-runsystem(latexminted config  --timestamp 20241212110040 7E3F660480AB1640DE8024C200B5A4D3)...executed safely (allowed).
+runsystem(latexminted config  --timestamp 20241212183843 7E3F660480AB1640DE8024C200B5A4D3)...executed safely (allowed).
 
  (./_7E3F660480AB1640DE8024C200B5A4D3.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20241212110040 7E3F660480AB1640DE8024C200B5A4D3)...executed safely (allowed).
+runsystem(latexminted cleanconfig  --timestamp 20241212183843 7E3F660480AB1640DE8024C200B5A4D3)...executed safely (allowed).
 
- (./_minted/vs.style.minted) (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted) (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted) (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted) (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted
+ (./_minted/vs.style.minted) (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted) (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted) (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted
 
-[11])
-<drawingpad.png, id=97, 441.14813pt x 443.40656pt>
+[11]) (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted)
+<drawingpad.png, id=98, 441.14813pt x 443.40656pt>
 File: drawingpad.png Graphic file (type png)
 <use drawingpad.png>
-Package pdftex.def Info: drawingpad.png  used on input line 577.
+Package pdftex.def Info: drawingpad.png  used on input line 583.
 (pdftex.def)             Requested size: 250.24199pt x 251.5265pt.
 
 
-[12 <./drawingpad.png>] (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted) (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted) (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted)
+[12] (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted) (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted)
 
-[13] (./_minted/66E85E1362D648E960EB373629C35854.highlight.minted
+[13 <./drawingpad.png>] (./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted)
 
-[14]) (./_minted/66E85E1362D648E960EB373629C35854.highlight.minted) (./_minted/57A61862516EE5800641288F0AC252A6.highlight.minted
-Overfull \hbox (18.3218pt too wide) in paragraph at lines 619--1
+[14] (./_minted/66E85E1362D648E960EB373629C35854.highlight.minted) (./_minted/66E85E1362D648E960EB373629C35854.highlight.minted
+
+[15]) (./_minted/57A61862516EE5800641288F0AC252A6.highlight.minted
+Overfull \hbox (18.3218pt too wide) in paragraph at lines 625--1
 \OT1/cmr/m/n/10 nings-da-ta-e-ne blan-det med en til-f^^Zl-dig per-muta-tion af in-deks, der ge-ne-re-res med \OT1/cmtt/m/n/10 np.random.permutation(X.shape[0])\OT1/cmr/m/n/10 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 619--1
+Underfull \hbox (badness 10000) in paragraph at lines 625--1
 
  []
 
+)
 
-
-[15])
-<drawingpad2.png, id=114, 603.75563pt x 475.7775pt>
+[16]
+<drawingpad2.png, id=118, 603.75563pt x 475.7775pt>
 File: drawingpad2.png Graphic file (type png)
 <use drawingpad2.png>
-Package pdftex.def Info: drawingpad2.png  used on input line 641.
+Package pdftex.def Info: drawingpad2.png  used on input line 647.
 (pdftex.def)             Requested size: 250.24199pt x 197.19714pt.
 
-
-[16 <./drawingpad2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 651--658
+Underfull \hbox (badness 10000) in paragraph at lines 657--664
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--658
+Underfull \hbox (badness 10000) in paragraph at lines 657--664
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--658
+Underfull \hbox (badness 10000) in paragraph at lines 657--664
 
  []
 
 
 
-[17]
-<fd.jpg, id=122, 476.78125pt x 495.8525pt>
+[17 <./drawingpad2.png>]
+<fd.jpg, id=123, 476.78125pt x 495.8525pt>
 File: fd.jpg Graphic file (type jpg)
 <use fd.jpg>
-Package pdftex.def Info: fd.jpg  used on input line 662.
+Package pdftex.def Info: fd.jpg  used on input line 667.
 (pdftex.def)             Requested size: 170.71652pt x 177.54587pt.
  (./_minted/EE179CF1F5EEE656A0ACD9FA53EE50F9.highlight.minted)
 
@@ -1282,18 +1282,18 @@ Package logreq Info: Writing requests to 'paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36577 strings out of 474898
- 794189 string characters out of 5760034
- 1808875 words of memory out of 5000000
- 58780 multiletter control sequences out of 15000+600000
- 564221 words of font info for 58 fonts, out of 8000000 for 9000
+ 36583 strings out of 474898
+ 794247 string characters out of 5760034
+ 1807896 words of memory out of 5000000
+ 58784 multiletter control sequences out of 15000+600000
+ 564687 words of font info for 60 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
- 85i,23n,93p,2147b,2809s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb>
-Output written on paper.pdf (33 pages, 829800 bytes).
+ 85i,23n,93p,2111b,2809s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb>
+Output written on paper.pdf (33 pages, 845625 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
+ 246 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

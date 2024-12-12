@@ -380,6 +380,8 @@ INPUT ./run.py
 INPUT ./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted
 INPUT ./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted
 INPUT _minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm
 INPUT ./run.py
 INPUT ./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted
 INPUT ./_minted/B475C0FCA1D18F3FF5E6F879C1D107E3.highlight.minted
@@ -471,4 +473,5 @@ INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
+INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb

@@ -3098,34 +3098,36 @@
     <bcf:citekey order="22" intorder="3">Nielsen_2019b</bcf:citekey>
     <bcf:citekey order="23" intorder="1">Kumar_2024</bcf:citekey>
     <bcf:citekey order="23" intorder="2">verma2020neuralnet</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">kurbiel2021softmax</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">Sanderson_2017</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">IBM_2021</bcf:citekey>
-    <bcf:citekey order="26" intorder="2">Sanderson_2017</bcf:citekey>
-    <bcf:citekey order="26" intorder="3">Nielsen_2019a</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">Sanderson_2017</bcf:citekey>
-    <bcf:citekey order="27" intorder="2">Nielsen_2019a</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">Kirsanov_2024</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">Kirsanov_2024</bcf:citekey>
+    <bcf:citekey order="24" intorder="2">sanderson2017neural</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">kurbiel2021softmax</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">Sanderson_2017</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">IBM_2021</bcf:citekey>
+    <bcf:citekey order="27" intorder="2">Sanderson_2017</bcf:citekey>
+    <bcf:citekey order="27" intorder="3">Nielsen_2019a</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">Sanderson_2017</bcf:citekey>
+    <bcf:citekey order="28" intorder="2">Nielsen_2019a</bcf:citekey>
     <bcf:citekey order="29" intorder="1">Kirsanov_2024</bcf:citekey>
     <bcf:citekey order="30" intorder="1">Kirsanov_2024</bcf:citekey>
     <bcf:citekey order="31" intorder="1">Kirsanov_2024</bcf:citekey>
-    <bcf:citekey order="31" intorder="2">Nielsen_2019b</bcf:citekey>
-    <bcf:citekey order="31" intorder="3">Sanderson_2017</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">keita2023backpropagation</bcf:citekey>
-    <bcf:citekey order="32" intorder="2">verma2020neuralnet</bcf:citekey>
-    <bcf:citekey order="32" intorder="3">kurbiel2021softmax</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">Khodabakhsh</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">keita2023backpropagation</bcf:citekey>
-    <bcf:citekey order="34" intorder="2">verma2020neuralnet</bcf:citekey>
-    <bcf:citekey order="34" intorder="3">kurbiel2021softmax</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">verma2020neuralnet</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">kurbiel2021softmax</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">smith2024sigmoid</bcf:citekey>
-    <bcf:citekey order="38" intorder="1">Sanderson_2017</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">pranckevicius2015finite</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">Kirsanov_2024</bcf:citekey>
+    <bcf:citekey order="32" intorder="2">Nielsen_2019b</bcf:citekey>
+    <bcf:citekey order="32" intorder="3">Sanderson_2017</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">keita2023backpropagation</bcf:citekey>
+    <bcf:citekey order="33" intorder="2">verma2020neuralnet</bcf:citekey>
+    <bcf:citekey order="33" intorder="3">kurbiel2021softmax</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">Khodabakhsh</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">keita2023backpropagation</bcf:citekey>
+    <bcf:citekey order="35" intorder="2">verma2020neuralnet</bcf:citekey>
+    <bcf:citekey order="35" intorder="3">kurbiel2021softmax</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">verma2020neuralnet</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">kurbiel2021softmax</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">smith2024sigmoid</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">Sanderson_2017</bcf:citekey>
     <bcf:citekey order="40" intorder="1">pranckevicius2015finite</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">wagner2022floating</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">LeCun_1994</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">pranckevicius2015finite</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">wagner2022floating</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">LeCun_1994</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
