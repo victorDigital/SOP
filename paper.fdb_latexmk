@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber paper"] 1733920063.09815 "paper.bcf" "paper.bbl" "paper" 1733946454.22333 0
-  "paper.bcf" 1733946453 136318 0a34d28722cb13cbb043a90046da2bd9 "pdflatex"
-  "paper.bib" 1733870559 7739 18c0cead3e35207fb51ebb291753c5b0 ""
+["biber paper"] 1733996787.07953 "paper.bcf" "paper.bbl" "paper" 1733997645.7937 0
+  "paper.bcf" 1733997645 137251 649825f8fe2d32f0198ffbbebbe6395d "pdflatex"
+  "paper.bib" 1733995821 8116 bf763925d6427779a7aa40fb102f7157 ""
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1733946448.29447 "c:/Users/vicfa/Desktop/GitHub/SOP/paper.tex" "paper.pdf" "paper" 1733946454.22453 0
+["pdflatex"] 1733997639.90526 "c:/Users/vicfa/Desktop/GitHub/SOP/paper.tex" "paper.pdf" "paper" 1733997645.79474 0
   "MNIST3.jpg" 1733870038 38837 865a1c7ca4f5a9660d4fe8248dc4ac13 ""
   "Victor+Østergaard+Nielsen_3di.pdf" 1733581502 112701 d99c0843a7f297a1fc528c2cfbae912b ""
   "_minted/074E6504AB0D540D0591F27FFA4A788E.highlight.minted" 1733869017 5777 b8abe38c95e2033ec91dfebfcf187f93 ""
@@ -18,7 +18,7 @@
   "_minted/_7E3F660480AB1640DE8024C200B5A4D3.index.minted" 1733869019 557 566fde4a88d14581ffd694a83e013d53 ""
   "_minted/vs.style.minted" 1733424651 3606 b4652da5ed5e2a4b6f1e59e2ac04ba78 ""
   "activations.py" 1733696551 555 51d9d2cda09e7d546be4929a40fcd265 ""
-  "c:/Users/vicfa/Desktop/GitHub/SOP/paper.tex" 1733946447 66722 85638764c8a762d6c295180d409915ab ""
+  "c:/Users/vicfa/Desktop/GitHub/SOP/paper.tex" 1733997639 67312 523b6fbac881225df2017d1e3fc60be0 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1729597029 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1729596570 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1729596570 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -213,11 +213,11 @@
   "mnist_dataloader.py" 1733063492 1808 ab27e8efa2d41fd8deee900b8e268ef2 ""
   "neural_network_diagram.tex" 1733151124 1160 8176791ea6d32a14ddafab15466285e4 ""
   "neurons.jpg" 1733088291 205184 e0e3f67384afd4bdfa6c763be8c166df ""
-  "paper.aux" 1733946453 25031 17dba5ee489454ef9e4d7a306f92cc0a "pdflatex"
-  "paper.bbl" 1733920069 56889 1cd0d9514f191773449bc08dd781d49b "biber paper"
-  "paper.run.xml" 1733946453 2359 a7d4b700a688c06c0f72b13f2847123f "pdflatex"
-  "paper.tex" 1733946447 66722 85638764c8a762d6c295180d409915ab ""
-  "paper.toc" 1733946453 2461 42d44ef67294c4605bf974128ba7cf54 "pdflatex"
+  "paper.aux" 1733997645 27021 0870cbfd4aa5c15ab5931455efd2ad77 "pdflatex"
+  "paper.bbl" 1733996789 63365 ec2ed5eae860692af9e819a80d42d099 "biber paper"
+  "paper.run.xml" 1733997645 2359 a7d4b700a688c06c0f72b13f2847123f "pdflatex"
+  "paper.tex" 1733997639 67312 523b6fbac881225df2017d1e3fc60be0 ""
+  "paper.toc" 1733997645 2455 b046924169c9de5d54f080a6a7b80511 "pdflatex"
   "run.py" 1733664502 5643 c3ccfe3cca167911bcd604e227a8f5e1 ""
   "simple_nn.tex" 1733252297 831 49307f097e6451bc234f1174dd2898b4 ""
   "train.py" 1733839459 5955 7552b5786929b7d6c826f67ccbc3e67c ""

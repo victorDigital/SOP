@@ -209,6 +209,44 @@
       \verb https://www.youtube.com/watch?v=SmZmBKc7Lrs
       \endverb
     \endentry
+    \entry{Kumar_2024}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=59f484da1bb5341a2bdb0dfd8f6fe96a}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Ajitesh},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Analytics Yogi}%
+      }
+      \strng{namehash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{fullhash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{fullhashraw}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{bibnamehash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{authorbibnamehash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{authornamehash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{authorfullhash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{authorfullhashraw}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Vitalflux.com}
+      \field{month}{5}
+      \field{title}{Mean Squared Error vs Cross Entropy Loss Function}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://vitalflux.com/mean-squared-error-vs-cross-entropy-loss-function/
+      \endverb
+      \verb{url}
+      \verb https://vitalflux.com/mean-squared-error-vs-cross-entropy-loss-function/
+      \endverb
+    \endentry
     \entry{kurbiel2021softmax}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f105ec074123822621cdc28d666d8119}{%
@@ -463,6 +501,48 @@
       \verb https://blog.demofox.org/2015/08/02/finite-differences/
       \endverb
     \endentry
+    \entry{sanderson2017neural}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5dd1de74b15229ad68590a5ce3ade3c5}{%
+           family={Sanderson},
+           familyi={S\bibinitperiod},
+           given={Grant},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {3Blue1Brown}%
+      }
+      \list{publisher}{1}{%
+        {www.3blue1brown.com}%
+      }
+      \strng{namehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{fullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{fullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{bibnamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorbibnamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authornamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorfullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorfullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{10}
+      \field{title}{3Blue1Brown - But what is a Neural Network?}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.3blue1brown.com/lessons/neural-networks
+      \endverb
+      \verb{url}
+      \verb https://www.3blue1brown.com/lessons/neural-networks
+      \endverb
+    \endentry
     \entry{Sanderson_2017}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=5dd1de74b15229ad68590a5ce3ade3c5}{%
@@ -483,8 +563,10 @@
       \strng{authornamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
       \strng{authorfullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
       \strng{authorfullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \field{extraname}{2}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -902,6 +984,44 @@
       \verb https://www.youtube.com/watch?v=SmZmBKc7Lrs
       \endverb
     \endentry
+    \entry{Kumar_2024}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=59f484da1bb5341a2bdb0dfd8f6fe96a}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Ajitesh},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Analytics Yogi}%
+      }
+      \strng{namehash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{fullhash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{fullhashraw}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{bibnamehash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{authorbibnamehash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{authornamehash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{authorfullhash}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \strng{authorfullhashraw}{59f484da1bb5341a2bdb0dfd8f6fe96a}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Vitalflux.com}
+      \field{month}{5}
+      \field{title}{Mean Squared Error vs Cross Entropy Loss Function}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://vitalflux.com/mean-squared-error-vs-cross-entropy-loss-function/
+      \endverb
+      \verb{url}
+      \verb https://vitalflux.com/mean-squared-error-vs-cross-entropy-loss-function/
+      \endverb
+    \endentry
     \entry{kurbiel2021softmax}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f105ec074123822621cdc28d666d8119}{%
@@ -1156,6 +1276,48 @@
       \verb https://blog.demofox.org/2015/08/02/finite-differences/
       \endverb
     \endentry
+    \entry{sanderson2017neural}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5dd1de74b15229ad68590a5ce3ade3c5}{%
+           family={Sanderson},
+           familyi={S\bibinitperiod},
+           given={Grant},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {3Blue1Brown}%
+      }
+      \list{publisher}{1}{%
+        {www.3blue1brown.com}%
+      }
+      \strng{namehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{fullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{fullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{bibnamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorbibnamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authornamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorfullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{authorfullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{10}
+      \field{title}{3Blue1Brown - But what is a Neural Network?}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.3blue1brown.com/lessons/neural-networks
+      \endverb
+      \verb{url}
+      \verb https://www.3blue1brown.com/lessons/neural-networks
+      \endverb
+    \endentry
     \entry{Sanderson_2017}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=5dd1de74b15229ad68590a5ce3ade3c5}{%
@@ -1176,8 +1338,10 @@
       \strng{authornamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
       \strng{authorfullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
       \strng{authorfullhashraw}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \field{extraname}{2}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}

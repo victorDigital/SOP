@@ -1,34 +1,34 @@
 \babel@toc {danish}{}\relax 
-\contentsline {section}{\numberline {1}Indledning}{5}{}%
-\contentsline {section}{\numberline {2}Matricer og matrixregning}{6}{}%
-\contentsline {subsection}{\numberline {2.1}Matricer}{6}{}%
-\contentsline {subsection}{\numberline {2.2}Matrixregning}{6}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}Addition og subtraktion}{6}{}%
-\contentsline {subsubsection}{\numberline {2.2.2}Skalarmultiplikation af matricer}{6}{}%
-\contentsline {subsubsection}{\numberline {2.2.3}Elementvis anvendelse af en funktion på matricer}{6}{}%
-\contentsline {subsubsection}{\numberline {2.2.4}Matrixmultiplikation}{7}{}%
-\contentsline {subsubsection}{\numberline {2.2.5}Transponering af matricer}{8}{}%
-\contentsline {section}{\numberline {3}Neurale netværk}{8}{}%
-\contentsline {subsection}{\numberline {3.1}Introduktion}{8}{}%
-\contentsline {subsubsection}{\numberline {3.1.1}Feedforward}{9}{}%
-\contentsline {subsubsection}{\numberline {3.1.2}Træning af neurale netværk med Cross-Entropy}{9}{}%
-\contentsline {subsection}{\numberline {3.2}Softmax}{10}{}%
-\contentsline {subsection}{\numberline {3.3}Gradient descent}{10}{}%
-\contentsline {subsection}{\numberline {3.4}Partielle afledte}{11}{}%
-\contentsline {subsection}{\numberline {3.5}Kædereglen}{11}{}%
-\contentsline {subsection}{\numberline {3.6}Backpropagation}{11}{}%
-\contentsline {subsubsection}{\numberline {3.6.1}Udregning af gradienten}{11}{}%
-\contentsline {section}{\numberline {4}Valg af programmeringssprog}{14}{}%
-\contentsline {section}{\numberline {5}Neuralt netværk implementeret i Python}{14}{}%
-\contentsline {subsection}{\numberline {5.1}Dataindlæsning}{14}{}%
-\contentsline {subsection}{\numberline {5.2}Tegnefladen}{15}{}%
-\contentsline {subsection}{\numberline {5.3}Prediktering}{17}{}%
-\contentsline {subsection}{\numberline {5.4}De afledte}{17}{}%
-\contentsline {subsection}{\numberline {5.5}Træning}{19}{}%
-\contentsline {subsection}{\numberline {5.6}Genkendelse af brugerinput}{20}{}%
-\contentsline {section}{\numberline {6}Vurdering af neurale netværk til genkendelse af håndskrevne tal}{21}{}%
-\contentsline {subsection}{\numberline {6.1}Validering af de afledte ved at teste gradienten med finite difference}{22}{}%
-\contentsline {subsection}{\numberline {6.2}Begrænsninger af et simpelt neuralt netværk}{22}{}%
-\contentsline {section}{\numberline {7}Konklusion}{24}{}%
-\contentsline {section}{Literatur}{25}{}%
-\contentsline {section}{Bilag}{26}{}%
+\contentsline {section}{\numberline {1}Indledning}{1}{}%
+\contentsline {section}{\numberline {2}Matricer og matrixregning}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Matricer}{2}{}%
+\contentsline {subsection}{\numberline {2.2}Matrixregning}{2}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Addition og subtraktion}{2}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}Skalarmultiplikation af matricer}{2}{}%
+\contentsline {subsubsection}{\numberline {2.2.3}Elementvis anvendelse af en funktion på matricer}{2}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}Matrixmultiplikation}{2}{}%
+\contentsline {subsubsection}{\numberline {2.2.5}Transponering af matricer}{3}{}%
+\contentsline {section}{\numberline {3}Neurale netværk}{4}{}%
+\contentsline {subsection}{\numberline {3.1}Introduktion}{4}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Feedforward}{5}{}%
+\contentsline {subsubsection}{\numberline {3.1.2}Træning af neurale netværk med Cross-Entropy}{6}{}%
+\contentsline {subsection}{\numberline {3.2}Softmax}{6}{}%
+\contentsline {subsection}{\numberline {3.3}Gradient descent}{7}{}%
+\contentsline {subsection}{\numberline {3.4}Partielle afledte}{7}{}%
+\contentsline {subsection}{\numberline {3.5}Kædereglen}{7}{}%
+\contentsline {subsection}{\numberline {3.6}Backpropagation}{7}{}%
+\contentsline {subsubsection}{\numberline {3.6.1}Udregning af gradienten}{8}{}%
+\contentsline {section}{\numberline {4}Valg af programmeringssprog}{10}{}%
+\contentsline {section}{\numberline {5}Neuralt netværk implementeret i Python}{10}{}%
+\contentsline {subsection}{\numberline {5.1}Dataindlæsning}{11}{}%
+\contentsline {subsection}{\numberline {5.2}Tegnefladen}{11}{}%
+\contentsline {subsection}{\numberline {5.3}Prediktering}{13}{}%
+\contentsline {subsection}{\numberline {5.4}De afledte}{14}{}%
+\contentsline {subsection}{\numberline {5.5}Træning}{15}{}%
+\contentsline {subsection}{\numberline {5.6}Genkendelse af brugerinput}{16}{}%
+\contentsline {section}{\numberline {6}Vurdering af neurale netværk til genkendelse af håndskrevne tal}{17}{}%
+\contentsline {subsection}{\numberline {6.1}Validering af de afledte ved at teste gradienten med finite difference}{18}{}%
+\contentsline {subsection}{\numberline {6.2}Begrænsninger af et simpelt neuralt netværk}{18}{}%
+\contentsline {section}{\numberline {7}Konklusion}{20}{}%
+\contentsline {section}{Literatur}{21}{}%
+\contentsline {section}{Bilag}{22}{}%

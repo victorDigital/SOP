@@ -1,22 +1,23 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'paper.blg'
-[278] biber-MSWIN64:340> INFO - === 
-[385] Biber.pm:420> INFO - Reading 'paper.bcf'
-[577] Biber.pm:994> INFO - Found 17 citekeys in bib section 0
-[617] Biber.pm:4463> INFO - Processing section 0
-[659] Biber.pm:4654> INFO - Looking for bibtex file 'paper.bib' for section 0
-[772] bibtex.pm:1713> INFO - LaTeX decoding ...
-[826] bibtex.pm:1519> INFO - Found BibTeX data source 'paper.bib'
-[1015] UCollate.pm:68> INFO - Overriding locale 'da-DK' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1015] UCollate.pm:68> INFO - Overriding locale 'da-DK' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1016] Biber.pm:4283> INFO - Sorting list 'nyt/apasortcite//global/global/global' of type 'entry' with template 'nyt' and locale 'da-DK'
-[1064] UCollate.pm:68> INFO - Overriding locale 'da-DK' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1065] UCollate.pm:68> INFO - Overriding locale 'da-DK' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1065] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'da-DK'
-[1125] bbl.pm:676> INFO - Writing 'paper.bbl' with encoding 'UTF-8'
-[1149] bbl.pm:779> INFO - Output to paper.bbl
-[1150] Biber.pm:131> WARN - legacy month field 'December' in entry 'keita2023backpropagation' is not an integer - this will probably not sort properly.
-[1150] Biber.pm:131> WARN - legacy month field 'July' in entry 'verma2020neuralnet' is not an integer - this will probably not sort properly.
-[1150] Biber.pm:131> WARN - legacy month field 'April' in entry 'kurbiel2021softmax' is not an integer - this will probably not sort properly.
-[1150] Biber.pm:131> WARN - legacy month field 'February' in entry 'smith2024sigmoid' is not an integer - this will probably not sort properly.
-[1150] Biber.pm:133> INFO - WARNINGS: 4
+[139] biber-MSWIN64:340> INFO - === 
+[189] Biber.pm:420> INFO - Reading 'paper.bcf'
+[366] Biber.pm:994> INFO - Found 19 citekeys in bib section 0
+[391] Biber.pm:4463> INFO - Processing section 0
+[407] Biber.pm:4654> INFO - Looking for bibtex file 'paper.bib' for section 0
+[486] bibtex.pm:1713> INFO - LaTeX decoding ...
+[522] bibtex.pm:1519> INFO - Found BibTeX data source 'paper.bib'
+[671] UCollate.pm:68> INFO - Overriding locale 'da-DK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[671] UCollate.pm:68> INFO - Overriding locale 'da-DK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[671] Biber.pm:4283> INFO - Sorting list 'nyt/apasortcite//global/global/global' of type 'entry' with template 'nyt' and locale 'da-DK'
+[720] UCollate.pm:68> INFO - Overriding locale 'da-DK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[720] UCollate.pm:68> INFO - Overriding locale 'da-DK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[720] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'da-DK'
+[746] bbl.pm:676> INFO - Writing 'paper.bbl' with encoding 'UTF-8'
+[770] bbl.pm:779> INFO - Output to paper.bbl
+[770] Biber.pm:131> WARN - legacy month field 'May' in entry 'Kumar_2024' is not an integer - this will probably not sort properly.
+[770] Biber.pm:131> WARN - legacy month field 'July' in entry 'verma2020neuralnet' is not an integer - this will probably not sort properly.
+[770] Biber.pm:131> WARN - legacy month field 'April' in entry 'kurbiel2021softmax' is not an integer - this will probably not sort properly.
+[770] Biber.pm:131> WARN - legacy month field 'December' in entry 'keita2023backpropagation' is not an integer - this will probably not sort properly.
+[770] Biber.pm:131> WARN - legacy month field 'February' in entry 'smith2024sigmoid' is not an integer - this will probably not sort properly.
+[771] Biber.pm:133> INFO - WARNINGS: 5
